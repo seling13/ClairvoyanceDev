@@ -10,13 +10,13 @@
                         <th>
                             Variable Name
                         </th>
-                        <th>
+                        <th style="min-width:120px">
                             Expected Variable Attribute
                         </th>
                         <th>
                             Variable Source
                         </th>
-                        <th>
+                        <th style="min-width:120px">
                             Date Scored
                         </th>
                     </tr>
@@ -82,19 +82,19 @@
                         <th>
                             Rule ID
                         </th>
-                        <th>
+                        <th  style="min-width:100px">
                             Rule Name
                         </th>
-                        <th>
+                        <th style="min-width:150px">
                             Rule Description
                         </th>
-                        <th>
+                        <th  style="min-width:100px">
                             Pass or Fail
                         </th>
-                        <th>
+                        <th  style="min-width:150px">
                             Deviation Remarks
                         </th>
-                        <th>
+                        <th  style="min-width:150px">
                             Recommendation
                         </th>
                     </tr>
@@ -114,16 +114,16 @@
                         <td>
                             <script>
                     if ('@Html.Raw(Model.DV07_passOrFail)' == "FAIL") {
-                        $("#DV07_passOrFail").addClass("fa fa-close");
-                        document.getElementById('DV07_passOrFail').style.color = "red";
+                        $("#DV07_passOrFailV").addClass("fa fa-close");
+                        document.getElementById('DV07_passOrFailV').style.color = "red";
                     }
 
                     if ('@Html.Raw(Model.DV07_passOrFail)' == "PASS") {
-                        $("#DV07_passOrFail").addClass("fa fa-check-circle");
-                        document.getElementById('DV07_passOrFail').style.color = "green";
+                        $("#DV07_passOrFailV").addClass("fa fa-check-circle");
+                        document.getElementById('DV07_passOrFailV').style.color = "green";
                     }
                             </script>
-                            <i id="DV07_passOrFail"></i> @Html.Raw(Model.DV07_passOrFail)
+                            <i id="DV07_passOrFailV"></i> @Html.Raw(Model.DV07_passOrFail)
                         </td>
                         <td>
                             @Html.Raw(Model.DV08_deviationRemark)
@@ -189,7 +189,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <select class="form-control" id="OV03_overrideFlag" required style="min-width:150px">
+                            <select class="form-control" id="OV03_overrideFlag" required style="min-width: 150px;">
                                 <option value="">Choose here</option>
                                 <option value="YES">YES</option>
                                 <option value="NO">NO</option>
