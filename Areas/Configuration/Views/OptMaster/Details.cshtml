@@ -1,0 +1,64 @@
+﻿@model OneFin.Models.OptMaster
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        <i class="fa fa-cog"></i> Option Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Configuration/Optmaster/index"><i class="fa fa-cog"></i> Option Master</a></li>
+        <li class="active"> Detail</li>
+    </ol>
+</section>
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Detail</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form asp-action="Edit" class="form-horizontal" method="get">
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Option Name
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.OptName)
+                    </dd>
+                    <dt>
+                        Value
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Value)
+                    </dd>
+                    <dt>
+                        Text
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Text)
+                    </dd>
+                    <dt>
+                        Status
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                </dl>
+                <div class="box-footer">
+                    <input type="hidden" asp-for="OptName" />
+                    <input type="hidden" asp-for="Value" />
+                    <a asp-action="Index">Back to List</a>
+                    <button type="submit" class="btn btn-info pull-right">Edit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+</section>

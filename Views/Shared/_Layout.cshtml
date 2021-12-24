@@ -1,0 +1,664 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clairvoyance Pro</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=0.80, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--Loading-->
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 1000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+
+        function loader(status) {
+            if (status == "ON") {
+                document.getElementById("overlay").style.display = "block";
+                document.getElementById("loader").style.display = "block";
+            } else {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("overlay").style.display = "none";
+            }
+        }
+    </script>
+    <!--Chart-Donut-->
+    <script src="~/bower/chart.js/chart-donut.js"></script>
+    <!--Inter Font family-->
+    <link rel="stylesheet" href="~/bower/inter/inter.css">
+    <!--Loading End-->
+    <link rel="stylesheet" href="~/bower/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/bower/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/bower/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/dist/css/skins/skin-black-light.min.css">
+    <!-- jQuery 3 -->
+    <script src="~/bower/jquery/dist/jquery.min.js"></script>
+    <!-- Google Font -->
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="~/bower/morris.js/morris.css">
+    <style>
+        /*Shadow of the box*/
+        div.box-cp {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+
+        .border-bottom-cp {
+            padding-top: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .row-cp {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-search-cp {
+            position: absolute;
+            background-color: transparent;
+            top: 1px;
+            left: 5px;
+            width: 90px;
+            height: 30px;
+            line-height: 20px;
+            margin: 0;
+            padding: 0;
+            border: none
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+
+        .tab-cp {
+            overflow: hidden;
+            background-color: none;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab-cp button {
+                background-color: inherit;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 14px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab-cp button:hover {
+                    background-color: #ddd;
+                }
+
+                /* Create an active/current tablink class */
+                .tab-cp button.active-selected {
+                    background-color: none;
+                    border-color: none;
+                    color: black;
+                    font-weight: bold;
+                    border-bottom: solid;
+                }
+
+
+
+
+
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            background-color: none;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 14px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #ddd;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active-selected {
+                    background-color: none;
+                    border-color: none;
+                    color: black;
+                    font-weight: bold;
+                    border-bottom: solid;
+                }
+
+
+
+        .btn-rounded {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 5px;
+            min-width: 150px;
+            background-color: #f2f2f2;
+        }
+
+        .btn-info {
+            background-color: #3272DB;
+        }
+
+            .btn-rounded:hover {
+                color: white;
+                border: none;
+                outline: none;
+                background-color: #3e81f0;
+                border-color: #00acd6;
+            }
+
+        .active-btn-selected {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: #3272DB;
+            border-color: #00acd6;
+        }
+
+        .active-btn-selected-0 {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: #3272DB;
+            border-color: #00acd6;
+        }
+
+        .btn-icon {
+            min-width: 0;
+        }
+
+        input.form-control, select.form-control, textarea.form-control {
+            border-radius: 20px;
+        }
+
+
+
+        .form-popup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 10001; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 5%;
+            padding-left: 20%;
+            padding-right: 20%;
+            padding-bottom: 30%;
+            border-radius: 10px;
+        }
+
+        .form-container {
+            overflow: hidden;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .dl-horizontal dt {
+            text-align: left;
+        }
+        /**Loading*/
+        #overlay {
+            opacity: 0.5;
+            background: #000;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            position: fixed;
+        }
+        /* Center the loader */
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            margin: -76px 0 0 -76px;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            -webkit-animation: spin 0.5s linear infinite;
+            animation: spin 0.5s linear infinite;
+        }
+
+        @@-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 0.3s;
+            animation-name: animatebottom;
+            animation-duration: 0.3s
+        }
+
+        @@-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+
+        @@keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        #myDiv {
+            display: none;
+            text-align: center;
+        }
+        /**Loading*/
+
+        .pre-scrollablex {
+            overflow-x: auto;
+        }
+
+        /** Alert*/
+        .alertsuccess {
+            padding: 20px;
+            background-color: #7aa6cf;
+            color: white;
+        }
+
+        .alerterror {
+            padding: 20px;
+            background-color: #eb776e;
+            color: white;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+            .closebtn:hover {
+                color: black;
+            }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+        /**Alert*/
+        /*Notification*/
+        .navbar-badge {
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 2px 4px;
+            position: absolute;
+            right: 5px;
+            top: 9px;
+        }
+
+        .dropdown-menu-lg {
+            max-width: 300px;
+            min-width: 280px;
+            padding: 0;
+        }
+
+            .dropdown-menu-lg .dropdown-divider {
+                margin: 0;
+            }
+
+            .dropdown-menu-lg .dropdown-item {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .dropdown-menu-lg p {
+                margin: 0;
+                white-space: normal;
+            }
+
+
+        .badge-warning {
+            color: #1f2d3d;
+            background-color: #ffc107;
+        }
+
+        .dropdown-divider {
+            height: 0;
+            margin: 0.5rem 0;
+            overflow: hidden;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 0.25rem 1rem;
+            clear: both;
+            font-weight: 400;
+            color: #212529;
+            text-align: inherit;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .dropdown-footer,
+        .dropdown-header {
+            display: block;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-black-light sidebar-mini" onload="myFunction()" style="margin:0; font-family:Inter">
+    <div id="message" class="form-popup" style="padding-top:10%" ></div>
+    <div class="wrapper">
+        <div id="overlay" style.dislay="block">
+            <div id="loader"></div>
+        </div>
+        <div style="display:none;" id="myDiv" class="animate-bottom"></div>
+        <!-- Main Header -->
+        <header class="main-header"  >
+            <!-- Logo -->
+            <a href="index2.html" class="logo" style="background-color:white">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                    <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block; ">
+                    <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; ">-->
+                </span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"  >
+                    <img src="~/dist/img/faviconLarge.ico" class="img" style="float: left; width: 200px; height: 50px; padding-left: 8px; padding-top: 8px; display: inline-block;  ">
+                    <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; " >-->
+                </span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- <span class="logo-lg">
+                    <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block;  ">
+
+                </span>
+                <div class="label" style="font-size: 20px; padding-top: 15px; display: inline-block; color: black; font-family: Arial, Helvetica, sans-serif; font-weight: normal "> Clairvoyance </div>-->
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages Dropdown Menu -->
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                <i class="fa fa-comments"></i>
+                                <span class="badge badge-danger navbar-badge">3</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                <a href="#" class="dropdown-item">
+                                    <!-- Message Start
+                                    <div class="media">
+
+                                        <div class="media-body">
+                                            <h3 class="dropdown-item-title">
+                                                Brad Diesel
+                                                <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
+                                            </h3>
+                                            <p class="text-sm">Call me whenever you can...</p>
+                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                    <!-- Message End
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <!-- Message Start
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h3 class="dropdown-item-title">
+                                                John Pierce
+                                                <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
+                                            </h3>
+                                            <p class="text-sm">I got your message bro</p>
+                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                    <!-- Message End
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <!-- Message Start
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h3 class="dropdown-item-title">
+                                                Nora Silvester
+                                                <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
+                                            </h3>
+                                            <p class="text-sm">The subject goes here</p>
+                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
+                                        </div>
+                                    </div>
+                                    <!-- Message End --
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                            </div>
+                        </li>
+                        <!-- Notifications Dropdown Menu -->
+                        <li class="dropdown">
+                            <a class="nav-link" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i>
+                                <span class="badge badge-warning navbar-badge">7</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                <span class="dropdown-item dropdown-header">7 Notifications</span>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fa fa-tasks mr-2"></i> 4 new Task
+                                    <span class="float-right text-muted text-sm">3 mins</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fa fa-users mr-2"></i> 2 Pending Approval
+                                    <span class="float-right text-muted text-sm">12 hours</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fa fa-file mr-2"></i> 1 Responded
+                                    <span class="float-right text-muted text-sm">2 days</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                            </div>
+                        </li>
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="~/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs"> @Context.Session.GetString("username")</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <p>
+                                        @Context.Session.GetString("username")
+                                        <small>Users since Nov. 2012</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Account</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <form action="~/Account/Logout" method="post">
+                                        <div class="pull-right">
+                                            <!--<a href="#" class="btn btn-default btn-flat" >Sign out</a>-->
+                                            <button type="submit" class="btn btn-default btn-flat">Logout</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <!--<div class="user-panel">
+                <div class="pull-left image">
+                    <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                <p>Context.Session.GetString("username")</p>
+                <!-- Status -->
+                <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>-->
+                <!-- search form (Optional) -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- Sidebar Menu -->
+                @Html.Partial("_MainMenu")
+                <!-- /.sidebar-menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="background-color :white">
+            <!-- Content Header (Page header) -->
+
+            @RenderBody()
+
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- Default to the left -->
+            <strong>Copyright © OneFinMY.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/bower/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+<script>
+
+    function showMessage(type,message) {
+        //document.getElementById("overlay").style.display = "block";
+        document.getElementById("message").style.display = "block";
+        $("#message").load('@Url.Action("Message","Home", new { area = "" })',{type:type, message:message})
+    }
+
+    function closeMessage() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("message").style.display = "none";
+    }
+</script>

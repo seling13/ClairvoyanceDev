@@ -1,0 +1,51 @@
+﻿@model OneFin.Models.Roles
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <i class="fa fa-bell"></i> Role Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Security/RoleMaster/index"><i class="fa fa-cog"></i> Role Master</a></li>
+        <li class="active"> Detail</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Detail</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form asp-action="Edit" class="form-horizontal" method="get">
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Role Name
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        Normalized Name
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NormalizedName)
+                    </dd>
+                </dl>
+            </div>
+            <div class="box-footer">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-info pull-right">Edit</button>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+</section>

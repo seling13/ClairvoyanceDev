@@ -1,0 +1,82 @@
+﻿@model IEnumerable<OneFin.Models.UserMaster>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        User Master
+    </h1>
+</section>
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <a asp-action="Create">Create New</a>
+        </div>
+        <form asp-controller="UserMaster" asp-action="Index" >
+            <p>
+                Full Name: <input type="text" name="SearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PositionCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastLoginDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastLoginTime)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PositionCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastLoginDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastLoginTime)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box -->
+</section>

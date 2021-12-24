@@ -1,0 +1,117 @@
+﻿@model OneFin.Models.CFCustomer
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>BRUNEI ADDRESS</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Kampong
+                        </th>
+                        <th>
+                            Jalan
+                        </th>
+                        <th>
+                            Simpang
+                        </th>
+                        <th>
+                            Block
+                        </th>
+                        <th>
+                            Unit
+                        </th>
+                        <th>
+                            Postal Code
+                        </th>
+                        <th>
+                            District
+                        </th>
+                        <th>
+                            Mukim
+                        </th>
+                        <th>
+                            Lot
+                        </th>
+                        <th>
+                            Building
+                        </th>
+                        <th style="text-align:center">
+                            Registered To History
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.AddContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP04_kampong_FPKC)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP05_jalan_FPJC)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP06_simpang_FPSM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP07_block)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP08_unit)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP09_postalCode_FPPK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP10_district_FPDK)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP11_mukim)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP12_lot_FPLT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TP13_building_FPBG)
+                            </td>
+                            <td style="text-align:center">
+                                <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+        <div class="pre-scrollablex">
+            <div class="border-bottom-cp" style="padding-top:20px">
+                <h4><strong>OVERSEAS ADDRESS</strong></h4>
+            </div>
+            <div class="box-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Address Line 1
+                            </th>
+                            <th>
+                                Address Line 2
+                            </th>
+                            <th>
+                                Address Line 3
+                            </th>
+                            <th>
+                                Country
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>

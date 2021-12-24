@@ -1,0 +1,161 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+
+
+
+</style>
+
+<section class="content-header">
+    <h1>
+        <i class="fa "></i>UN Security Council List
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><i class="fa fa-users"></i> UN Security Council List</li>
+    </ol>
+</section>
+<!-- Content Header (Page header) -->
+<section class="content container-fluid">
+    <div id="overlay" style="display: none">
+        <div id="loader" ></div>
+    </div>
+    <div class="box box-info">
+        <!-- Horizontal Form -->
+        <div class="box-body">
+            <div class="box-header with-border">
+                <div id="myDIV">
+                    <button class="btn-select active-btn-selected btn-rounded"><i class="fa fa-users"></i> UN </button>
+                    <button class="btn-select btn-rounded"><i class="fa fa-external-link"></i> XML Integrated</button>
+                    <button class="btn-select btn-rounded"><i class="fa fa-folder-open"></i> Manual Upload</button>
+                    <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
+                </div>
+            </div>
+            <div id="UNList" style="display:block" class="animate-bottom">
+                <div class="box-header with-border">
+                    <p id="searchname" class="control-label">Name/Alias Name</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <input class="form-control" type="text" placeholder="Search.." id="SearchName" name="SearchName">
+                        </div>
+                        <button class="btn-rounded btn-icon" type="submit" onclick="GetUNList('Search')"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <div id="SearchList" class="animate-bottom">
+                </div>
+            </div>
+            <div id="Manual" style="display:none" class="animate-bottom">
+                <div class="box-header with-border">
+                    <p id="filename" class="control-label">File  Name</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <input type="file" id="myFile" name="filename">
+                        </div>
+                        <button class="btn-rounded btn-icon" type="submit"><i class="fa fa-upload"></i></button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="XML" style="display:none" class="animate-bottom">
+                <div class="box-header with-border" id="getXML">
+                    Are you sure to get UN List?
+                    <i class="fa fa-spinner fa-spin" id="spin"></i>
+                    <button class="btn-rounded btn-icon" onclick="GetUNList('XML')" type="submit" id="GetButton"><i class="fa fa-external-link"></i></button>
+                </div>
+                <div id="XMLList" class="animate-bottom">
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+<script>
+    $("#spin").hide();
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("btn-select");
+    var unlist = document.getElementById("UNList");
+    var manual = document.getElementById("Manual");
+    var xml = document.getElementById("XML");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active-btn-selected");
+            current[0].className = current[0].className.replace(" active-btn-selected", "");
+            this.className += " active-btn-selected";
+            if (this.innerText == " UN") {
+                manual.style.display = "none";
+                unlist.style.display = "block";
+                xml.style.display = "none";
+            }
+            else if (this.innerText == " Manual Upload") {
+                unlist.style.display = "none";
+                manual.style.display = "block";
+                xml.style.display = "none";
+            }
+            else if (this.innerText == " XML Integrated") {
+                unlist.style.display = "none";
+                manual.style.display = "none";
+                xml.style.display = "block";
+            }
+        });
+    }
+
+    function GetUNList(_type) {
+        loader("ON");
+        $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("MLTFUNXML", "MLTF")',
+                data: {
+                    type: _type,
+                    searchname: $("#SearchName").val()
+                },
+                error: function (result)
+                {
+                    showMessage("E", result.status + " " + result.statusText + " " + "Something wrong, please try again"
+                    );
+                    $('#SearchList').html("");
+                },
+                success: function (result)
+                {
+                    if (_type == "XML") {
+                        if (result.status == false) {
+                            showMessage("E", result.message);
+                        }
+                        else {
+                        $("#getXML").hide();
+                        $("#XMLList").show();
+                        $("#XMLList").html(result);
+                        }
+                    }
+                    else {
+                        if (result.status == false) {
+                            showMessage("E", result.message);
+                        }
+                        $("#SearchList").show();
+                        $("#SearchList").html(result);
+                    }
+                    loader("OFF");
+                }
+            }
+        );
+
+
+
+        //document.getElementById("overlay").style.display = "none"
+
+        //$("#XML").load("MLTFUNXML", "MLTF", function (result, textStatus, jqXHR) {
+        //    $("#GetButton").show();
+        //    $("#spin").hide();
+        //    if (textStatus == "error") {
+        //        showMessage("E", jqXHR.status + " " + textStatus + " ");
+        //   }
+        //});
+    }
+
+</script>

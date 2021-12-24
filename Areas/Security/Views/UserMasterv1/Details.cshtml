@@ -1,0 +1,76 @@
+﻿@model OneFin.Models.UserMaster
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <i class="fa fa-user-circle-o"></i> User Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Usermaster/index"><i class="fa fa-user-circle-o"></i>  User Master</a></li>
+        <li class="active"> Detail</li>
+    </ol>
+</section>
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Detail</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                   User Name
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+                <dt>
+                    Full Name
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+                <dt>
+                    Position
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PositionCode)
+                </dd>
+                <dt>
+                    Email
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                   Last Login Date
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastLoginDate)
+                </dd>
+                <dt>
+                    Last Login Time
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastLoginTime)
+                </dd>
+            </dl>
+        </div>
+        <div class="box-footer">
+            <div>
+                <!--<a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |-->
+                <button asp-action="Edit" asp-route-id="@Model.ID" type="submit" class="btn btn-info pull-right">Edit</button>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+        </div>
+        <!-- /.box -->
+</section>

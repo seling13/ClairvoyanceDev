@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OneFin.Models.CFCustomer>
+
+@foreach (var item in Model)
+{
+    <div class="container col-lg-4" style="display: flex; align-items: center;">
+        <div class="col-lg-5">
+            <div style="position: relative; border: 0; margin: 0; width: 130px; height: 130px;">
+                <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)" width="120" height="120" style="position:absolute; z-index:3"></canvas>
+                <script>
+                    var xValues = ["Pass", "Fail", "Override"];
+                    var yValues = [55, 49, 44];
+                    var barColors = ["#D4F0F0", "#FCB9AA", "#CCE2CB"];
+
+                    new Chart("'myChart'+@Html.DisplayFor(modelItem => item.Name)", {
+                        type: "doughnut",
+                        data: {
+                            labels: xValues,
+                            datasets: [{ backgroundColor: barColors, data: yValues }],
+
+                        },
+                        options: {
+                            legend: {
+                                display: false
+                            },
+                            cutoutPercentage: 85,
+                            title: {
+                                display: false,
+                                text: "eKYC Criteria"
+                            }
+                        }
+                    });
+                 
+                </script>
+                <div style="width: 130px; height: 130px; padding-top: 10px;text-align:center">
+                    <img style="width: 110px; height: 110px;" class="img-circle" src="@Html.DisplayFor(modelItem=> item.IMGSource)"  />
+                </div>
+            </div>
+            <!--<img style="width:120px; height:120px;" class="img-circle" src="/sampleimg/SampleID.jpg" />-->
+        </div>
+        <div class="col-lg-7 border-bottom-cp" style="padding-bottom: 10px;">
+            <span style="font-size:18px">
+                <a href="~/Clairvoyance/eKYC/eKYCDetail?id=@Html.DisplayFor(modelItem => item.Cifno)"> @Html.DisplayFor(modelItem => item.Name)</a>
+            </span><br />
+            <div class="box-body" style="padding-left:0">
+                <span style="font-size:10px"><i class="fa fa-handshake-o"></i> Quant Onboarding</span><br />
+                <span style="font-size: 10px"><i class="fa fa-user-secret"></i> MLTF Risk Level 2</span><br />
+                <span style="font-size: 10px"><i class="fa fa-check-square-o"></i> Personal Score</span><br />
+                <span style=" font-size: 10px;"> <i class="fa fa-warning"></i> Credit Risk Level </span><br />
+            </div>
+            <span style="font-size:12px"> Transaction Override </span><br />
+            <span style="font-size:12px ;padding-bottom:20px;"> Bio-metric Authentication Failed </span>
+        </div>
+    </div>
+
+}
+
+

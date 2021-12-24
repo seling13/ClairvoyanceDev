@@ -1,0 +1,141 @@
+﻿<style>
+    .sidebar-menu li i {
+        color: gray;
+        font-size: 13px;
+    }
+
+    .sidebar-menu li span {
+        color: gray;
+        font-size: 13px;
+    }
+
+    .sidebar-menu li > a > .fa-caret-right,
+    .sidebar-menu li > a > .pull-right-container > .fa-caret-right {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin-right: 10px;
+        -webkit-transition: transform 0.5s ease;
+        -o-transition: transform 0.5s ease;
+        transition: transform 0.5s ease;
+    }
+
+
+    .sidebar-menu .menu-open > a > .fa-caret-right,
+    .sidebar-menu .menu-open > a > .pull-right-container > .fa-caret-right {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    .sidebar-menu li > a > .pull-right-container {
+        position:unset;
+        top: 50%;
+        margin: -7px 0 0 2px;
+    }
+
+
+    .sidebar-mini:not(.sidebar-mini-expand-feature).sidebar-collapse .sidebar-menu > li:hover > a > .pull-right-container {
+        position: relative !important;
+        float: right;
+        width: auto !important;
+        left: 180px !important;
+        top: -5px !important;
+        z-index: 900;
+    }
+</style>
+
+<ul class="sidebar-menu" data-widget="tree">
+    <li class="header">Menu List</li>
+    <!-- Optionally, you can add icons to the links -->
+    <li>
+        <a href="~/Clairvoyance/eKYC/eKYCSearch">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right"></i>
+            </span>
+            <i class="fa fa-address-card"></i> <span>e-KYC</span>
+        </a>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right"></i>
+            </span>
+            <i class="fa fa-user-secret"></i> <span>ML/TF</span>
+        </a>
+        <ul class="treeview-menu">
+            <li> <a href="#"><i class="fa fa-list"></i> Transaction 1 </a></li>
+            <li> <a href="#"><i class="fa fa-tag"></i> Transaction 2 </a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right"></i>
+            </span>
+            <i class="fa fa-eye"></i> <span>Tx Monitoring</span>
+        </a>
+        <ul class="treeview-menu">
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right pull-left"></i>
+            </span>
+            <i class="fa fa-list"></i> <span>List Maintenance</span>
+        </a>
+        <ul class="treeview-menu">
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right pull-left">
+            </span></i><i class="fa fa-tags"></i> <span>FP Maintenance</span>
+        </a>
+        <ul class="treeview-menu">
+        </ul>
+    </li>
+    <!--
+    <li class="treeview">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="fa fa-caret-right"></i>
+            </span>
+            <i class="fa fa-database"></i> <span>Maintenance</span>
+        </a>
+        <ul class="treeview-menu">
+            <li> <a href="~/Clairvoyance/TaskDataRequisition/Index"><i class="fa fa-list"></i> Inquiry Data Requisition </a></li>
+            <li> <a href="#"><i class="fa fa-database"></i>Prepare Data </a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-cogs"></i> <span>Configuration</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li> <a href="~/Configuration/Optmaster/Index"><i class="fa fa-cog"></i> Option Master </a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-lock"></i> <span>Security</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li> <a href="~/Security/Usermaster/Index"><i class="fa fa-user-circle"></i> User Master </a></li>
+            <li> <a href="~/Security/RoleMaster/Index"><i class="fa fa-bell-o"></i>Role Master </a></li>
+            <li> <a href="~/Security/TransactionMaster/Index"><i class="fa fa-list"></i>Transaction Master </a></li>
+        </ul>
+    </li>
+        -->
+</ul>

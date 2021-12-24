@@ -1,0 +1,59 @@
+﻿@model OneFin.Struct.UserMaster
+@{
+    ViewData["Title"] = "ChagneRole";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <i class="fa fa-cog"></i>  User Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Security/UserMaster/index"><i class="fa fa-user-circle-o"></i> User Master</a></li>
+        <li class="active"> Change Role</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Changne User Role</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form asp-action="ChangeRole" class="form-horizontal">
+            <div class="box-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        User Name
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UserName)
+                    </dd>
+                    <dt>
+                        Current Role
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RoleName)
+                    </dd>
+                    <dt>
+                        New Role
+                    </dt>
+                    <dd>
+                        @Html.DropDownList("RoleName", new SelectList(ViewBag.data, "NormalizedName","NormalizedName"))
+                    </dd>
+                </dl>
+
+
+                <div class="box-footer">
+                    <input type="hidden" asp-for="UserName" />
+                    <input type="hidden" asp-for="RoleName" />
+                    <a asp-action="Index">Back to List</a>
+                    <button type="submit" class="btn btn-info pull-right">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

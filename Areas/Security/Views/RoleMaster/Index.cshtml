@@ -1,0 +1,87 @@
+﻿@model PaginatedList<OneFin.Models.Roles>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content-header">
+    <h1>
+        <i class="fa fa-bell" "></i> Roles Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><i class="fa fa-bell"></i> Roles Master</li>
+    </ol>
+</section>
+
+<!-- Content Header (Page header) -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <a asp-action="Create">Create New</a>
+        </div>
+        <form asp-controller="RoleMaster" asp-action="Index">
+            <div class="box-header with-border">
+                Find By Normalised Name : <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Filter" />
+            </div>
+
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                       Role Name
+                    </th>
+                    <th>
+                       Roles Normalized Name
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NormalizedName)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+        <div class="box-footer">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-default @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-default @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+    <!-- /.box -->
+</section>
+<!-- DataTables -->
+<script src="~/bower/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

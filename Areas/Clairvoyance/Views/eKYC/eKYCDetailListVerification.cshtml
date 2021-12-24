@@ -1,0 +1,246 @@
+﻿@model OneFin.Models.eKYCValidate
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>Variable Comparison</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Variable Name
+                        </th>
+                        <th>
+                            Expected Variable Attribute
+                        </th>
+                        <th>
+                            Variable Source
+                        </th>
+                        <th>
+                            Date Scored
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            @Html.Raw(Model.NA03_expectedVariableName1)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA04_expectedVariableAttribute1)
+                        </td>
+                        <td>
+                            <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA05_expectedVariableSource1) </a>
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA88_LastModifiedDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.Raw(Model.NA06_expectedVariableName2)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA07_expectedVariableAttribute2)
+                        </td>
+                        <td>
+                            <a href="http://SOURCE_URL" _blank">@Html.Raw(Model.NA08_expectedVariableSource2) </a>
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA88_LastModifiedDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.Raw(Model.NA09_expectedVariableName3)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA10_expectedVariableAttribute3)
+                        </td>
+                        <td>
+                            <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA11_expectedVariableSource3) </a>
+                        </td>
+                        <td>
+                            @Html.Raw(Model.NA88_LastModifiedDate)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>Deviation Details</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Rule ID
+                        </th>
+                        <th>
+                            Rule Name
+                        </th>
+                        <th>
+                            Rule Description
+                        </th>
+                        <th>
+                            Pass or Fail
+                        </th>
+                        <th>
+                            Deviation Remarks
+                        </th>
+                        <th>
+                            Recommendation
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.Raw(Model.DV03_ruleID)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.DV04_ruleName)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.DV05_ruleDescription)
+                        </td>
+                        <td>
+                            <script>
+                    if ('@Html.Raw(Model.DV07_passOrFail)' == "FAIL") {
+                        $("#DV07_passOrFail").addClass("fa fa-close");
+                        document.getElementById('DV07_passOrFail').style.color = "red";
+                    }
+
+                    if ('@Html.Raw(Model.DV07_passOrFail)' == "PASS") {
+                        $("#DV07_passOrFail").addClass("fa fa-check-circle");
+                        document.getElementById('DV07_passOrFail').style.color = "green";
+                    }
+                            </script>
+                            <i id="DV07_passOrFail"></i> @Html.Raw(Model.DV07_passOrFail)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.DV08_deviationRemark)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.DV09_recommendation)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
+    </div>
+
+    <div class="pre-scrollablex">
+        <form id="_form" onsubmit="return ValidateSave('@ViewBag.type');">
+            <div class="border-bottom-cp" style="padding-top:20px">
+                <h4><strong>Deviation Override</strong></h4>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Override Flag
+                        </th>
+                        <th>
+                            Override Remarks
+                        </th>
+                        <th>
+                            TP/TN/FP/FN Flag
+                        </th>
+                        <th>
+                            Override Status
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th>
+                            Last Modified Date
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.Raw(Model.OV03_overrideFlag)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV04_overrideRemark)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV05_TP_TN_FP_FN_Flag)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV06_overrideStatus)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV87_UpdatedBy)
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV88_LastModifiedDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select class="form-control" id="OV03_overrideFlag" required style="min-width:150px">
+                                <option value="">Choose here</option>
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="form-control" required style="min-width:300px" />
+                        </td>
+                        <td>
+                            <select class="form-control" id="OV05_TP_TN_FP_FN_Flag" required style="min-width:300px">
+                                <option value="">Choose here</option>
+                                <option value="TRUE NEGATIVE">TRUE NEGATIVE</option>
+                                <option value="FALSE NEGATIVE">FALSE NEGATIVE</option>
+                                <option value="TRUE POSITIVE">TRUE POSITIVE</option>
+                                <option value="FALSE POSITIVE">FALSE POSITIVE</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control" id="OV06_overrideStatus" required style="min-width:200px">
+                                <option value="">Choose here</option>
+                                <option value="APPROVED">APPROVED</option>
+                                <option value="DECLINED">DECLINED</option>
+                            </select>
+                        </td>
+                        <td>
+                            Ridzuan
+                        </td>
+                        <td>
+                            @Html.Raw(Model.OV88_LastModifiedDate)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="box-footer" style="margin-top:50px">
+                <button type="submit" class="btn-rounded btn-info">Save</button>
+                <button type="button" onclick="ValidateCancel('@ViewBag.type')" class="btn-rounded btn-info">Cancel</button>
+            </div>
+        </form>
+    </div>
+        <script>
+
+            $("#_form").submit(function (e) {
+                e.preventDefault();
+            });
+
+            function ValidateSave(type) {
+
+                showMessage("I", "Record Saved");
+                var text = 'tab' + type;
+                document.getElementById(text).click();
+
+            }
+
+        </script>

@@ -1,0 +1,81 @@
+﻿@model OneFin.Models.CFCustomer
+<div class="row">
+    <div class="col-lg-6">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>MONTHLY INCOME</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="min-width:100px">
+                            Period
+                        </th>
+                        <th>
+                            Income Category
+                        </th>
+                        <th>
+                            Total Monthly Income
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MIncomeContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MI04_period)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MI04_periodMI05_incomeCatagory_FPSU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MI03_totalMonthlyIncome)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>ANNUAL INCOME</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Year
+                        </th>
+                        <th>
+                            Income Category
+                        </th>
+                        <th>
+                            Total Annual Income
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.YIncomeContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AI04_YYYY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AI05_incomeCat_FPSU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AI03_annualIncome)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

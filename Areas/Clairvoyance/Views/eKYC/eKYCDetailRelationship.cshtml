@@ -1,0 +1,65 @@
+﻿@model OneFin.Models.CFCustomer
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>RELATIONSHIPS</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Relationship Name
+                        </th>
+                        <th>
+                            Relationship Type
+                        </th>
+                        <th>
+                            Relationship Status
+                        </th>
+                        <th style="min-width:120px">
+                            Start Date
+                        </th>
+                        <th style="min-width:120px">
+                            End Date
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th style="min-width:120px">
+                            Last Update
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.RelationshipContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU09_relationshipCIFName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU05_relationshipType_FPRE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU06_relationshipStatus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU07_startDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU08_endDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU87_updatedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SU88_lastModifiedDate)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

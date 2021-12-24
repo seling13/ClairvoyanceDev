@@ -1,0 +1,188 @@
+﻿@model OneFin.Models.CFCustomer
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>PHONE</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Phone Number
+                        </th>
+                        <th>
+                            Contact Type
+                        </th>
+                        <th>
+                            Source
+                        </th>
+                        <th style="min-width:120px">
+                            Start Date
+                        </th>
+                        <th style="min-width:120px">
+                            End Date
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th style="min-width:120px">
+                            Last Update
+                        </th>
+                        <th style="text-align:center">
+                            Registered To History
+                        </th>
+                        <th style="text-align:center">
+                            OTP Validation Count
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PhoneContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH03_phoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH04_phoneType_FPTL)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH05_source)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH06_startDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH07_EndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH87_userID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PH88_lastUpdate)
+                            </td>
+                            <td style="text-align:center">
+                                <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
+                            </td>
+                            <td style="text-align:center">
+                                <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>Email</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Email Address
+                        </th>
+                        <th>
+                            Source
+                        </th>
+                        <th style="min-width:120px">
+                            Start Date
+                        </th>
+                        <th style="min-width:120px">
+                            End Date
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th style="min-width:120px">
+                            Last Update
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.EmailContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM03_emailAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM06_source)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM04_startDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM05_endDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM87_userID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EM88_lastUpdate)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="pre-scrollablex">
+        <div class="border-bottom-cp" style="padding-top:20px">
+            <h4><strong>Social Medial</strong></h4>
+        </div>
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Social Media ID
+                        </th>
+                        <th>
+                            Social Media Type
+                        </th>
+                        <th style="min-width:120px">
+                            Start Date
+                        </th>
+                        <th style="min-width:120px">
+                            End Date
+                        </th>
+                        <th>
+                            Updated By
+                        </th>
+                        <th style="min-width:120px">
+                            Last Update
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.SocialMediaContentList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SM04_socialMediaUserID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SM03_socialMediaType_FKXX)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SM05_startDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SM06_endDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SM87_userID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lastUpdateDate)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

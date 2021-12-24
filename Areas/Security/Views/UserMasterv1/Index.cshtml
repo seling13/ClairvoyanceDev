@@ -1,0 +1,118 @@
+﻿@model PaginatedList<OneFin.Models.UserMasterV1>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content-header">
+    <h1>
+        <i class="fa fa-user-circle-o"></i> User Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><i class="fa fa-user-circle-o"></i> User Master</li>
+    </ol>
+</section>
+<!-- Content Header (Page header) -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info pre-scrollablex">
+        <div class="box-header with-border">
+            <a asp-action="Create">Create New</a>
+        </div>
+        <form asp-controller="UserMaster" asp-action="Index">
+            <div class="box-header with-border">
+                Find By Full Name : <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Filter" />
+            </div>
+
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Position
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Last Login Date
+                    </th>
+                    <th>
+                        Last Login Time
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PositionCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastLoginDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastLoginTime)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+        <div class="box-footer">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-default @prevDisabled">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="btn btn-default @nextDisabled">
+                Next
+            </a>
+        </div>
+    </div>
+    <!-- /.box -->
+</section>
+
+<!-- DataTables -->
+<script src="~/bower/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+
+
+

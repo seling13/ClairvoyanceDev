@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Index";
+    var viewdata = ViewData["searchstring"];
+
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+ /* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: 0px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+    </style>
+
+</head>
+<body>
+    <section class="content-header" id="headerpanel">
+        <h1>
+            <strong>Search</strong>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Search</li>
+        </ol>
+    </section>
+        <section class="content container-fluid">
+            <div id="overlay" style="display: none">
+                <div id="loader"></div>
+            </div>
+
+
+            <form id ="_form">
+                <div class="box-header">
+                    <!--<div class="popup">
+        <span class="popuptext" id="myPopup">Please select Type</span>
+    </div>-->
+
+                    <div style="position:relative;border:0;padding:0;margin:0;">
+                        <select class="form-control form-search-cp" id="select">
+                            <option value="">Search</option>
+                            <option value="ID">ID Number</option>
+                            <option value="Name">Name</option>
+                        </select>
+                        <input class="form-control" style="padding-left: 110px; background-color: #EEEEEF" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="id" name="id">
+
+                        <!--<button class="btn btn-rounded btn-info" type="submit" onclick="CustList()"><i class="fa fa-search"></i></button>-->
+                    </div>
+
+                </div>
+                <div class="box-header">
+                    <div class="col-lg-6">
+                        <div class="row-cp" style="margin: 5px 5px 5px 5px; display:flex">
+                            <div class="col-sm-4">Search From</div>
+                            <div class="col-sm-8">
+                                <input style="display:flex; align-items:center;" class="form-control" type="date" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row-cp"  style="margin: 5px 5px 5px 5px; display:flex">
+                            <div class="col-sm-4">Search Until</div>
+                            <div class="col-sm-8">
+                                <input style="display:flex; align-items:center;" class="form-control" type="date" />
+                            </div>
+                        </div>
+                    </div>
+                        <!--<button class="btn-rounded btn-icon btn-info" type="submit" onclick="GeteKYC()"><i class="fa fa-search"></i></button>-->   
+                </div>
+                    <div class="border-bottom-cp">
+                        <h4><strong>History</strong></h4>
+                    </div>
+
+                    <div class="box-header">
+                        <div id="DIV-LVL" style="margin-top:10px;">
+                            <button class="btn-lvl btn-rounded active-btn-selected" hidden> </button>
+                            <button class="btn-lvl btn-rounded"> Level 1</button>
+                            <button class="btn-lvl btn-rounded"> Level 2</button>
+                            <button class="btn-lvl btn-rounded"> Level 3</button>
+                            <button class="btn-lvl btn-rounded"> Level 4</button>
+                            <button class="btn-lvl btn-rounded"> Quant</button>
+                            <button class="btn-lvl btn-rounded"> Ultron Pro</button>
+                            <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
+                        </div>
+                    </div>
+                    <script>
+                        // Add active class to the current button (highlight it)
+                        var header = document.getElementById("DIV-LVL");
+                        var btns = header.getElementsByClassName("btn-lvl");
+                        for (var i = 0; i < btns.length; i++) {
+                            btns[i].addEventListener("click", function () {
+                                var current = document.getElementsByClassName("active-btn-selected");
+                                current[0].className = current[0].className.replace(" active-btn-selected", "");
+                                this.className += " active-btn-selected";
+                                if (this.innerText == "Level 1") {
+                                    if ($('#id').val() != "" && $('#select').val() == "") {
+                                        //myPopup("Please select Type", true);
+
+                                        $('#7days').html("");;
+                                    }
+                                    else {
+                                        //myPopup("", false);
+                                        GeteKYC();
+                                    }
+                                }
+                                else {
+                                    $("#7days").html("");
+                                }
+
+                            });
+
+                        }
+                    </script>
+</form>
+            <div class="tab-cp" style="padding-left:10px ">
+                <button id="default7days" class="tablinks" onclick="openPeriod(event, '7days')">7 Days</button>
+                <button class="tablinks" onclick="openPeriod(event, '14Days')">14 days</button>
+                <button class="tablinks" onclick="openPeriod(event, '21days')">21 days</button>
+                <button class="tablinks" onclick="openPeriod(event, '21daysmore')">> 21 days</button>
+
+            </div>
+
+            <div class="box-body">
+                <div id="7days" class="tabcontent animate-bottom">
+
+                </div>
+                <div id="14Days" class="tabcontent animate-bottom">
+                    <div class="box-header with-border">
+                        <i class="fa fa-wrench"></i> Under Contrustion
+                    </div>
+                </div>
+
+                <div id="21days" class="tabcontent animate-bottom">
+                    <div class="box-header with-border">
+                        <i class="fa fa-wrench"></i> Under Contrustion
+                    </div>
+
+                </div>
+                <div id="21daysmore" class="tabcontent animate-bottom">
+                    <div class="box-header with-border">
+                        <i class="fa fa-wrench"></i> Under Contrustion
+                    </div>
+                </div>
+            </div>
+
+        </section>
+</body>
+</html>
+<script>
+
+    $("#id").on('keyup', function (e) {
+        if ($("#id").val() == "")
+            {
+            $("select").prop('required', false);
+        }
+        else {
+            $("select").prop('required', true);
+        }
+        }
+    );
+
+    $("#_form").submit(function (e) {
+        e.preventDefault();
+    });
+
+//    function myPopup(message,flag) {
+//        var popup = document.getElementById("myPopup");
+//        popup.innerText = message;
+//        popup.classList.toggle("show", flag);
+//    }
+
+    $(document).ready(function () {
+        document.getElementById('default7days').click();
+    
+    });
+
+
+
+    function openPeriod(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active-selected", " ");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active-selected";
+    }
+
+    function GeteKYC() {
+        loader("ON");
+        $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("eKYCSearchList", "eKYC")',
+                data: {
+                    Name: $('#id').val()
+                },
+                error: function (result) {
+                    showMessage("E", result.status + " " + result.statusText + " " + "Something wrong, please try again"
+                    );
+                    $('#7days').html("");
+                },
+                success: function (result) {
+                        if (result.status == false) {
+                            showMessage("E", result.message);
+                        }
+                        else {
+                            var list_html = '';
+                            for (var i = 0; i < 3; i++) {
+
+                                result = result.replace(/myChart/g, "myChart" + i.toString());
+                                console.log(result);
+                                list_html += result;
+                            }
+                            //$("#7days").html(list_html);
+                            $("#7days").html(result);
+                        }
+                    loader("OFF");
+                }
+            }
+        );
+    }
+</script>

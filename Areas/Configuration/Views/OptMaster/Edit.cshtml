@@ -1,0 +1,71 @@
+﻿@model OneFin.Models.OptMaster
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        <i class="fa fa-cog"></i> Option Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Configuration/Optmaster/index"><i class="fa fa-cog"></i> Option Master</a></li>
+        <li class="active"> Edit</li>
+    </ol>
+</section>
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Edit</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form asp-action="Edit" class="form-horizontal">
+            <div class="box-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="OptName" />
+                <input type="hidden" asp-for="Value" />
+                <div class="form-group">
+                    <label asp-for="OptName" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="OptName" class="form-control" disabled />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Value" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Value" class="form-control" disabled />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Text" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Text" class="form-control" />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <select id="Status" name="Status" asp-for="Status">
+                            <option value="A">Active</option>
+                            <option value="C">Cancel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <div class="form-group">
+                        <a asp-action="Index">Back to List</a>
+                        <input type="submit" value="Save" class="btn btn-info pull-right" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+</section>

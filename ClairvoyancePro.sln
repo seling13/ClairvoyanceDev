@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClairvoyancePro", "ClairvoyancePro.csproj", "{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{08A44861-C5FE-4138-B6EE-7C2B67C84EF4}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{32C9BEB4-24EC-40F8-86E2-2513AF0B3556}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32C9BEB4-24EC-40F8-86E2-2513AF0B3556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32C9BEB4-24EC-40F8-86E2-2513AF0B3556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32C9BEB4-24EC-40F8-86E2-2513AF0B3556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32C9BEB4-24EC-40F8-86E2-2513AF0B3556}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2BA6DD8-B6D6-49B1-8ECE-A7B7F3D9F134} = {08A44861-C5FE-4138-B6EE-7C2B67C84EF4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C37883C1-8108-46D2-ABA6-664EB3DAE353}
+	EndGlobalSection
+EndGlobal

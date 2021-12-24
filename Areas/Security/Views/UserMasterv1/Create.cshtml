@@ -1,0 +1,98 @@
+﻿@model OneFin.Models.UserMaster
+
+@{
+    ViewData["Title"] = "Create";
+}
+<script>
+$(document).ready(function() {
+    $.ajax({
+        type: "Post",
+        url: '@Url.Action("GetOptList", "OptList", new { area = "" })',
+        data: {
+            OptName: "PositionCode"
+        },
+        success: function (result) {
+            for (var i = 0; i < result.data.length; i++) {
+                $('#PositionCode').append('<option value=' + result.data[i].value + '>' + result.data[i].text + '</option > ');
+            }
+
+        }
+    });
+ });
+</script>
+
+<section class="content-header">
+    <h1>
+        <i class="fa fa-user-circle-o"></i> User Master
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="~/home/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="~/Usermaster/index"><i class="fa fa-user-circle-o"></i>  User Master</a></li>
+        <li class="active"> Create</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Create</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form asp-action="Create" class="form-horizontal">
+            <div class="box-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ID" class="col-sm-2 control-label">User ID</label>
+                    <div class="col-sm-10">
+                        <input asp-for="ID" type="text" class="form-control" name="ID">
+                        <span asp-validation-for="ID" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="col-sm-2 control-label"> User Name</label>
+                    <div class="col-sm-10">
+                        <input asp-for="UserName" class="form-control" type="text" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName" class="col-sm-2 control-label">Full Name</label>
+                    <div class="col-sm-10">
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PositionCode" class="col-sm-2 control-label">Position</label>
+                    <div class="col-sm-10">
+                        <select id="PositionCode" name="PositionCode" asp-for="PositionCode"> 
+                        </select>
+                        <!--<select id="positioncode" name="Position Code" asp-for="PositionCode">
+        <option value="BM">Branch Manager</option>
+        <option value="BS">Branch Supervisor</option>
+        <option value="BT">Branch Teller</option>
+    </select>-->
+                        <!--<input asp-for="PositionCode" class="form-control" />
+    <span asp-validation-for="PositionCode" class="text-danger"></span>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <a asp-action="Index">Back to List</a>
+                <!--<button type="button" asp-action="Index" class="btn btn-default">Cancel</button>-->
+                <button type="submit" class="btn btn-info pull-right">Create</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+</section>

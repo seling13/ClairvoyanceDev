@@ -1,0 +1,82 @@
+﻿@model IEnumerable<OneFin.Models.UNList>
+
+<style>
+    table, th {
+        overflow: hidden;
+        text-overflow: clip;
+        width: 59px;
+        white-space: pre-wrap;
+    }
+
+</style>
+
+<div class="box-header with-border" id="UNHeader" name="UNHeader">
+    <h4>UN List as <span id="today"></span></h4>
+    <h4>
+        Total Records : @Html.Raw(Model.Count())
+    </h4>
+    <a href=# id="Add" onclick="AddUNList()"> <span style="float:right"><i class="fa fa-plus-circle"></i> Add</span></a>
+
+</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Allias Name</th>
+                <th>Designation</th>
+                <th>Nationality</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => item.FIRST_NAME) @Html.DisplayFor(modelItem => item.SECOND_NAME)</td>
+                <td> @Html.DisplayFor(modelItem => item.INDIVIDUAL_ALIAS)</td>
+                <td> @Html.DisplayFor(modelItem => item.DESIGNATION)</td>
+                <td> @Html.DisplayFor(modelItem => item.NATIONALITY)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        var today = new Date();
+        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        document.getElementById("today").innerHTML = date;
+
+        if ('@Html.Raw(ViewBag.type)' == 'XML') {
+            $("#UNHeader").show();}
+        else {
+            $("#UNHeader").hide();}
+
+
+        function AddUNList() {
+            loader("ON");
+            var data = '@Html.Raw(Json.Serialize(Model))';
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '@Url.Action("MLTFUNListAdd", "MLTF")',
+                    data: { _unlist: data },
+                    error: function (result) {
+                        showMessage("E", result.status + " " + result.statusText + " " + result.responseText);
+                        loader("OFF");
+                    },
+                   success: function (result) {
+                       loader("OFF");
+                       if (result.status == false) {
+                           showMessage("E", result.message);
+                       }
+                       else {
+                           showMessage("I", result.message);
+                           $("#getXML").show();
+                           $("#XMLList").hide();
+                       }
+                    }
+                });
+        }
+    </script>
