@@ -1,5 +1,17 @@
 ﻿@model OneFin.Models.eKYCValidate
-    <div class="pre-scrollablex">
+
+
+<style>
+    .img-cp:hover {
+        position:absolute;
+        transform: scale(3.5);
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+    }
+</style>
+    <div class="pre-scrollablex" >
         <div class="border-bottom-cp" style="padding-top:20px">
             <h4><strong>Variable Comparison</strong></h4>
         </div>
@@ -29,7 +41,18 @@
                             @Html.Raw(Model.NA03_expectedVariableName1)
                         </td>
                         <td>
-                            @Html.Raw(Model.NA04_expectedVariableAttribute1)
+                            <script>
+                                if ('@Html.Raw(Model.NA03_expectedVariableName1)' == "Transaction Avatar URL") {
+
+                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML = '<img style="width: 50px; height: 50px; " class="img-circle img-cp" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" />'
+                                    //document.getElementById('NA03_expectedVariableName1').innerHTML = '<img href="#" onclick="PopupDetail('Addres')" style="width: 50px; height: 50px;" class="img-circle" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" /> '
+                                }
+                                else {
+                                    document.getElementById('NA04_expectedVariableAttribute1').innerText =  '@Html.Raw(Model.NA04_expectedVariableAttribute1)';
+
+                                }
+                            </script>
+                                <div id="NA04_expectedVariableAttribute1"></div>
                         </td>
                         <td>
                             <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA05_expectedVariableSource1) </a>
@@ -57,7 +80,19 @@
                             @Html.Raw(Model.NA09_expectedVariableName3)
                         </td>
                         <td>
-                            @Html.Raw(Model.NA10_expectedVariableAttribute3)
+                            <script>
+                             if ('@Html.Raw(Model.NA09_expectedVariableName3)' == "Profile Image") {
+
+                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML = '<img style="width: 50px; height: 50px;" class="img-circle img-cp" src="@Html.Raw(Model.NA10_expectedVariableAttribute3)" />'
+                            }
+                            else {
+                                 document.getElementById('NA10_expectedVariableAttribute3').innerText =  '@Html.Raw(Model.NA10_expectedVariableAttribute3)';
+
+                            }
+
+                            </script>
+                            <div id="NA10_expectedVariableAttribute3"></div>
+
                         </td>
                         <td>
                             <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA11_expectedVariableSource3) </a>

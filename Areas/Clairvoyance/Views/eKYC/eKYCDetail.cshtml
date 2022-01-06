@@ -54,8 +54,8 @@
                 <div class="col-lg-3" style="align-items: center; display:flex; justify-content: center; text-align: center;">
                     <div style="position: relative; border: 0; padding: 0; margin: 0; width: 300px; height: 300px; ">
                         <canvas id="myChart" width="200" height="200" style="position:absolute; z-index:3"></canvas>
-                        <div style="width: 300px; height: 300px; padding-top: 62px ">
-                            <img style="width: 210px; height: 210px;" class="img-circle" src="@Html.Raw(customer.IMGSource)" />
+                        <div style="width: 300px; height: 300px; padding-top: 56px ">
+                            <img style="width: 225px; height: 225px;" class="img-circle" src="@Html.Raw(customer.IMGSource)" />
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,6 @@
     $("#myForm").load("eKYCOTPHistory")
     };
 
-
     function closeFormHistory() {
         document.getElementById("overlay").style.display = "none";
         document.getElementById("myForm").style.display = "none";
@@ -206,6 +205,7 @@
     function GeteKYCListVerification(type, ekycid) {
         var tab = '#' + type;
         loader("ON");
+        $(tab).html("");
         $.ajax(
             {
                 type: "POST",
@@ -219,7 +219,7 @@
                 error: function (result) {
                     showMessage("E", result.status + " " + result.statusText + " " + "Something wrong, please try again"
                     );
-                    $(tab).html("");;
+                    $(tab).html("");
                 },
                 success: function (result) {
                         if (result.status == false) {
@@ -255,6 +255,14 @@
 
         eKYCDetailList(ekyctab);
         $('#eKYCDetailList').show();
+        $('#BIO').html("");
+        $('#Address').html("");
+        $('#ID').html("");
+        $('#Contact').html("");
+        $('#Employment').html("");
+        $('#Income').html("");
+        $('#Relationship').html("");
+
         if (ekyctab == "BIO") {
             eKYCDetailBIO();
             $('#HeaderName').text("Biometric Validation");
@@ -315,7 +323,7 @@
 
             },
             options: {
-                cutoutPercentage: 80,
+                cutoutPercentage: 85,
             title: {
             display: false,
         text: "eKYC Criteria"

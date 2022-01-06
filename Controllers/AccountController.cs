@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using OneFin.Models;
 using Microsoft.AspNetCore.Authorization;
-using OneFin.Comm;
 using OneFin.Struct.CommonService;
 using LamarCodeGeneration.Frames;
 using Microsoft.AspNetCore.Http;
