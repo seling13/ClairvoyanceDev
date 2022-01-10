@@ -2,6 +2,11 @@
 
 
 <style>
+    .img-cp {
+        width: 40px; 
+        height: 40px;
+        margin-top:-12px;
+    }
     .img-cp:hover {
         position:absolute;
         transform: scale(3.5);
@@ -44,7 +49,7 @@
                             <script>
                                 if ('@Html.Raw(Model.NA03_expectedVariableName1)' == "Transaction Avatar URL") {
 
-                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML = '<img style="width: 50px; height: 50px; " class="img-circle img-cp" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" />'
+                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML = '<img  class="img-circle img-cp" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" />'
                                     //document.getElementById('NA03_expectedVariableName1').innerHTML = '<img href="#" onclick="PopupDetail('Addres')" style="width: 50px; height: 50px;" class="img-circle" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" /> '
                                 }
                                 else {
@@ -83,7 +88,7 @@
                             <script>
                              if ('@Html.Raw(Model.NA09_expectedVariableName3)' == "Profile Image") {
 
-                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML = '<img style="width: 50px; height: 50px;" class="img-circle img-cp" src="@Html.Raw(Model.NA10_expectedVariableAttribute3)" />'
+                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML = '<img  class="img-circle img-cp" src="@Html.Raw(Model.NA10_expectedVariableAttribute3)" />'
                             }
                             else {
                                  document.getElementById('NA10_expectedVariableAttribute3').innerText =  '@Html.Raw(Model.NA10_expectedVariableAttribute3)';
@@ -202,7 +207,7 @@
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr >
                         <td>
                             @Html.Raw(Model.OV03_overrideFlag)
                         </td>
@@ -222,7 +227,7 @@
                             @Html.Raw(Model.OV88_LastModifiedDate)
                         </td>
                     </tr>
-                    <tr>
+                    <tr >
                         <td>
                             <select class="form-control" id="OV03_overrideFlag" required style="min-width: 150px;">
                                 <option value="">Choose here</option>
@@ -242,18 +247,22 @@
                                 <option value="FALSE POSITIVE">FALSE POSITIVE</option>
                             </select>
                         </td>
-                        <td>
-                            <select class="form-control" id="OV06_overrideStatus" required style="min-width:200px">
-                                <option value="">Choose here</option>
-                                <option value="APPROVED">APPROVED</option>
-                                <option value="DECLINED">DECLINED</option>
-                            </select>
+                        <td>                   
+                                <select class="form-control" id="OV06_overrideStatus" required style="min-width:200px">
+                                    <option value="">Choose here</option>
+                                    <option value="APPROVED">APPROVED</option>
+                                    <option value="DECLINED">DECLINED</option>
+                                </select>
+                        </td>
+                        <td >
+                            <div style="margin-top:7px">
+                                Ridzuan
+                            </div>
                         </td>
                         <td>
-                            Ridzuan
-                        </td>
-                        <td>
-                            @Html.Raw(Model.OV88_LastModifiedDate)
+                            <div style="margin-top:7px">
+                                30-NOV-21 01:34:00
+                            </div>
                         </td>
                     </tr>
                 </tbody>

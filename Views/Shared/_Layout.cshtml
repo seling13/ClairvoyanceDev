@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Clairvoyance Pro</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=0.80, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!--Loading-->
     <script>
         var myVar;
@@ -54,11 +54,54 @@
     <!-- Morris chart -->
     <link rel="stylesheet" href="~/bower/morris.js/morris.css">
     <style>
+
+        :root {
+            --appleblue: #007AFF;
+        }
+
+        /*box top line*/
+        .box {
+            border-top: 1px solid #ccc;
+            padding-top: 15px;
+        }
+
+        /*table*/
+        .table > thead > tr > th,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > tbody > tr > td,
+        .table > tfoot > tr > td {
+            border-top: 0px solid #f4f4f4;
+        }
+
+        .table > thead > tr > th {
+            border-bottom: 0px solid #f4f4f4;
+        }
+
+        .table-bottom > thead > tr > th,
+        .table-bottom > tbody > tr > th,
+        .table-bottom > tfoot > tr > th,
+        .table-bottom > thead > tr > td,
+        .table-bottom > tbody > tr > td,
+        .table-bottom > tfoot > tr > td {
+            border-top: 1px solid #f4f4f4;
+        }
+
+        .table-bottom > thead > tr > th {
+            border-bottom: 2px solid #f4f4f4;
+        }
+
         /*Shadow of the box*/
         div.box-cp {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
+        .box-footer
+        {
+            border-top:none;
+
+        }
 
         .border-bottom-cp {
             padding-top: 10px;
@@ -105,6 +148,7 @@
 
             /* Style the buttons that are used to open the tab content */
             .tab-cp button {
+                color: var(--appleblue);
                 background-color: inherit;
                 border: none;
                 outline: none;
@@ -161,18 +205,23 @@
 
 
         .btn-rounded {
-            border: none;
+            color: var(--appleblue);
+            border: var(--appleblue) 1px solid;
+            background-color: white;
+            /*border:none;
+                background-color: #f2f2f2;
+                */
             outline: none;
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 5px 15px;
             border-radius: 20px;
             margin: 5px 5px 5px 5px;
-            min-width: 150px;
-            background-color: #f2f2f2;
+            min-width: 50px;
         }
 
         .btn-info {
-            background-color: #3272DB;
+            background-color: var(--appleblue);
+            color: white;
         }
 
             .btn-rounded:hover {
@@ -324,7 +373,7 @@
 
         .pre-scrollablex {
             overflow-x: auto;
-            
+
         }
 
         /** Alert*/
@@ -390,8 +439,8 @@
 
 
         .badge-warning {
-            color: #1f2d3d;
-            background-color: #ffc107;
+            color: white;
+            background-color: var(--appleblue);
         }
 
         .dropdown-divider {
@@ -421,6 +470,24 @@
             padding: 0.5rem 1rem;
             text-align: center;
         }
+
+         @@media (max-width: 767px) {
+            .mobile-show {
+                display: block;
+            }
+            .main-header-mobile {
+                margin-left:0;
+            }
+
+      }
+        @@media (min-width: 768px) {
+            .mobile-show {
+                display: none;
+            }
+            .main-header-mobile {
+                margin-left: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -432,188 +499,192 @@
         </div>
         <div style="display:none;" id="myDiv" class="animate-bottom"></div>
         <!-- Main Header -->
-        <header class="main-header"  >
-            <!-- Logo -->
-            <a href="index2.html" class="logo" style="background-color:white">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">
-                    <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block; ">
-                    <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; ">-->
-                </span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"  >
-                    <img src="~/dist/img/faviconLarge.ico" class="img" style="float: left; width: 200px; height: 50px; padding-left: 8px; padding-top: 8px; display: inline-block;  ">
-                    <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; " >-->
-                </span>
-            </a>
-            <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
+        <div class="main-header-mobile">
+            <header class="main-header"  style="background-color:white ;border:none">
+                <!-- Logo -->
+                <a href="index2.html" class="logo" style="background-color:white ;border:none">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">
+                        <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block; ">
+                        <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; ">-->
+                    </span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">
+                        <img src="~/dist/img/faviconLarge.ico" class="img" style="float: left; width: 200px; height: 50px; display: inline-block;  ">
+                        <!--<img src="~/dist/img/BIBDAT.JPG" class="img" style="float: left; width: 45px; height: 45px; padding-top: 5px; display: inline-block; " >-->
+                    </span>
                 </a>
-                <!-- <span class="logo-lg">
-                    <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block;  ">
+                <!-- Header Navbar -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <div class="mobile-show">
+                        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="border:none;">
+                            <span class="sr-only">Toggle navigation</span>
+                        </a>
+                    </div>
+                    <!-- <span class="logo-lg">
+                <img src="~/dist/img/clairvoyance.ico" class="img" style="float: left; width: 45px; height: 40px; padding-left: 8px; padding-top: 8px; display: inline-block;  ">
 
-                </span>
-                <div class="label" style="font-size: 20px; padding-top: 15px; display: inline-block; color: black; font-family: Arial, Helvetica, sans-serif; font-weight: normal "> Clairvoyance </div>-->
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages Dropdown Menu -->
-                        <!--<li class="nav-item dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="#">
-                                <i class="fa fa-comments"></i>
-                                <span class="badge badge-danger navbar-badge">3</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a href="#" class="dropdown-item">
-                                    <!-- Message Start
-                                    <div class="media">
+            </span>
+            <div class="label" style="font-size: 20px; padding-top: 15px; display: inline-block; color: black; font-family: Arial, Helvetica, sans-serif; font-weight: normal "> Clairvoyance </div>-->
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- Messages Dropdown Menu -->
+                            <!--<li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <i class="fa fa-comments"></i>
+                            <span class="badge badge-danger navbar-badge">3</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                            <a href="#" class="dropdown-item">
+                                <!-- Message Start
+                                <div class="media">
 
-                                        <div class="media-body">
-                                            <h3 class="dropdown-item-title">
-                                                Brad Diesel
-                                                <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
-                                            </h3>
-                                            <p class="text-sm">Call me whenever you can...</p>
-                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
-                                        </div>
+                                    <div class="media-body">
+                                        <h3 class="dropdown-item-title">
+                                            Brad Diesel
+                                            <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
+                                        </h3>
+                                        <p class="text-sm">Call me whenever you can...</p>
+                                        <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
                                     </div>
-                                    <!-- Message End
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">
-                                    <!-- Message Start
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h3 class="dropdown-item-title">
-                                                John Pierce
-                                                <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
-                                            </h3>
-                                            <p class="text-sm">I got your message bro</p>
-                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                    <!-- Message End
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">
-                                    <!-- Message Start
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h3 class="dropdown-item-title">
-                                                Nora Silvester
-                                                <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
-                                            </h3>
-                                            <p class="text-sm">The subject goes here</p>
-                                            <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
-                                        </div>
-                                    </div>
-                                    <!-- Message End --
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                            </div>
-                        </li>
-                        <!-- Notifications Dropdown Menu -->
-                        <li class="dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i>
-                                <span class="badge badge-warning navbar-badge">7</span>
+                                </div>
+                                <!-- Message End
                             </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <span class="dropdown-item dropdown-header">7 Notifications</span>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">
-                                    <i class="fa fa-tasks mr-2"></i> 4 new Task
-                                    <span class="float-right text-muted text-sm">3 mins</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">
-                                    <i class="fa fa-users mr-2"></i> 2 Pending Approval
-                                    <span class="float-right text-muted text-sm">12 hours</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">
-                                    <i class="fa fa-file mr-2"></i> 1 Responded
-                                    <span class="float-right text-muted text-sm">2 days</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                            </div>
-                        </li>
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="~/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs"> @Context.Session.GetString("username")</span>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <!-- Message Start
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h3 class="dropdown-item-title">
+                                            John Pierce
+                                            <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
+                                        </h3>
+                                        <p class="text-sm">I got your message bro</p>
+                                        <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
+                                    </div>
+                                </div>
+                                <!-- Message End
                             </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                    <p>
-                                        @Context.Session.GetString("username")
-                                        <small>Users since Nov. 2012</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Account</a>
-                                        </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <!-- Message Start
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h3 class="dropdown-item-title">
+                                            Nora Silvester
+                                            <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
+                                        </h3>
+                                        <p class="text-sm">The subject goes here</p>
+                                        <p class="text-sm text-muted"><i class="fa fa-clock mr-1"></i> 4 Hours Ago</p>
                                     </div>
-                                    <!-- /.row -->
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <form action="~/Account/Logout" method="post">
-                                        <div class="pull-right">
-                                            <!--<a href="#" class="btn btn-default btn-flat" >Sign out</a>-->
-                                            <button type="submit" class="btn btn-default btn-flat">Logout</button>
+                                </div>
+                                <!-- Message End --
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                        </div>
+                    </li>
+                    <!-- Notifications Dropdown Menu -->
+                            <li class="dropdown">
+                                <a class="nav-link" data-toggle="dropdown" href="#" style="border-color:transparent">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="badge badge-warning navbar-badge">7</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                    <span class="dropdown-item dropdown-header">7 Notifications</span>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-tasks mr-2"></i> 4 new Task
+                                        <span class="float-right text-muted text-sm">3 mins</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-users mr-2"></i> 2 Pending Approval
+                                        <span class="float-right text-muted text-sm">12 hours</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-file mr-2"></i> 1 Responded
+                                        <span class="float-right text-muted text-sm">2 days</span>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                                </div>
+                            </li>
+                            <!-- User Account Menu -->
+                            <li class="dropdown user user-menu">
+                                <!-- Menu Toggle Button -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-color:transparent">
+                                    <!-- The user image in the navbar-->
+                                    <img src="~/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                    <span class="hidden-xs"> @Context.Session.GetString("username")</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- The user image in the menu -->
+                                    <li class="user-header">
+                                        <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <p>
+                                            @Context.Session.GetString("username")
+                                            <small>Users since Nov. 2012</small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    <li class="user-body">
+                                        <div class="row">
+                                            <div class="col-xs-4 text-center">
+                                                <a href="#">Account</a>
+                                            </div>
                                         </div>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+                                        <!-- /.row -->
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <form action="~/Account/Logout" method="post">
+                                            <div class="pull-right">
+                                                <!--<a href="#" class="btn btn-default btn-flat" >Sign out</a>-->
+                                                <button type="submit" class="btn btn-default btn-flat">Logout</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        </div>
         <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
+        <aside class="main-sidebar" style=" border: none ">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <!--<div class="user-panel">
-                <div class="pull-left image">
-                    <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                <p>Context.Session.GetString("username")</p>
-                <!-- Status -->
+    <div class="pull-left image">
+        <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+    </div>
+    <div class="pull-left info">
+    <p>Context.Session.GetString("username")</p>
+    <!-- Status -->
                 <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    </div>
-                </div>-->
+        </div>
+    </div>-->
                 <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
+                <!--<form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </form>-->
                 <!-- /.search form -->
                 <!-- Sidebar Menu -->
                 @Html.Partial("_MainMenu")
