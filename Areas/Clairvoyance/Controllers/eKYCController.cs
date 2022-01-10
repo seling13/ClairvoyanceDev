@@ -183,6 +183,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 NA08_expectedVariableSource2= "View Source",
                 NA09_expectedVariableName3 = "Profile Image",
                 NA10_expectedVariableAttribute3 = cust.IMGSource,
+                //cust.IMGSource,
                 NA11_expectedVariableSource3 = "View Source",
                 NA88_LastModifiedDate = "30-NOV-21 01:34:00",
                 OV03_overrideFlag = "",
