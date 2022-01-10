@@ -32,42 +32,48 @@
                             Registered To History
                         </th>
                         <th style="text-align:center">
-                            OTP Validation Count
+                            OTP Pass
+                        </th>
+                        <th style="text-align:center">
+                            OTP Fail
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.PhoneContentList)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH03_phoneNumber)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH04_phoneType_FPTL)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH05_source)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH06_startDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH07_EndDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH87_userID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PH88_lastUpdate)
-                            </td>
-                            <td style="text-align:center">
-                                <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
-                            </td>
-                            <td style="text-align:center">
-                                <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH03_phoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH04_phoneType_FPTL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH05_source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH06_startDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH07_EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH87_userID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PH88_lastUpdate)
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
