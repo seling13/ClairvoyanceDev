@@ -10,52 +10,44 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
- /* Popup container - can be anything you want */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+ /* Apple Tab */
 
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
+        .tab-ap 
+        {
+            margin-top: 10px;
+            margin-left: 10px;
+            padding: 2px 2px 2px 2px;
+            overflow: hidden;
+            background-color: var(--applegrey);
+            border-radius: 10px;
+            width: -webkit-fit-content;
+        }
 
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: 0px;
-}
+            .tab-ap button {
+                border-radius: 10px;
+                background-color: inherit;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                transition: 0.3s;
+                min-width: 145px;
+                min-height: 25px;
+                font-size: 12px;
+            }
 
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
+            /* Change background color of buttons on hover */
+            .tab-ap button:hover {
+                background-color: #ddd;
+            }
 
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
+            /* Create an active/current tablink class */
+                .tab-ap button.active-selected {
+                    background-color: white;
+                    border-color: none;
+                    color: black;
+                    border-radius: 10px;
+                }
+
 
 /* Add animation (fade in the popup) */
 @@keyframes fadeIn {
@@ -72,13 +64,10 @@
 </head>
 <body>
     <section class="content-header" id="headerpanel">
-        <h1>
+        <h1 style="font-size:43px">
             <strong>Search</strong>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="/Clairvoyance/eKYC/eKYCSearch"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li> Search</li>
-        </ol>
+ 
     </section>
         <section class="content container-fluid">
             <div id="overlay" style="display: none">
@@ -87,11 +76,6 @@
 
 
             <form id ="_form">
-                <div class="box-header">
-                    <!--<div class="popup">
-        <span class="popuptext" id="myPopup">Please select Type</span>
-    </div>-->
-
                     <div style="position:relative;border:0;padding:0;margin:0;">
                         <select class="form-control form-search-cp" id="select" style="padding-left:10px;">
                             <option value="">Search</option>
@@ -99,29 +83,25 @@
                             <option value="Name">Name</option>
                         </select>
                         <input class="form-control" style="padding-left: 90px; background-color: #EEEEEF" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="id" name="id">
-
-                        <!--<button class="btn btn-rounded btn-info" type="submit" onclick="CustList()"><i class="fa fa-search"></i></button>-->
                     </div>
-
-                </div>
-                <div class="box-header">
-                    <div class="col-lg-6">
-                        <div class="row-cp" style="margin: 5px 5px 5px 5px; display:flex">
-                            <div class="col-sm-4">Search From</div>
-                            <div class="col-sm-8">
+                <div class="box-header" >
+                    <div class="col-sm-3 nopadding">
+                        <div class="row-cp" style="padding-top:15px; padding-right:15px">
+                            <div class="col-sm-4 nopadding">Search From</div>
+                            <div class="col-sm-8  ">
                                 <input style="display: flex; align-items: center;" class="form-control" type="date" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="row-cp"  style="margin: 5px 5px 5px 5px; display:flex">
-                            <div class="col-sm-4">Search Until</div>
-                            <div class="col-sm-8">
+                    <div class="col-sm-3 nopadding">
+                        <div class="row-cp" style="padding-top:15px; padding-right:15px;">
+                            <div class="col-sm-4 nopadding">Search Until</div>
+                            <div class="col-sm-8 ">
                                 <input style="display:flex; align-items:center;" class="form-control" type="date" />
                             </div>
                         </div>
                     </div>
-                        <!--<button class="btn-rounded btn-icon btn-info" type="submit" onclick="GeteKYC()"><i class="fa fa-search"></i></button>-->   
+
                 </div>
                     <div class="border-bottom-cp">
                         <h4><strong>History</strong></h4>
@@ -168,7 +148,7 @@
                         }
                     </script>
 </form>
-            <div class="tab-cp" style="padding-left:10px ">
+            <div class="tab-ap" >
                 <button id="default7days" class="tablinks" onclick="openPeriod(event, '7days')">7 Days</button>
                 <button class="tablinks" onclick="openPeriod(event, '14Days')">14 days</button>
                 <button class="tablinks" onclick="openPeriod(event, '21days')">21 days</button>
@@ -203,6 +183,8 @@
 </body>
 </html>
 <script>
+    $('#nav-link').attr("href", "eKYCSearch")
+    $('#nav-name').text("e-KYC");
 
     $("#id").on('keyup', function (e) {
         if ($("#id").val() == "")
@@ -218,12 +200,6 @@
     $("#_form").submit(function (e) {
         e.preventDefault();
     });
-
-//    function myPopup(message,flag) {
-//        var popup = document.getElementById("myPopup");
-//        popup.innerText = message;
-//        popup.classList.toggle("show", flag);
-//    }
 
     $(document).ready(function () {
         document.getElementById('default7days').click();

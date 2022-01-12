@@ -5,6 +5,10 @@
         font-size: 13px;
     }
 
+    .sidebar-menu > li > a {
+        padding: 2px 5px 2px 15px;
+    }
+
     .sidebar-menu li span {
         color: gray;
         font-size: 13px;
@@ -45,12 +49,32 @@
         top: -5px !important;
         z-index: 900;
     }
+
+    .sidebar-menu > li:hover > .treeview-menu {
+        background: #E8E7E4;
+    }
+
+    .sidebar-menu > li > a:hover {
+        background: #E8E7E4 !important;
+    }
+
+    .sidebar-menu > li > a > i {
+        color: #AAA9A5;
+    }
+
+        .sidebar-menu > li > a > span > i {
+        color: #AAA9A5;
+    }
+
+    .sidebar-menu > li > a > span {
+        color: #72706B;
+    }
 </style>
 
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">Main</li>
+    <li class="header" style="background-color: #F7F6F3">Main</li>
     <!-- Optionally, you can add icons to the links -->
-    <li>
+    <li >
         <a href="~/Clairvoyance/eKYC/eKYCSearch">
             <span class="pull-right-container">
                 <i class="fa fa-caret-right"></i>
@@ -66,8 +90,8 @@
             <i class="fa fa-user-secret"></i> <span>ML/TF</span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="#"><i class="fa fa-list"></i> Transaction 1 </a></li>
-            <li> <a href="#"><i class="fa fa-tag"></i> Transaction 2 </a></li>
+            <li> <a href="#"><i class="fa fa-list"></i><span> Transaction 1</span> </a></li>
+            <li> <a href="#"><i class="fa fa-tag"></i> <span>Transaction 2 </span></a></li>
         </ul>
     </li>
     <li class="treeview">
@@ -83,7 +107,7 @@
     <li class="treeview">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right pull-left"></i>
+                <i class="fa fa-caret-right"></i>
             </span>
             <i class="fa fa-list"></i> <span>List Maintenance</span>
         </a>
@@ -93,8 +117,8 @@
     <li class="treeview">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right pull-left">
-            </span></i><i class="fa fa-tags"></i> <span>FP Maintenance</span>
+                <i class="fa fa-caret-right"></i>
+            </span><i class="fa fa-tags"></i> <span>FP Maintenance</span>
         </a>
         <ul class="treeview-menu">
         </ul>

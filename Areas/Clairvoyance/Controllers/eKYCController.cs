@@ -116,25 +116,25 @@ namespace OneFin.Areas.Clairvoyance.Controllers
             cfaddresslist.Add(new CFAddress { TP04_kampong_FPKC = "KAYANGAN", TP05_jalan_FPJC = "3", TP06_simpang_FPSM = "1", TP07_block = "", TP08_unit = "", TP09_postalCode_FPPK = "BA1234", TP10_district_FPDK = "TUTONG", TP11_mukim = "TUTONG", TP12_lot_FPLT = "", TP13_building_FPBG = "",RegHist="1" });
             cust.AddContentList.AddRange(cfaddresslist);
 
-            cfphonelist.Add(new CFPhone { PH03_phoneNumber= "45454545",PH04_phoneType_FPTL= "HOME", PH05_source="MIBS", PH06_startDate="05 - JUL - 21 00:00:00",PH07_EndDate="", PH87_userID="TESTING USER", PH88_lastUpdate="05-JUL-21 12:42:45", RegHist="2",OTPHist= "0" });
-            cfphonelist.Add(new CFPhone { PH03_phoneNumber = "8785628", PH04_phoneType_FPTL = "MOBILE", PH05_source = "CREDIT BUREAU", PH06_startDate = "10 - JUL - 21 00:00:00", PH07_EndDate = "", PH87_userID = "TESTING USER", PH88_lastUpdate = "05-JUL-21 12:42:45", RegHist = "1", OTPHist = "3" });
+            cfphonelist.Add(new CFPhone { PH03_phoneNumber= "45454545",PH04_phoneType_FPTL= "HOME", PH05_source="MIBS", PH06_startDate="05 - JUL - 21 ",PH07_EndDate="", PH87_userID="TESTING USER", PH88_lastUpdate="05-JUL-21 ", RegHist="2",OTPHist= "0" });
+            cfphonelist.Add(new CFPhone { PH03_phoneNumber = "8785628", PH04_phoneType_FPTL = "MOBILE", PH05_source = "CREDIT BUREAU", PH06_startDate = "10 - JUL - 21 ", PH07_EndDate = "", PH87_userID = "TESTING USER", PH88_lastUpdate = "05-JUL-21 ", RegHist = "1", OTPHist = "3" });
             cust.PhoneContentList.AddRange(cfphonelist);
             /*Mock Contact*/
 
-            cfemaillist.Add(new CFEmail { EM03_emailAddress = "james@gmail.com", EM06_source = "MIBS", EM04_startDate = "05 - JUL - 21 00:00:00", EM05_endDate = "", EM87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 12:42:45" });
-            cfemaillist.Add(new CFEmail { EM03_emailAddress = "jameslee@gmail.com", EM06_source = "MOBILE",  EM04_startDate = "10 - JUL - 21 00:00:00", EM05_endDate = "", PH87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 12:42:45"});
+            cfemaillist.Add(new CFEmail { EM03_emailAddress = "james@gmail.com", EM06_source = "MIBS", EM04_startDate = "05 - JUL - 21 ", EM05_endDate = "", EM87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 " });
+            cfemaillist.Add(new CFEmail { EM03_emailAddress = "jameslee@gmail.com", EM06_source = "MOBILE",  EM04_startDate = "10 - JUL - 21 ", EM05_endDate = "", PH87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 "});
             cust.EmailContentList.AddRange(cfemaillist);
 
-            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "james@gmail.com", SM03_socialMediaType_FKXX = "INSTAGRAM", SM05_startDate = "05 - JUL - 21 00:00:00", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 12:42:45" });
-            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "jameslee@gmail.com", SM03_socialMediaType_FKXX = "LINKEIN", SM05_startDate = "10 - JUL - 21 00:00:00", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 12:42:45" });
+            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "james@gmail.com", SM03_socialMediaType_FKXX = "INSTAGRAM", SM05_startDate = "05 - JUL - 21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
+            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "jameslee@gmail.com", SM03_socialMediaType_FKXX = "LINKEIN", SM05_startDate = "10 - JUL - 21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
             cust.SocialMediaContentList.AddRange(cfsocialmedialist);
 
-            cfemploymentcivilianpublicsectorlist.Add(new CFEmploymentCivilianPublicSector { CS03_ministryCode_FPMT= "45454545", CS04_startDate= "05-JUL-21 00:00:00", CS05_endDate="",CS87_updatedBy= "TESTING USER", CS88_lastModifiedDate= "05-JUL-21 12:42:45" });
-            cfemploymentuniformpublicsectorlist.Add(new CFEmploymentUniformPublicSector { US03_UniformCode_FPUF = "1166111", US04_StartDate = "05-JUL-21 00:00:00", US05_EndDate = "", US87_UserID = "TESTING USER", US88_UpdateDate = "05-JUL-21 12:42:45" });
-            cfemploymentsemigovernmentsectorlist.Add(new CFEmploymentSemiGovernmentSector { SS03_semiGovernment = "WaterBoard", SS04_startDate = "05-JUL-21 00:00:00",  SS05_endDate= "", SS87_userID = "TESTING USER",  SS88_updateDate= "05-JUL-21 12:42:45" });
-            cfemploymentprivatesectolist.Add(new CFEmploymentPrivateSector { PS03_privateCompany = "Super 888 Company", PS04_startDate = "05-JUL-21 00:00:00", PS05_endDate = "", PS87_userID = "TESTING USER", PS88_updateDate = "05-JUL-21 12:42:45" });
-            cfemploymentselfemployedlist.Add(new CFEmploymentSelfEmployed { BH04_companyName_FPPV = "ANT Company", BH05_businessStartDate = "05-JUL-20 00:00:00", BH06_businessEndDate = "", BH87_UserID = "TESTING USER", BH88_UpdateDate = "05-JUL-21 12:42:45" });
-            cfunemployed.Add(new CFUnemployed { UH03_unemploymentType_FPUT = "Housewife", UH04_StartDate = "05-JUL-19 00:00:00", UH05_EndDate = "", UH87_UserID = "TESTING USER", UH88_UpdateDate = "05-JUL-21 12:42:45" });
+            cfemploymentcivilianpublicsectorlist.Add(new CFEmploymentCivilianPublicSector { CS03_ministryCode_FPMT= "45454545", CS04_startDate= "05-JUL-21 ", CS05_endDate="",CS87_updatedBy= "TESTING USER", CS88_lastModifiedDate= "05-JUL-21 " });
+            cfemploymentuniformpublicsectorlist.Add(new CFEmploymentUniformPublicSector { US03_UniformCode_FPUF = "1166111", US04_StartDate = "05-JUL-21 ", US05_EndDate = "", US87_UserID = "TESTING USER", US88_UpdateDate = "05-JUL-21 " });
+            cfemploymentsemigovernmentsectorlist.Add(new CFEmploymentSemiGovernmentSector { SS03_semiGovernment = "WaterBoard", SS04_startDate = "05-JUL-21 ",  SS05_endDate= "", SS87_userID = "TESTING USER",  SS88_updateDate= "05-JUL-21 " });
+            cfemploymentprivatesectolist.Add(new CFEmploymentPrivateSector { PS03_privateCompany = "Super 888 Company", PS04_startDate = "05-JUL-21 ", PS05_endDate = "", PS87_userID = "TESTING USER", PS88_updateDate = "05-JUL-21 " });
+            cfemploymentselfemployedlist.Add(new CFEmploymentSelfEmployed { BH04_companyName_FPPV = "ANT Company", BH05_businessStartDate = "05-JUL-20 ", BH06_businessEndDate = "", BH87_UserID = "TESTING USER", BH88_UpdateDate = "05-JUL-21 " });
+            cfunemployed.Add(new CFUnemployed { UH03_unemploymentType_FPUT = "Housewife", UH04_StartDate = "05-JUL-19 ", UH05_EndDate = "", UH87_UserID = "TESTING USER", UH88_UpdateDate = "05-JUL-21 " });
 
 
             cust.EmploymentCivilianPublicSectorContentList.AddRange(cfemploymentcivilianpublicsectorlist);
@@ -153,8 +153,8 @@ namespace OneFin.Areas.Clairvoyance.Controllers
             cfyincome.Add(new CFYIncome { AI05_incomeCat_FPSU = "Employment", AI04_YYYY = "2020", AI03_annualIncome = "$1,000,000" });
             cust.YIncomeContentList.AddRange(cfyincome);
 
-            //cfrelationship.Add(new CFRelationship { SU09_relationshipCIFName= "MARJINA",SU05_relationshipType_FPRE= "SPOUSE",SU06_relationshipStatus="Valid", SU07_startDate= "05-JUL-19 00:00:00", SU08_endDate="", SU87_updatedBy="RIHINAH",SU88_lastModifiedDate="" });
-            cfrelationship.Add(new CFRelationship { SU09_relationshipCIFName = "THIRD CHILD BIN MD ARNEY FAIZUL", SU05_relationshipType_FPRE = "BIOLOGICAL CHILD", SU06_relationshipStatus = "Valid", SU07_startDate = "05-JUL-19 00:00:00", SU08_endDate = "", SU87_updatedBy = "TESTING USER", SU88_lastModifiedDate = "05-JUL-21" });
+            //cfrelationship.Add(new CFRelationship { SU09_relationshipCIFName= "MARJINA",SU05_relationshipType_FPRE= "SPOUSE",SU06_relationshipStatus="Valid", SU07_startDate= "05-JUL-19 ", SU08_endDate="", SU87_updatedBy="RIHINAH",SU88_lastModifiedDate="" });
+            cfrelationship.Add(new CFRelationship { SU09_relationshipCIFName = "THIRD CHILD BIN MD ARNEY FAIZUL", SU05_relationshipType_FPRE = "BIOLOGICAL CHILD", SU06_relationshipStatus = "Valid", SU07_startDate = "05-JUL-19 ", SU08_endDate = "", SU87_updatedBy = "TESTING USER", SU88_lastModifiedDate = "05-JUL-21" });
 
 
             cust.RelationshipContentList.AddRange(cfrelationship);

@@ -15,6 +15,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
+
         .column {
             float: left;
             width: 100px;
@@ -31,6 +33,70 @@
         .tab-cp button{
             color: var(--appleblue);
         }
+
+        .btn-rounded {
+            color: black;
+            border: #E6E6E6 1px solid;
+        }
+
+        .btn-status {
+            color: black;
+            border: #E6E6E6 1px solid;
+            background-color: white;
+            /*border:none;
+                background-color: #f2f2f2;
+                */
+            outline: none;
+            cursor: pointer;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 5px;
+            min-width: 50px;
+        }
+
+        .active-btn-selected {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: var(--applebuttonblue);
+        }
+
+        .active-btn-selected-0 {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: var(--applebuttonblue);
+        }
+
+        .btn-rounded-blue:hover {
+            background-color: var(--applebuttonblue) !important;
+            color: white !important;
+            outline: none;
+        }
+
+        .btn-rounded-blue:active {
+            background-color: var(--applebuttonblue) !important;
+            color: white !important;
+            outline: none;
+        }
+
+        .btn-rounded-green:hover {
+            background-color: green !important;
+            color: white !important;
+            outline: none;
+        }
+
+        .btn-rounded-red:hover {
+            background-color: red !important;
+            color: white !important;
+            outline: none;
+        }
+        .btn-rounded-orange:hover {
+            background-color: orange !important;
+            color: white !important;
+            outline: none;
+        }
+
     </style>
 
 </head>
@@ -39,23 +105,19 @@
     <div class="form-popup" id="myForm"></div>
     <section class="content-header" id="headerpanel">
 
-        <h1>
+        <h1 style="font-size:50px">
             <strong id="HeaderName">
             </strong>
 
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="/Clairvoyance/eKYC/eKYCSearch"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li> eKYC Validation</li>
-        </ol>
     </section>
-    <section class="content container-fluid">
+    <section class="content container-fluid no-border" >
         <div id="overlay" style="display: none">
             <div id="loader"></div>
         </div>
-        <div class="box">
+        <div class="box no-border">
             <div class="row">
-                <div class="col-lg-3" style="align-items: center; display:flex; justify-content: center; text-align: center;">
+                <div class="col-lg-4" style="align-items: center; display:flex; justify-content: center; text-align: center;">
                     <div style="position: relative; border: 0; padding: 0; margin: 0; width: 300px; height: 300px; ">
                         <canvas id="myChart" width="200" height="200" style="position:absolute; z-index:3"></canvas>
                         <div style="width: 300px; height: 300px; padding-top: 56px ">
@@ -63,32 +125,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" style="display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; ">
+                <div class="col-lg-4" style="display: flex; margin: 10px 10px 10px 10px; justify-content: left; align-items: center; ">
                     <div class="box-body">
-                        <span style="font-size:40px">
+                        <span style="font-size:35px">
                             <strong> @Html.Raw(customer.Name)</strong>
                         </span><br />
                         <div class="box-body" style="padding-left:0">
-                            <span style="font-size:14px"><i class="fa fa-handshake-o"></i> Quant Onboarding</span><br />
-                            <span style="font-size: 14px"><i class="fa fa-user-secret"></i> MLTF Risk Level 2</span><br />
-                            <span style="font-size: 14px"><i class="fa fa-check-square-o"></i> Personal Score</span><br />
-                            <span style=" font-size: 14px;"> <i class="fa fa-warning"></i> Credit Risk Level </span><br />
+                            <span style="font-size:13px"><i class="fa fa-handshake-o"></i> Quant Onboarding</span><br />
+                            <span style="font-size: 13px"><i class="fa fa-user-secret"></i> MLTF Risk Level 2</span><br />
+                            <span style="font-size: 13px"><i class="fa fa-check-square-o"></i> Personal Score</span><br />
+                            <span style=" font-size: 13px;"> <i class="fa fa-warning"></i> Credit Risk Level </span><br />
                         </div>
                         <span style=""> Transaction Override </span><br />
                         <span style="padding-bottom:20px;"> Bio-metric Authentication Failed </span>
                     </div>
                 </div>
-                <div class="col-lg-4" style="font-size: 30px; display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; text-align:center ">
+                <div class="col-lg-3" style="font-size: 30px; display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; text-align:center ">
                     <div class="box-body">
                         <div class="row">
                             <div class="column">
-                                <strong>3</strong><br /><span style="font-size:15px">e-KYC</span>
+                                <strong>3</strong><br /><span style="font-size:14px">e-KYC</span>
                             </div>
                             <div class="column">
-                                <strong>2</strong><br /><span style="font-size:15px">MLTF</span>
+                                <strong>2</strong><br /><span style="font-size:14px">MLTF</span>
                             </div>
                             <div class="column">
-                                <strong>3</strong><br /><span style="font-size:15px">TX Monitoring</span>
+                                <strong>3</strong><br /><span style="font-size:14px">TX Monitoring</span>
                             </div>
                         </div>
                     </div>
@@ -97,7 +159,7 @@
 
                 <div class="box-header" >
                     <div id="DIV-source" style="margin-top:30px;">
-                        <button class="btn-source active-btn-selected btn-rounded"> <img class="img-circle" src="~/dist/img/Ultron.jpg"  style="width:20px; height:20px; margin-top: -2px"/> Ultron Pro</button>
+                        <button class="btn-source btn-rounded active-btn-selected"> <img class="img-circle" src="~/dist/img/Ultron.jpg"  style="width:20px; height:20px; margin-top: -2px"/> Ultron Pro</button>
                         <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/exponential.jpg" style="width:20px; height:20px; margin-top: -2px" /> eXponential Pro</button>
                         <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive Pro</button>
                         <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive for Business</button>
@@ -119,15 +181,15 @@
 
                 <div class="box-header border-bottom-cp" style="padding-top:20px">
                     <div class="row">
-                        <div class="col-lg-2">
+                        <div class="col-lg-3">
                             <h4 style="font-size:30px"> <strong>e-KYC Result </strong></h4>
                         </div>
-                        <div class="col-lg-10">
+                        <div class="col-lg-9">
                             <div id="DIV-status" style="margin-top:10px; float:right">
-                                <button class="btn-status active-btn-selected-0 btn-rounded"> All </button>
-                                <button class="btn-status btn-rounded"> Pass</button>
-                                <button class="btn-status btn-rounded"> Fail</button>
-                                <button class="btn-status btn-rounded"> Override</button>
+                                <button class="btn-status btn-rounded-blue active-btn-selected-0 "> All </button>
+                                <button class="btn-status btn-rounded-green"> Pass</button>
+                                <button class="btn-status btn-rounded-red"> Fail</button>
+                                <button class="btn-status btn-rounded-orange "> Override</button>
                             </div>
                         </div>
 
@@ -137,11 +199,27 @@
                         var header = document.getElementById("DIV-status");
                         var btns = header.getElementsByClassName("btn-status");
                         for (var i = 0; i < btns.length; i++) {
-                            btns[i].addEventListener("click", function () {
+                            btns[i].addEventListener("click", function () {                                
                                 var current = document.getElementsByClassName("active-btn-selected-0");
+                                current[0].style.backgroundColor = "white";
+
+                                current[0].style.color = "black";
                                 current[0].className = current[0].className.replace(" active-btn-selected-0", "");
                                 this.className += " active-btn-selected-0";
                                 filter = this.innerText;
+                                $(this).css('color', 'white');
+                                if (filter == "All") {
+                                    $(this).css('background-color', '#3272D8');
+                                   
+                                } else if (filter == "Pass") {
+                                    $(this).css('background-color', 'Green');
+                                }
+                                else if (filter == "Fail") {
+                                    $(this).css('background-color', 'red');
+                                }
+                                else if (filter == "Override") {
+                                    $(this).css('background-color', 'orange');
+                                }
                                 eKYCDetailList(tabType);
                                 //$('#eKYCDetailList').show();
 
@@ -150,7 +228,7 @@
                     </script>
                 </div>
 
-                <div class="tab-cp animate-bottom" style="padding-left:10px">
+                <div class="tab-cp animate-bottom"  >
                     <button id="tabBIO" class="tablinks" onclick="openValidation(event, 'BIO')">Biometric Validation</button>
                     <button id="tabAddress" class="tablinks" onclick="openValidation(event, 'Address')">Address Validation</button>
                     <button id="tabID" class="tablinks" onclick="openValidation(event, 'ID')">ID Validation</button>
@@ -160,8 +238,8 @@
                     <button id="tabRelationship" class="tablinks" onclick="openValidation(event, 'Relationship')">Relationship Validation</button>
                 </div>
 
-                <div class="box-body">
-                    <div id="BIO" class="tabcontent animate-bottom"> </div>
+                <div class="box-body no-border ">
+                    <div id="BIO" class="tabcontent animate-bottom" > </div>
                     <div id="Address" class="tabcontent animate-bottom"></div>
                     <div id="ID" class="tabcontent animate-bottom"></div>
                     <div id="Contact" class="tabcontent animate-bottom"> </div>
@@ -179,6 +257,8 @@
 </html>
 
 <script>
+    $('#nav-link').attr("href", "eKYCSearch")
+
     function PopupDetail(type) {
         //$("#myForm").load("CustomerLKOverride", { LKOverride: data });
         document.getElementById("overlay").style.display = "block";
@@ -270,41 +350,48 @@
         if (ekyctab == "BIO") {
             eKYCDetailBIO();
             $('#HeaderName').text("Biometric Validation");
+            $('#nav-name').text("e-KYC/Biometric Validation");
 
         }
         else if (ekyctab == "Address") {
             eKYCDetailAddress();
            // $("#Address").load("eKYCDetailAddress");
             $('#HeaderName').text("Address Validation");
+            $('#nav-name').text("e-KYC/Address Validation");
 
         }
         else if (ekyctab == "ID") {
             $("#ID").load("eKYCDetailID");
             $('#HeaderName').text("ID Validation");
+            $('#nav-name').text("e-KYC/ID Validation");
 
         }
         else if (ekyctab == "Contact") {
             eKYCDetailContact();
             //$("#Contact").load("eKYCDetailContact");
             $('#HeaderName').text("Contact Validation");
+            $('#nav-name').text("e-KYC/Contact Validation");
 
         }
         else if (ekyctab == "Employment") {
             eKYCDetailEmployment();
             //$("#Employment").load("eKYCDetailEmployment");
             $('#HeaderName').text("Employment Validation");
+            $('#nav-name').text("e-KYC/Employment Validation");
 
         }
         else if (ekyctab == "Income") {
             eKYCDetailIncome();
             //$("#Income").load("eKYCDetailIncome");
             $('#HeaderName').text("Income Validation");
+            $('#nav-name').text("e-KYC/Income Validation");
 
         }
         else if (ekyctab == "Relationship") {
             eKYCDetailRelationship();
             //$("#Relationship").load("eKYCDetailRelationship");
             $('#HeaderName').text("Relationship Validation");
+            $('#nav-name').text("e-KYC/Relationship Validation");
 
         }
         else {

@@ -1,39 +1,42 @@
-﻿<section class="content"  style="display:flex; justify-content:center; padding: 0 5px 0 5px">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="box-cp" style="border-radius: 20px; border: 1px solid #ccc; margin: 10px 0 10px 0 ">
-                    <div class="inner" style="min-height: 300px; min-width: 300px; display: flex; align-items: center; padding: 20px 20px 20px 20px; justify-content: center ">
+﻿<style>
+    .inner {
+        min-height: 210px;
+        min-width: 330px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #007AFF;
+        border-radius: 10px
+    }
+</style>
+
+
+<section class="content"  style="display:flex; justify-content:center; padding: 0 5px 0 5px">
+    <div class="row" style="padding: 10px 0 10px 0">
+        <div class="col-lg-6">         
+                    <div class="inner" >
                         <div class="row">
-                            <div class="col-lg-9">
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img src="/sampleimg/SampleID.png" style="display: flex; width: 100%; height:100%" />
+                                            <img src="/sampleimg/SampleID.png" style="display: flex; width: 100%; height:100%; border-radius:10px" />
                                         </div>
                                         <div class="flip-card-back">
                                             <img src="/sampleimg/SampleID-BACK.png" style="display: flex; width: 100%; height:100%" />
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3" style="font-size:12px">
-                                <h4>ID</h4>
-                                Source: <br /> <label> National ID </label><br />
-                                Date Taken: <br /><label> 01-Dec-2021</label>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         <div class="col-lg-6">
-            <div class="box-cp" style="border-radius: 20px; border: 1px solid #ccc; margin: 10px 0 10px 0 ">
-                <div class="inner" style="min-height: 300px; display: flex; align-items: center; padding: 10px 10px 10px 10px; justify-content:center">
+                <div class="inner">
                     <div class="row">
-                        <div class="col-lg-9">
+
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="/sampleimg/brunei-DL_659x580.jpg" style="display: flex; width: 100%; height:100%" />
+                                        <img src="/sampleimg/brunei-DL_659x580.jpg" style="display: flex; width: 100%; height:100%; border-radius:10px" />
                                     </div>
                                     <div class="flip-card-back" style="background-color:gray">
                                         <h1>Driving License</h1>
@@ -42,15 +45,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3" style="font-size:12px">
-                            <h4>ID</h4>
-                            Source: <br /> <label> Driving License </label><br />
-                            Date Taken: <br /><label> 01-Dec-2021</label>
-                        </div>
+
                     </div>
                 </div>
-            </div>
         </div>
 </div>
     </section>
@@ -59,7 +56,7 @@
             .flip-card {
                 background-color: transparent;
                 width: 320px;
-                height: 220px;
+                height: 200px;
                 perspective: 1000px;
             }
 

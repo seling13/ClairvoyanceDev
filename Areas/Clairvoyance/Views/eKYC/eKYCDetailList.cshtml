@@ -1,16 +1,22 @@
 ﻿@model IEnumerable<OneFin.Models.eKYCValidate>
+
+<style>
+    a {
+        color:black;
+    }
+</style>
     <div class="pre-scrollablex">
         <table class="table table-bottom">
-            <thead >
-                <tr >
-                    <th style="min-width:100px;">
+            <thead>
+                <tr  style="font-weight:bold; font-size:20px">
+                    <th style="max-width:50px;">
                         Rule Name
                     </th>
                     <th style="min-width:200px">
                         Rule Description
                     </th>
-                    <th style="min-width:100px">
-                        Pass Or Fail
+                    <th style="min-width:150px">
+                       e-KYC Result
                     </th>
                     <th>
                         Recommendation
@@ -28,7 +34,7 @@
 
                     <tr>
 
-                        <td>
+                        <td style="font-weight:600" >
 
                             <a href="#" onclick="GeteKYCListVerification('@ViewBag.type', '@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV04_ruleName)</a>
                         </td>
@@ -42,17 +48,17 @@
 
 
                     if ('@Html.DisplayFor(modelItem => item.DV07_passOrFail)' == "FAIL") {
-                        $("#@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)").addClass("fa fa-close");
+                        $("#@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)").addClass("fa fa-circle fa-lg");
                         document.getElementById('@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)').style.color = "red";
                     }
 
                     if ('@Html.DisplayFor(modelItem => item.DV07_passOrFail)' == "PASS") {
-                        $("#@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)").addClass("fa fa-check-circle");
+                        $("#@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)").addClass("fa fa-circle fa-lg");
                         document.getElementById('@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)').style.color = "green";
                     }
 
                             </script>
-                            <i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)'></i><a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV07_passOrFail)</a>
+                            <div style="display:flex; align-items:center; justify-content:center"><i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)' style="font-size:12px; padding-right:8px"></i><a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV07_passOrFail)</a></div>
                         </td>
                         <td>
                             <a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV09_recommendation)</a>
