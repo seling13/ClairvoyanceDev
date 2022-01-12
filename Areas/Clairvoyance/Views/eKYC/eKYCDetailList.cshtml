@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<OneFin.Models.eKYCValidate>
 
 <style>
-    a {
+  .black {
         color:black;
     }
 </style>
@@ -36,10 +36,10 @@
 
                         <td style="font-weight:500" >
 
-                            <a href="#" onclick="GeteKYCListVerification('@ViewBag.type', '@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV04_ruleName)</a>
+                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type', '@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV04_ruleName)</a>
                         </td>
                         <td>
-                            <a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV05_ruleDescription)</a>
+                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV05_ruleDescription)</a>
                         </td>
 
 
@@ -58,13 +58,13 @@
                     }
 
                             </script>
-                            <div style="display:flex; align-items:center; justify-content:center"><i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)' style="font-size:12px; padding-right:8px"></i><a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV07_passOrFail)</a></div>
+                            <div style="display:flex; align-items:center; justify-content:center"><i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)' style="font-size:12px; padding-right:8px"></i><a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV07_passOrFail)</a></div>
                         </td>
                         <td>
-                            <a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV09_recommendation)</a>
+                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV09_recommendation)</a>
                         </td>
                         <td>
-                            <a href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.OV05_TP_TN_FP_FN_Flag)</a>
+                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.OV05_TP_TN_FP_FN_Flag)</a>
                         </td>
                     </tr>
 
