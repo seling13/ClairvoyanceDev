@@ -104,6 +104,9 @@ namespace OneFin.Models
         public string PH87_userID { get; set; }
         public string PH88_lastUpdate { get; set; }
 
+        public string RegHist { get; set; }
+        public string OTPHist { get; set; }
+
     }
 
     public class CFSocialMedia

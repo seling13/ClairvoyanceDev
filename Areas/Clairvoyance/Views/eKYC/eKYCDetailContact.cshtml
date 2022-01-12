@@ -105,31 +105,49 @@
                         <th style="min-width:120px">
                             Last Update
                         </th>
+                        <th style="text-align:center">
+                            Registered To History
+                        </th>
+                        <th style="text-align:center">
+                            OTP Pass
+                        </th>
+                        <th style="text-align:center">
+                            OTP Fail
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model.EmailContentList)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM03_emailAddress)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM06_source)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM04_startDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM05_endDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM87_userID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EM88_lastUpdate)
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM03_emailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM06_source)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM04_startDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM05_endDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM87_userID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EM88_lastUpdate)
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
+                        </td>
+                        <td style="text-align:center">
+                            <a href="#" onclick="PopupOTP('Addres')"> @Html.DisplayFor(modelItem => item.OTPHist)</a>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

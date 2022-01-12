@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4" style="display: flex; margin: 10px 10px 10px 10px; justify-content: left; align-items: center; ">
+                <div class="col-lg-3" style="display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; ">
                     <div class="box-body">
                         <span style="font-size:35px">
                             <strong> @Html.Raw(customer.Name)</strong>
@@ -128,23 +128,23 @@
                             <span style="font-size:13px"><i class="fa fa-handshake-o" style="width:17px"></i> Quant Onboarding</span><br />
                             <span style="font-size: 13px"><i class="fa fa-user-secret" style="width:17px"></i> MLTF Risk Level 2</span><br />
                             <span style="font-size: 13px"><i class="fa fa-check-square-o" style="width:17px"></i> Personal Score</span><br />
-                            <span style=" font-size: 13px;"> <i class="fa fa-warning" style="width:17x"></i> Credit Risk Level </span><br />
+                            <span style=" font-size: 13px;"> <i class="fa fa-warning" style="width:17px"></i> Credit Risk Level </span><br />
                         </div>
                         <span style=""> Transaction Override </span><br />
                         <span style="padding-bottom:20px;"> Bio-metric Authentication Failed </span>
                     </div>
                 </div>
-                <div class="col-lg-3" style="font-size: 30px; display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; text-align:center ">
+                <div class="col-lg-4" style="font-size: 25px; display: flex; justify-content: center; align-items: center; text-align:center ">
                     <div class="box-body">
                         <div class="row">
-                            <div class="column">
-                                <strong>3</strong><br /><span style="font-size:14px">e-KYC</span>
+                            <div class="column" >
+                                <strong>3</strong><br /><span style="font-size:13px">e-KYC</span>
+                            </div>
+                            <div class="column" >
+                                <strong>2</strong><br /><span style="font-size:13px">MLTF</span>
                             </div>
                             <div class="column">
-                                <strong>2</strong><br /><span style="font-size:14px">MLTF</span>
-                            </div>
-                            <div class="column">
-                                <strong>3</strong><br /><span style="font-size:14px">TX Monitoring</span>
+                                <strong>3</strong><br /><span style="font-size:13px">TX Monitoring</span>
                             </div>
                         </div>
                     </div>
@@ -412,7 +412,8 @@
             title: {
             display: false,
         text: "eKYC Criteria"
-    }
+                },
+                responsive: true
   }
         });
 
