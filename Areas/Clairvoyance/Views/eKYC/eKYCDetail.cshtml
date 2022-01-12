@@ -112,12 +112,11 @@
         <div class="box no-border">
             <div class="row">
                 <div class="col-lg-4" style="align-items: center; display:flex; justify-content: center; text-align: center;">
-                    <div style="position: relative; border: 0; padding: 0; margin: 0; width: 300px; height: 300px; ">
-                        <canvas id="myChart" width="200" height="200" style="position:absolute; z-index:3"></canvas>
+
+                        <canvas id="myChart"  style="position: absolute; z-index: 3; max-height: 300px; max-width: 300px; width: 300px; height: 300px "></canvas>
                         <div style="width: 300px; height: 300px; padding-top: 56px ">
                             <img style="width: 225px; height: 225px;" class="img-circle" src="@Html.Raw(customer.IMGSource)" />
                         </div>
-                    </div>
                 </div>
                 <div class="col-lg-3" style="display: flex; margin: 10px 10px 10px 10px; justify-content: center; align-items: center; ">
                     <div class="box-body">
@@ -404,7 +403,7 @@
             type: "doughnut",
             data: {
                 labels: xValues,
-                datasets: [{ backgroundColor: barColors, data: yValues }],
+                datasets: [{ backgroundColor: barColors, data: [55, 49, 44] }],
 
             },
             options: {
@@ -413,7 +412,8 @@
             display: false,
         text: "eKYC Criteria"
                 },
-                responsive: true
+                responsive: false
+
   }
         });
 
