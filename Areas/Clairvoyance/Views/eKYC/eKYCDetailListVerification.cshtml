@@ -154,17 +154,17 @@
                         <td>
                             <script>
                     if ('@Html.Raw(Model.DV07_passOrFail)' == "FAIL") {
-                        $("#DV07_passOrFailV").addClass("fa fa-close");
+                        $("#DV07_passOrFailV").addClass("fa fa-circle");
                         document.getElementById('DV07_passOrFailV').style.color = "red";
                     }
 
                     if ('@Html.Raw(Model.DV07_passOrFail)' == "PASS") {
-                        $("#DV07_passOrFailV").addClass("fa fa-check-circle");
+                        $("#DV07_passOrFailV").addClass("fa fa-fa fa-circle");
                         document.getElementById('DV07_passOrFailV').style.color = "green";
                     }
                             </script>
-                            <i id="DV07_passOrFailV"></i> @Html.Raw(Model.DV07_passOrFail)
-                        </td>
+                            <div style="display:flex; align-items:center; justify-content:center"><i id="DV07_passOrFailV"style="font-size:12px; padding-right:8px"></i> @Html.Raw(Model.DV07_passOrFail)</div>
+</td>
                         <td>
                             @Html.Raw(Model.DV08_deviationRemark)
                         </td>
