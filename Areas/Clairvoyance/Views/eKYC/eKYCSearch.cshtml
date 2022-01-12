@@ -59,6 +59,36 @@
   from {opacity: 0;}
   to {opacity:1 ;}
 }
+
+/*datepicker*/
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background-image: url('');
+          
+        }
+
+        .cal-wrp {
+            position: relative;
+            background-color: white;
+        }
+
+        .btnCal-wrp {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+      
+        .btnCal {
+            background: transparent;
+            border: none;
+            color: grey;
+            padding: 6px 10px 0 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
     </style>
 
 </head>
@@ -75,79 +105,93 @@
             </div>
 
 
-            <form id ="_form">
-                    <div style="position:relative;border:0;padding:0;margin:0;">
-                        <select class="form-control form-search-cp" id="select" style="padding-left:10px;">
-                            <option value="">Search</option>
-                            <option value="ID">ID Number</option>
-                            <option value="Name">Name</option>
-                        </select>
-                        <input class="form-control" style="padding-left: 90px; background-color: #EEEEEF" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="id" name="id">
-                    </div>
-                <div class="box-header" >
+            <form id="_form">
+                <div style="position:relative;border:0;padding:0;margin:0;">
+                    <select class="form-control form-search-cp" id="select" style="padding-left:10px;">
+                        <option value="">Search</option>
+                        <option value="ID">ID Number</option>
+                        <option value="Name">Name</option>
+                    </select>
+                    <input class="form-control" style="padding-left: 90px; background-color: #EEEEEF" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="id" name="id">
+                </div>
+
+
+                <div class="box-header">
                     <div class="col-sm-3 nopadding">
                         <div class="row-cp" style="padding-top:15px; padding-right:15px">
                             <div class="col-sm-4 nopadding">Search From</div>
                             <div class="col-sm-8  ">
-                                <input style="display: flex; align-items: center;" class="form-control" type="date" />
+                                <div class="cal-wrp">
+                                    <div class="btnCal-wrp">
+                                        <input id="txtSearch" style="display: flex; align-items: center; background-color:transparent" class="form-control" type="date" />
+                                    </div>
+                                    <button class="btnCal"><span class="fa fa-calendar"></span></button>
+                                </div>
+                               
                             </div>
+
                         </div>
                     </div>
                     <div class="col-sm-3 nopadding">
                         <div class="row-cp" style="padding-top:15px; padding-right:15px;">
                             <div class="col-sm-4 nopadding">Search Until</div>
                             <div class="col-sm-8 ">
-                                <input style="display:flex; align-items:center;" class="form-control" type="date" />
+                                <div class="cal-wrp">
+                                    <div class="btnCal-wrp">
+                                        <input id="txtSearch" style="display: flex; align-items: center; background-color:transparent" class="form-control" type="date" />
+                                    </div>
+                                    <button class="btnCal"><span class="fa fa-calendar"></span></button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                    <div class="border-bottom-cp">
-                        <h4><strong>History</strong></h4>
-                    </div>
+                <div class="border-bottom-cp">
+                    <h4><strong>History</strong></h4>
+                </div>
 
-                    <div class="box-header">
-                        <div id="DIV-LVL" style="margin-top:10px;">
-                            <button class="btn-lvl btn-rounded active-btn-selected" hidden> </button>
-                            <button class="btn-lvl btn-rounded"> Level 1</button>
-                            <button class="btn-lvl btn-rounded"> Level 2</button>
-                            <button class="btn-lvl btn-rounded"> Level 3</button>
-                            <button class="btn-lvl btn-rounded"> Level 4</button>
-                            <button class="btn-lvl btn-rounded"> Quant</button>
-                            <button class="btn-lvl btn-rounded"> Ultron Pro</button>
-                            <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
-                        </div>
+                <div class="box-header">
+                    <div id="DIV-LVL" style="margin-top:10px;">
+                        <button class="btn-lvl btn-rounded active-btn-selected" hidden> </button>
+                        <button class="btn-lvl btn-rounded"> Level 1</button>
+                        <button class="btn-lvl btn-rounded"> Level 2</button>
+                        <button class="btn-lvl btn-rounded"> Level 3</button>
+                        <button class="btn-lvl btn-rounded"> Level 4</button>
+                        <button class="btn-lvl btn-rounded"> Quant</button>
+                        <button class="btn-lvl btn-rounded"> Ultron Pro</button>
+                        <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
                     </div>
-                    <script>
-                        // Add active class to the current button (highlight it)
-                        var header = document.getElementById("DIV-LVL");
-                        var btns = header.getElementsByClassName("btn-lvl");
-                        for (var i = 0; i < btns.length; i++) {
-                            btns[i].addEventListener("click", function () {
-                                var current = document.getElementsByClassName("active-btn-selected");
-                                current[0].className = current[0].className.replace(" active-btn-selected", "");
-                                this.className += " active-btn-selected";
-                                if (this.innerText == "Level 1") {
-                                    if ($('#id').val() != "" && $('#select').val() == "") {
-                                        //myPopup("Please select Type", true);
+                </div>
+                <script>
+                    // Add active class to the current button (highlight it)
+                    var header = document.getElementById("DIV-LVL");
+                    var btns = header.getElementsByClassName("btn-lvl");
+                    for (var i = 0; i < btns.length; i++) {
+                        btns[i].addEventListener("click", function () {
+                            var current = document.getElementsByClassName("active-btn-selected");
+                            current[0].className = current[0].className.replace(" active-btn-selected", "");
+                            this.className += " active-btn-selected";
+                            if (this.innerText == "Level 1") {
+                                if ($('#id').val() != "" && $('#select').val() == "") {
+                                    //myPopup("Please select Type", true);
 
-                                        $('#7days').html("");;
-                                    }
-                                    else {
-                                        //myPopup("", false);
-                                        GeteKYC();
-                                    }
+                                    $('#7days').html("");;
                                 }
                                 else {
-                                    $("#7days").html("");
+                                    //myPopup("", false);
+                                    GeteKYC();
                                 }
+                            }
+                            else {
+                                $("#7days").html("");
+                            }
 
-                            });
+                        });
 
-                        }
-                    </script>
-</form>
+                    }
+                </script>
+            </form>
             <div class="tab-ap" >
                 <button id="default7days" class="tablinks" onclick="openPeriod(event, '7days')">7 Days</button>
                 <button class="tablinks" onclick="openPeriod(event, '14Days')">14 days</button>
