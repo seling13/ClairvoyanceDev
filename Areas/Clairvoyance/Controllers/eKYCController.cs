@@ -116,17 +116,17 @@ namespace OneFin.Areas.Clairvoyance.Controllers
             cfaddresslist.Add(new CFAddress { TP04_kampong_FPKC = "KAYANGAN", TP05_jalan_FPJC = "3", TP06_simpang_FPSM = "1", TP07_block = "", TP08_unit = "", TP09_postalCode_FPPK = "BA1234", TP10_district_FPDK = "TUTONG", TP11_mukim = "TUTONG", TP12_lot_FPLT = "", TP13_building_FPBG = "",RegHist="1" });
             cust.AddContentList.AddRange(cfaddresslist);
 
-            cfphonelist.Add(new CFPhone { PH03_phoneNumber= "45454545",PH04_phoneType_FPTL= "HOME", PH05_source="MIBS", PH06_startDate="05 - JUL - 21 ",PH07_EndDate="", PH87_userID="TESTING USER", PH88_lastUpdate="05-JUL-21 ", RegHist="2",OTPHist= "0" });
-            cfphonelist.Add(new CFPhone { PH03_phoneNumber = "8785628", PH04_phoneType_FPTL = "MOBILE", PH05_source = "CREDIT BUREAU", PH06_startDate = "10 - JUL - 21 ", PH07_EndDate = "", PH87_userID = "TESTING USER", PH88_lastUpdate = "05-JUL-21 ", RegHist = "1", OTPHist = "3" });
+            cfphonelist.Add(new CFPhone { PH03_phoneNumber= "45454545",PH04_phoneType_FPTL= "HOME", PH05_source="MIBS", PH06_startDate="05-JUL-21 ",PH07_EndDate="", PH87_userID="TESTING USER", PH88_lastUpdate="05-JUL-21 ", RegHist="2",OTPHist= "0" });
+            cfphonelist.Add(new CFPhone { PH03_phoneNumber = "8785628", PH04_phoneType_FPTL = "MOBILE", PH05_source = "CREDIT BUREAU", PH06_startDate = "10-JUL-21 ", PH07_EndDate = "", PH87_userID = "TESTING USER", PH88_lastUpdate = "05-JUL-21 ", RegHist = "1", OTPHist = "3" });
             cust.PhoneContentList.AddRange(cfphonelist);
             /*Mock Contact*/
 
-            cfemaillist.Add(new CFEmail { EM03_emailAddress = "james@gmail.com", EM06_source = "MIBS", EM04_startDate = "05 - JUL - 21 ", EM05_endDate = "", EM87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 " });
-            cfemaillist.Add(new CFEmail { EM03_emailAddress = "jameslee@gmail.com", EM06_source = "MOBILE",  EM04_startDate = "10 - JUL - 21 ", EM05_endDate = "", PH87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 "});
+            cfemaillist.Add(new CFEmail { EM03_emailAddress = "james@gmail.com", EM06_source = "MIBS", EM04_startDate = "05-JUL-21 ", EM05_endDate = "", EM87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 " });
+            cfemaillist.Add(new CFEmail { EM03_emailAddress = "jameslee@gmail.com", EM06_source = "MOBILE",  EM04_startDate = "10-JUL-21 ", EM05_endDate = "", PH87_userID = "TESTING USER", EM88_lastUpdate = "05-JUL-21 "});
             cust.EmailContentList.AddRange(cfemaillist);
 
-            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "james@gmail.com", SM03_socialMediaType_FKXX = "INSTAGRAM", SM05_startDate = "05 - JUL - 21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
-            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "jameslee@gmail.com", SM03_socialMediaType_FKXX = "LINKEIN", SM05_startDate = "10 - JUL - 21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
+            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "james@gmail.com", SM03_socialMediaType_FKXX = "INSTAGRAM", SM05_startDate = "05-JUL-21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
+            cfsocialmedialist.Add(new CFSocialMedia { SM04_socialMediaUserID = "jameslee@gmail.com", SM03_socialMediaType_FKXX = "LINKEIN", SM05_startDate = "10-JUL-21 ", SM06_endDate = "", SM87_userID = "TESTING USER", lastUpdateDate = "05-JUL-21 " });
             cust.SocialMediaContentList.AddRange(cfsocialmedialist);
 
             cfemploymentcivilianpublicsectorlist.Add(new CFEmploymentCivilianPublicSector { CS03_ministryCode_FPMT= "45454545", CS04_startDate= "05-JUL-21 ", CS05_endDate="",CS87_updatedBy= "TESTING USER", CS88_lastModifiedDate= "05-JUL-21 " });

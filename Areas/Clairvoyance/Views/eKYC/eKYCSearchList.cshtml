@@ -3,7 +3,7 @@
 @foreach (var item in Model)
 {
     <div class="container col-lg-4" style="display: flex; align-items: center;">
-        <div class="col-lg-6 no-padding" style="background-color:grey">
+        <div class="col-lg-6 no-padding">
             <div style="position: relative; border: 0; margin: 0; width: 130px; height: 130px;">
                 <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)" width="120" height="120" style="position:absolute; z-index:3"></canvas>
                 <script>
