@@ -5,7 +5,7 @@
     <div class="container col-lg-4" style="display: flex; align-items: center;">
         <div class="col-lg-5 no-padding" style="display:flex; justify-content:center;">
 
-                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)"  style="position: absolute; z-index: 3; max-height:130px; max-width:130px;  width:130px!important; height:130px!important"></canvas>
+                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)"  style="position: absolute; z-index: 3; max-height:130px; max-width:130px;  width:130px!important; height:130px!important;"></canvas>
 
                     <script>
                     var xValues = ["Pass", "Fail", "Override"];
@@ -20,18 +20,22 @@
 
                         },
                         options: {
-                            legend: {
-                                display: false
-                            },
-                            cutoutPercentage: 85,
-                            title: {
-                                display: false,
-                                text: "eKYC Criteria"
-                            },
-                            responsive: false,
-                            maintainAspectRatio: false,
-                            animation: {
-                                duration: 1000
+                            cutout:55,
+                            plugins: {                               
+                                legend: {
+                                    display: false
+                                },
+                                
+                                title: {
+                                    display: false,
+                                    text: "eKYC Criteria"
+                                },
+                                responsive: false,
+                                maintainAspectRatio: false,
+                                animation: {
+                                    duration: 1000
+                                }
+                                
                             }
                             
 

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-css-donut-chart@2/dist/vcdonut.css">
+<script src="https://unpkg.com/vue-css-donut-chart@2"></script>
+<script>
+    const app = Vue.createApp({});
+    app.use(vcdonut.default);
+</script>
+
+<html>
+
+<body style="background-color:aqua">
+
+    <div id="app">
+        <vc-donut v-bind="props">
+            <small>
+                <strong>vue-css-donut-chart</strong>
+                <br>
+                playground
+            </small>
+        </vc-donut>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    props: {
+                        size: 250,
+                        sections: [
+                            { value: 35 },
+                            { value: 15 },
+                            { value: 15 },
+                            { value: 35 }
+                        ],
+                        thickness: 20, // set this to 100 to render it as a pie chart instead
+                        hasLegend: true,
+                        // specify more props here
+                    }
+                };
+            }
+        });
+        app.use(vcdonut.default);
+        app.mount('#app');
+    </script>
+
+</body>
+</html>
