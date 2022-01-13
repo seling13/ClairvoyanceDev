@@ -229,7 +229,7 @@
         .btn-cp {
             background-color: var(--appleblue);
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
             min-width: 200px;
             min-height: 30px;
             border: none;
@@ -261,6 +261,8 @@
 
         input.form-control, select.form-control, textarea.form-control {
             border-radius: 20px;
+            width: 100%;
+            height: 100%;
         }
 
 
@@ -530,6 +532,99 @@
 
         .no-border {
             border: none !important; box-shadow:none;
+        }
+
+                .field-wrp {
+            position: relative;
+            background-color: white;
+        }
+
+        .btn-wrp {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+      
+        .btn-icon {
+            background: transparent;
+            border: none;
+            color: grey;
+            padding: 6px 13px 0 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .btn-icon-dd {
+            z-index: 10;
+            background: var(--applebuttonblue);
+            border-radius: 50%;
+            border: none;
+            color: white;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+        }
+
+        /*Dropdownlist*/
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            background: white;
+            background-image: none;
+            box-shadow: none;
+            border-color: #d2d6de;
+
+        }
+
+        .select {
+            position: relative;
+            display: block;
+            width: 20em;
+            height: 2.6em;
+            line-height: 3;
+            overflow: hidden;
+            border-radius: 20px;
+            border: none;
+        }
+
+            select::-ms-expand {
+                display: none;
+            }
+
+        .select::after {
+            font-family: FontAwesome;
+            content: "\f078";
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            border-radius: 20px;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            padding: 0 7px;
+            background: var(--appleblue);
+            color: white;
+            pointer-events: none;
+        }
+
+        .select:hover::after {
+        }
+
+        <!-- For different browsers --> .select::after {
+            -webkit-transition: .25s all ease;
+            -o-transition: .25s all ease;
+            transition: .25s all ease;
         }
 
     </style>
