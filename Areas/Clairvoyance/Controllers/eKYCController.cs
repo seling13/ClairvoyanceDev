@@ -953,7 +953,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
             return PartialView();
         }
 
-        public IActionResult VueJSSample()
+        public IActionResult Sample()
         {
             return View();
         }
