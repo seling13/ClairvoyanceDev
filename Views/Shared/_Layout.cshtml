@@ -481,7 +481,9 @@
             .main-header-mobile {
                 margin-left:0;
             }
-
+            .main-sidebar-top {
+                padding-top: 50px;
+            }
       }
         @@media (min-width: 768px) {
             .mobile-show {
@@ -489,6 +491,9 @@
             }
             .main-header-mobile {
                 margin-left: 0px;
+            }
+            .main-sidebar-top{
+                padding-top:0px;
             }
         }
 
@@ -622,15 +627,20 @@
             </header>
         </div>
         <!-- Left side column. contains the logo and sidebar  #F7F6F3-->
-        <aside class="main-sidebar" style=" border: none; background-color: #F7F6F3; padding-top:50px; ">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- Sidebar Menu -->
-                @Html.Partial("_MainMenu")
-                <!-- /.sidebar-menu -->
-            </section>
-            <!-- /.sidebar -->
+
+        <aside class="main-sidebar" style=" border: none; background-color: #F7F6F3; padding-top:10px">
+            <div class="main-sidebar-top">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar Menu -->
+                    @Html.Partial("_MainMenu")
+                    <!-- /.sidebar-menu -->
+                </section>
+                <!-- /.sidebar -->
+            </div>
         </aside>
+       
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="background-color :white">
