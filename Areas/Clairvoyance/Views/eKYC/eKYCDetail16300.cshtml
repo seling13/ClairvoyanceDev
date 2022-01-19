@@ -1,0 +1,315 @@
+﻿@model IEnumerable<OneFin.Models.eKYCValidate>
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Index";
+    var viewdata = ViewData["searchstring"];
+    var customer = ViewData["Customer"] as CFCustomer;
+}
+
+<script>
+    var filter = "All";
+    var tabType = "BIO";
+</script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+
+        .column {
+            float: left;
+            width: 100px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .tab-cp button {
+            color: var(--appleblue);
+        }
+
+        .btn-rounded {
+            color: black;
+            border: #ccc 2px solid;
+        }
+
+        .btn-status {
+            color: black;
+            border: #ccc 2px solid;
+            background-color: white;
+            /*border:none;
+                background-color: #f2f2f2;
+                */
+            outline: none;
+            cursor: pointer;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px 5px 5px 5px;
+            min-width: 50px;
+            height: 36px;
+        }
+
+        .active-btn-selected {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: var(--appleblue);
+            border: var(--appleblue) 2px solid;
+        }
+
+        .active-btn-selected-0 {
+            color: white;
+            border: none;
+            outline: none;
+            background-color: var(--appleblue);
+            border: var(--appleblue) 2px solid;
+        }
+
+        .btn-rounded-blue:hover {
+            background-color: var(--appleblue) !important;
+            border: var(--appleblue) 2px solid !important;
+            color: white !important;
+            outline: none;
+        }
+
+        .btn-rounded-green:hover {
+            background-color: green !important;
+            border: green 2px solid !important;
+            color: white !important;
+        }
+
+        .btn-rounded-red:hover {
+            background-color: red !important;
+            border: red 2px solid !important;
+            color: white !important;
+            outline: none;
+        }
+
+        .btn-rounded-orange:hover {
+            background-color: orange !important;
+            border: orange 2px solid !important;
+            color: white !important;
+            outline: none;
+        }
+
+        #headerpanel {
+            top: 40px;
+            transition: top 0.3s;
+            position: fixed;
+            z-index: 4;
+            background-color: white;
+            width: 100%;
+            font-size: 40px
+        }
+
+        .Sample {
+            font-size: 16px;
+            font-weight: 300 !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="Sample">
+
+
+        <!--<div id="overlay" style="display:none"></div>-->
+
+        <section class="content-header" id="headerpanel">
+            <strong id="HeaderName">
+                Biometric Validation
+            </strong>
+        </section>
+        <section class="content container-fluid no-border">
+            <!--<div id="overlay" style="display: none">
+                <div id="loader"></div>
+            </div>-->
+            <div class="box no-border" style=" top: 60px; border-top: solid 1px #ccc!important;">
+                <div class="row" style=" padding: 35px 0 35px 0">
+                    <div class="mobile-center" style="position:relative; align-items: center; display:flex; justify-content: center; text-align: center; float:left;padding: 0 20px 0 50px; ">
+                        <canvas id="myChart" style="position: absolute; z-index: 3; max-height: 240px; max-width: 240px; width: 240px; height: 240px "></canvas>
+                        <div style="width: 240px; height: 240px; padding-top: 23px;">
+                            <img style="width: 195px; height: 195px;" class="img-circle" src="~/dist/img/user6-128x128.jpg" />
+                        </div>
+                    </div>
+                    <div class="mobile-center" style="display: flex; padding: 10px 80px 10px 10px; justify-content: left; align-items:center; float: left; width: 600px;">
+                        <div class="box-body">
+                            <span style="font-size:35px;">
+                                <strong> Aura Nurr Emily Amara Auliya Bidadari Nawal </strong>
+                            </span><br />
+                            <div class="box-body" style="padding-left:0; padding-top:0">
+                                <span style="font-size: 15px; color: #838383;"><i class="fas fa-mobile-alt" style="width:17px"></i> Quant Onboarding</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                                <span style="font-size: 15px; color: #838383;"><i class="far fa-user-secret" style="width:17px"></i> MLTF Risk Level 2</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                                <span style="font-size: 15px; color: #838383;"><i class="far fa-list" style="width:17px"></i> Personal Score</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                                <span style=" font-size: 15px; color: #838383;"> <i class="far fa-warning" style="width:17px"></i> Credit Risk Level </span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            </div>
+                            <span style=""> Transaction Override </span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            <span> Bio-metric Authentication Failed </span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-center" style="font-size: 25px; display: flex; justify-content: center; align-items: center; text-align: center; float:left; margin:20px 0px 0px 10px  ">
+                        <div style="margin-right:50px">
+                            <strong>3</strong><br style="display: block; content: ' '; margin: -8px 0;" /><span style="font-size:16px">e-KYC</span>
+                        </div>
+                        <div style="margin-right:25px">
+                            <strong>2</strong><br style="display: block; content: ' '; margin: -8px 0;" /><span style="font-size:16px">MLTF</span>
+                        </div>
+                        <div>
+                            <strong>3</strong><br style="display: block; content: ' '; margin: -8px 0;" /><span style="font-size:16px">TX Monitoring</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="box-header">
+                    <div id="DIV-source" style="margin-top:30px;">
+                        <button class="btn-source btn-rounded active-btn-selected"> <img class="img-circle" src="~/dist/img/Ultron.jpg" style="width:20px; height:20px; margin-top: -2px" /> Ultron Pro</button>
+                        <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/exponential.jpg" style="width:20px; height:20px; margin-top: -2px" /> eXponential Pro</button>
+                        <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive Pro</button>
+                        <button class="btn-source btn-rounded"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive for Business</button>
+                        <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
+                    </div>
+                </div>
+                <script>
+                    // Add active class to the current button (highlight it)
+                    var header = document.getElementById("DIV-source");
+                    var btns = header.getElementsByClassName("btn-source");
+                    for (var i = 0; i < btns.length; i++) {
+                        btns[i].addEventListener("click", function () {
+                            var current = document.getElementsByClassName("active-btn-selected");
+                            current[0].className = current[0].className.replace(" active-btn-selected", "");
+                            this.className += " active-btn-selected";
+                        });
+                    }
+                </script>
+
+                <div class="box-header border-bottom-cp" style="padding-top:20px">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <h4 style="font-size:30px; margin-top:20px;  "> <strong>e-KYC Result </strong></h4>
+                        </div>
+                        <div class="col-lg-9">
+                            <div id="DIV-status" style="margin-top:10px; float:right">
+                                <button class="btn-status btn-rounded-blue active-btn-selected-0 "> All </button>
+                                <button class="btn-status btn-rounded-green"> Pass</button>
+                                <button class="btn-status btn-rounded-red"> Fail</button>
+                                <button class="btn-status btn-rounded-orange "> Override</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <script>
+                        // Add active class to the current button (highlight it)
+                        var header = document.getElementById("DIV-status");
+                        var btns = header.getElementsByClassName("btn-status");
+                        for (var i = 0; i < btns.length; i++) {
+                            btns[i].addEventListener("click", function () {
+                                var current = document.getElementsByClassName("active-btn-selected-0");
+                                current[0].style.backgroundColor = "white";
+                                current[0].style.border = "#ccc 2px solid";
+
+                                current[0].style.color = "black";
+                                current[0].className = current[0].className.replace(" active-btn-selected-0", "");
+                                this.className += " active-btn-selected-0";
+                                filter = this.innerText;
+                                $(this).css('color', 'white');
+                                if (filter == "All") {
+                                    $(this).css('background-color', 'var(--appleblue)');
+                                    $(this).css('border', 'var(--appleblue) 2px solid');
+
+                                } else if (filter == "Pass") {
+                                    $(this).css('background-color', 'Green');
+                                    $(this).css('border', 'Green 2px solid');
+                                }
+                                else if (filter == "Fail") {
+                                    $(this).css('background-color', 'red');
+                                    $(this).css('border', 'red 2px solid');
+                                }
+                                else if (filter == "Override") {
+                                    $(this).css('background-color', 'orange');
+                                    $(this).css('border', 'orange 2px solid');
+                                }
+                                eKYCDetailList(tabType);
+                                //$('#eKYCDetailList').show();
+
+                            });
+                        }
+                    </script>
+                </div>
+
+                <div class="tab-cp">
+                    <button id="tabBIO" class="tablinks" onclick="openValidation(event, 'BIO')">Biometric Validation</button>
+                    <button id="tabAddress" class="tablinks" onclick="openValidation(event, 'Address')">Address Validation</button>
+                    <button id="tabID" class="tablinks" onclick="openValidation(event, 'ID')">ID Validation</button>
+                    <button id="tabContact" class="tablinks" onclick="openValidation(event, 'Contact')">Contact Validation</button>
+                    <button id="tabEmployment" class="tablinks" onclick="openValidation(event, 'Employment')">Employment Validation</button>
+                    <button id="tabIncome" class="tablinks" onclick="openValidation(event, 'Income')">Income Validation</button>
+                    <button id="tabRelationship" class="tablinks" onclick="openValidation(event, 'Relationship')">Relationship Validation</button>
+                    <button id="tabProcess" class="tablinks" onclick="openValidation(event, 'Process')" hidden>Process</button>
+                </div>
+
+                <div class="box-body no-border ">
+                    <div id="BIO" class="tabcontent  animate-bottom"> </div>
+                    <div id="Address" class="tabcontent  animate-bottom"></div>
+                    <div id="ID" class="tabcontent animate-bottom"></div>
+                    <div id="Contact" class="tabcontent  animate-bottom"> </div>
+                    <div id="Employment" class="tabcontent  animate-bottom"> </div>
+                    <div id="Income" class="tabcontent  animate-bottom"> </div>
+                    <div id="Relationship" class="tabcontent  animate-bottom"> </div>
+                    <div id="Process" class="tabcontent  animate-bottom"> </div>
+                </div>
+
+            </div>
+            <!--<div id="eKYCDetailListVerification" ></div>-->
+            <div id="eKYCDetailList" class="animate-bottom"></div>
+        </section>
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        var element = document.getElementById("eKYCDetailcheck");
+        element.classList.add("menu-item-active");
+    });
+</script>
+<script>
+
+    var xValues = ["Pass", "Fail", "Override"];
+    var yValues = [55, 49, 44];
+    var barColors = ["#FCF0CF", "#FCB9AA", "#CCE2CB"];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{ backgroundColor: barColors, data: [55, 49, 44] }],
+
+        },
+        options: {
+            cutout: 100,
+            plugins: {
+                legend: {
+                    display: false
+                },
+
+                title: {
+                    display: false,
+                    text: "eKYC Criteria"
+                },
+                responsive: false,
+                maintainAspectRatio: false,
+
+            }
+
+        }
+    });
+</script>
+

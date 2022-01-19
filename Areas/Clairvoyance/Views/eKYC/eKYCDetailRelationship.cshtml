@@ -1,32 +1,30 @@
 ﻿@model OneFin.Models.CFCustomer
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
+    <div class="pre-scrollablex validatelistbox">
             <h4><strong>RELATIONSHIPS</strong></h4>
-        </div>
         <div class="box-body">
-            <table class="table">
+            <table class="table validatelist">
                 <thead>
                     <tr>
                         <th>
-                            Relationship Name
+                            <span>Relationship Name</span>
                         </th>
                         <th>
-                            Relationship Type
+                            <span>Relationship Type</span>
                         </th>
                         <th>
-                            Relationship Status
+                            <span>Relationship Status</span>
                         </th>
                         <th style="min-width:120px">
-                            Start Date
+                            <span> Start Date</span>
                         </th>
                         <th style="min-width:120px">
-                            End Date
+                            <span>End Date</span>
                         </th>
                         <th>
-                            Updated By
+                            <span>Updated By</span>
                         </th>
                         <th style="min-width:120px">
-                            Last Update
+                            <span>Last Update</span>
                         </th>
 
                     </tr>
@@ -36,25 +34,25 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU09_relationshipCIFName)
+                                <span>@Html.DisplayFor(modelItem => item.SU09_relationshipCIFName)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU05_relationshipType_FPRE)
+                                <span>@Html.DisplayFor(modelItem => item.SU05_relationshipType_FPRE)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU06_relationshipStatus)
+                                <span> @Html.DisplayFor(modelItem => item.SU06_relationshipStatus)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU07_startDate)
+                                <span> @Html.DisplayFor(modelItem => item.SU07_startDate)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU08_endDate)
+                                <span> @Html.DisplayFor(modelItem => item.SU08_endDate)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU87_updatedBy)
+                                <span>@Html.DisplayFor(modelItem => item.SU87_updatedBy)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.SU88_lastModifiedDate)
+                                <span>@Html.DisplayFor(modelItem => item.SU88_lastModifiedDate)</span>
                             </td>
 
                         </tr>

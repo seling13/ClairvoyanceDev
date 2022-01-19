@@ -1,115 +1,120 @@
 ﻿@model OneFin.Models.CFCustomer
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
+<style>
+
+
+</style>
+    <div class="pre-scrollablex validatelistbox">
             <h4><strong>BRUNEI ADDRESS</strong></h4>
-        </div>
-        <div class="box-body">
-            <table class="table">
+        <div class="box-body no-border">
+            <table class="table validatelist">
                 <thead>
                     <tr>
-                        <th>
-                            Kampong
+                        <th style="min-width: 120px;">
+                            <span>Kampong </span>
                         </th>
                         <th>
-                            Jalan
+                            <span>Jalan </span>
                         </th>
                         <th>
-                            Simpang
+                            <span>Simpang </span>
                         </th>
                         <th>
-                            Block
+                            <span> Block </span>
                         </th>
                         <th>
-                            Unit
+                            <span>Unit </span>
+                        </th>
+                        <th style="min-width:120px">
+                            <span>Postal Code </span>
                         </th>
                         <th>
-                            Postal Code
+                            <span>District </span>
                         </th>
                         <th>
-                            District
+                            <span>Mukim </span>
                         </th>
                         <th>
-                            Mukim
+                            <span>Lot </span>
                         </th>
-                        <th>
-                            Lot
+                        <th style="min-width:250px">
+                            <span > Building </span>
                         </th>
-                        <th>
-                            Building
-                        </th>
-                        <th style="text-align:center">
-                            Registered To History
+                        <th style="text-align:center; width:190px">
+                            <span>Registered To History </span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style="height:5px;"></tr>
                     @foreach (var item in Model.AddContentList)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP04_kampong_FPKC)
+                                <span>@Html.DisplayFor(modelItem => item.TP04_kampong_FPKC)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP05_jalan_FPJC)
+                                <span>@Html.DisplayFor(modelItem => item.TP05_jalan_FPJC)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP06_simpang_FPSM)
+                                <span> @Html.DisplayFor(modelItem => item.TP06_simpang_FPSM)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP07_block)
+                                <span> @Html.DisplayFor(modelItem => item.TP07_block)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP08_unit)
+                                <span> @Html.DisplayFor(modelItem => item.TP08_unit)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP09_postalCode_FPPK)
+                                <span>@Html.DisplayFor(modelItem => item.TP09_postalCode_FPPK)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP10_district_FPDK)
+                                <span> @Html.DisplayFor(modelItem => item.TP10_district_FPDK)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP11_mukim)
+                                <span> @Html.DisplayFor(modelItem => item.TP11_mukim)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP12_lot_FPLT)
+                                <span> @Html.DisplayFor(modelItem => item.TP12_lot_FPLT)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TP13_building_FPBG)
+                                <span> @Html.DisplayFor(modelItem => item.TP13_building_FPBG)</span>
                             </td>
-                            <td style="text-align:center">
-                                <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a>
+                            <td >
+                                <span style="justify-content:center;">  <a href="#" onclick="PopupDetail('Addres')">@Html.DisplayFor(modelItem => item.RegHist)</a></span>
                             </td>
                         </tr>
                     }
                 </tbody>
+
             </table>
         </div>
         
     </div>
 
-        <div class="pre-scrollablex">
-            <div class="border-bottom-cp" style="padding-top:20px">
+        <div class="pre-scrollablex validatelistbox">
+            <div  style="margin-top:20px">
                 <h4><strong>OVERSEAS ADDRESS</strong></h4>
             </div>
-            <div class="box-body">
-                <table class="table">
+            <div class="box-body no-border" style="">
+                <table class="table validatelist">
                     <thead>
                         <tr>
                             <th>
-                                Address Line 1
+                                <span>Address Line 1</span>
                             </th>
                             <th>
-                                Address Line 2
+                                <span>Address Line 2</span>
                             </th>
                             <th>
-                                Address Line 3
+                                <span>Address Line 3</span>
                             </th>
                             <th>
-                                Country
+                                <span>Country</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr style="height:5px;"></tr>
                     </tbody>
                 </table>
             </div>

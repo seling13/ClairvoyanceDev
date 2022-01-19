@@ -1,21 +1,19 @@
 ﻿@model OneFin.Models.CFCustomer
 <div class="row">
-    <div class="col-lg-6">
-        <div class="border-bottom-cp" style="padding-top:20px">
+    <div class="col-lg-6 validatelistbox">     
             <h4><strong>MONTHLY INCOME</strong></h4>
-        </div>
         <div class="box-body">
-            <table class="table">
+            <table class="table validatelist">
                 <thead>
                     <tr>
                         <th style="min-width:100px">
-                            Period
+                            <span>Period</span>
                         </th>
                         <th>
-                            Income Category
+                            <span>Income Category</span>
                         </th>
                         <th>
-                            Total Monthly Income
+                            <span> Total Monthly Income</span>
                         </th>
 
                     </tr>
@@ -25,13 +23,13 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.MI04_period)
+                                <span> @Html.DisplayFor(modelItem => item.MI04_period)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.MI04_periodMI05_incomeCatagory_FPSU)
+                                <span> @Html.DisplayFor(modelItem => item.MI04_periodMI05_incomeCatagory_FPSU)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.MI03_totalMonthlyIncome)
+                                <span>@Html.DisplayFor(modelItem => item.MI03_totalMonthlyIncome)</span>
                             </td>
                         </tr>
                     }
@@ -39,22 +37,20 @@
             </table>
         </div>
     </div>
-    <div class="col-lg-6">
-        <div class="border-bottom-cp" style="padding-top:20px">
+    <div class="col-lg-6 validatelistbox">
             <h4><strong>ANNUAL INCOME</strong></h4>
-        </div>
-        <div class="box-body">
+        <div class="box-body validatelist">
             <table class="table">
                 <thead>
                     <tr>
                         <th>
-                            Year
+                            <span> Year</span>
                         </th>
                         <th>
-                            Income Category
+                            <span>Income Category</span>
                         </th>
                         <th>
-                            Total Annual Income
+                            <span> Total Annual Income</span>
                         </th>
 
                     </tr>
@@ -64,13 +60,13 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AI04_YYYY)
+                                <span> @Html.DisplayFor(modelItem => item.AI04_YYYY)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AI05_incomeCat_FPSU)
+                                <span> @Html.DisplayFor(modelItem => item.AI05_incomeCat_FPSU)</span>
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AI03_annualIncome)
+                                <span> @Html.DisplayFor(modelItem => item.AI03_annualIncome)</span>
                             </td>
                         </tr>
                     }

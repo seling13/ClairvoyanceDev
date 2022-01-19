@@ -1,17 +1,26 @@
 ﻿<style>
 
+    /***test*/
+
+    .sidebar-menu > li:hover > a  {
+        background-color: #F7F6F3!important;
+    }
+    /***test*/
+
     .sidebar-menu li i {
         color: gray;
-        font-size: 13px;
+        font-size: 15px;
+
     }
 
     .sidebar-menu > li > a {
-        padding: 2px 5px 2px 15px;
+        padding: 3px 5px 3px 15px;
     }
 
     .sidebar-menu li span {
         color: gray;
-        font-size: 13px;
+        font-size: 15px;
+        font-weight: normal;
     }
 
     .sidebar-menu li > a > .fa-caret-right,
@@ -37,7 +46,7 @@
     .sidebar-menu li > a > .pull-right-container {
         position:unset;
         top: 50%;
-        margin: -7px 0 0 2px;
+        margin: 0px 0 0 2px;
     }
 
 
@@ -50,79 +59,153 @@
         z-index: 900;
     }
 
-    .sidebar-menu > li:hover > .treeview-menu {
-        background: #E8E7E4;
+    .treeview-menu li {
+        background-color: #F7F6F3;
     }
 
-    .sidebar-menu > li > a:hover {
+
+    .treeview-menu > li > a:hover > span {
+        font-weight: 600 !important;
         background: #E8E7E4 !important;
     }
 
-    .sidebar-menu > li > a > i {
-        color: #AAA9A5;
+
+    .treeview-menu > li:hover {
+        background: #E8E7E4 !important;
     }
 
-        .sidebar-menu > li > a > span > i {
+    .sidebar-menu {
+        background-color: #F7F6F3 !important;
+    }
+
+    .sidebar-menu > li:hover > a > span {
+        font-weight: 600 !important;
+
+    }
+
+        .sidebar-menu > li > a:hover {
+            background: #E8E7E4 !important;
+        }
+
+
+    .sidebar-menu > li > a > i {
+        color: #AAA9A5;
+        margin: 0 6px 0 6px;
+    }
+
+    .sidebar-menu > li > a > span > i {
         color: #AAA9A5;
     }
 
     .sidebar-menu > li > a > span {
         color: #72706B;
     }
+    .sidebar-menu > li > i {
+        color: #AAA9A5;
+        margin: 0 6px 0 6px;
+    }
+
+    .menu-item-active {
+      
+        background: #E8E7E4 !important;
+    }
+
+    .menu-item-active > a > span {
+            font-weight: 600 !important;
+        }
+
 </style>
 
-<ul class="sidebar-menu" data-widget="tree">
-    <li class="header" style="background-color: #F7F6F3">Main</li>
+<ul class="sidebar-menu" data-widget="tree" id="side-menu">
+    <li class="header " style="background-color: #F7F6F3; font-size:14px"><i class="far fa-home"></i>Home</li>
     <!-- Optionally, you can add icons to the links -->
-    <li >
+    <li class="menu-item">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="far fa-caret-right"></i>
+            </span>
+            <i class="far fa-search"></i> <span>Quick Find</span>
+        </a>
+    </li>
+
+    <li class="header" style="background-color: #F7F6F3; font-size:14px"><i class="fas fa-bars"></i>Main</li>
+    <!-- Optionally, you can add icons to the links -->
+    <li class="menu-item" id="eKYCSearch" >
         <a href="~/Clairvoyance/eKYC/eKYCSearch">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right"></i>
+                <i class="far fa-caret-right"></i>
             </span>
-            <i class="fa fa-address-card"></i> <span>e-KYC</span>
+            <i class="far fa-user"></i> <span>e-KYC</span>
         </a>
     </li>
     <li class="treeview">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right"></i>
+                <i class="far fa-caret-right"></i>
             </span>
-            <i class="fa fa-user-secret"></i> <span>ML/TF</span>
+            <i class="far fa-list-alt"></i> 
+            <span>ML/TF</span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="#"><i class="fa fa-list"></i><span> Transaction 1</span> </a></li>
-            <li> <a href="#"><i class="fa fa-tag"></i> <span>Transaction 2 </span></a></li>
+            <li class="menu-item"> 
+                <a href="#">
+                    <i class="far fa-list"></i>
+                    <span> Transaction 1</span> 
+                </a>
+            </li>
+            <li class="menu-item"> <a href="#"><i class="far fa-tag"></i> <span> Transaction 2 </span></a></li>
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview menu-item">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right"></i>
+                <i class="far fa-caret-right"></i>
             </span>
-            <i class="fa fa-eye"></i> <span>Tx Monitoring</span>
+            <i class="far fa-desktop"></i> <span>Tx Monitoring</span>
         </a>
         <ul class="treeview-menu">
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview menu-item">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right"></i>
+                <i class="far fa-caret-right"></i>
             </span>
-            <i class="fa fa-list"></i> <span>List Maintenance</span>
+            <i class="far fa-folder"></i> <span>List Maintenance</span>
         </a>
         <ul class="treeview-menu">
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview menu-item">
         <a href="#">
             <span class="pull-right-container">
-                <i class="fa fa-caret-right"></i>
-            </span><i class="fa fa-tags"></i> <span>FP Maintenance</span>
+                <i class="far fa-caret-right"></i>
+            </span><i class="far fa-users"></i> <span>FP Maintenance</span>
         </a>
         <ul class="treeview-menu">
         </ul>
     </li>
+    <li class="treeview menu-item" id="eKYCDetailcheck">
+        <a href="#">
+            <span class="pull-right-container">
+                <i class="far fa-caret-right"></i>
+            </span>
+            <i class="far fa-list-alt"></i> <span>Layout</span>
+        </a>
+        <ul class="treeview-menu ">
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail14200"><i class="far fa-font"></i> <span>14px boldness:200</span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail14300"><i class="far fa-font"></i> <span>14px boldness:300 </span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail14500"><i class="far fa-font"></i> <span>14px boldness:400 </span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail15200"><i class="far fa-font"></i> <span>15px boldness:200</span>  </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail15300"><i class="far fa-font"></i> <span>15px boldness:300 </span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail15500"><i class="far fa-font"></i> <span>15px boldness:400 </span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail16200"><i class="far fa-font"></i> <span>16px boldness:200</span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail16300"><i class="far fa-font"></i> <span>16px boldness:300 </span> </a></li>
+            <li class="menu-item"> <a href="~/Clairvoyance/eKYC/eKYCDetail16500"><i class="far fa-font"></i> <span>16px boldness:400 </span> </a></li>
+        </ul>
+    </li>
+
+    
     <!--
     <li class="treeview">
         <a href="#">
@@ -164,3 +247,20 @@
     </li>
         -->
 </ul>
+
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("side-menu");
+    var menu = header.getElementsByClassName("menu-item");
+    for (var i = 0; i < menu.length; i++) {
+        menu[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("menu-item-active");
+            current[0].className = current[0].className.replace(" menu-item-active", "");
+            this.className += " menu-item-active";
+            filter = this.innerText;
+         
+
+        });
+    }
+</script>

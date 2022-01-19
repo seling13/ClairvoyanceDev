@@ -16,18 +16,18 @@
         }
 
         function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
+            //document.getElementById("loader").style.display = "none";
+            //document.getElementById("overlay").style.display = "none";
+            //document.getElementById("myDiv").style.display = "block";
         }
 
         function loader(status) {
             if (status == "ON") {
-                document.getElementById("overlay").style.display = "block";
-                document.getElementById("loader").style.display = "block";
+                //document.getElementById("overlay").style.display = "block";
+                //document.getElementById("loader").style.display = "block";
             } else {
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("overlay").style.display = "none";
+                //document.getElementById("loader").style.display = "none";
+                //document.getElementById("overlay").style.display = "none";
             }
         }
     </script>
@@ -50,10 +50,14 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="~/bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="~/bower/morris.js/morris.css">
-    <style>
-        html, body {
-            font-family: -apple-system, BlinkMacSystemFont, Inter;
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
+    <style>
+
+        html, body {
+            -moz-appearance: none;
+            font-family: -apple-system, BlinkMacSystemFont, Inter;
+            font-size: 16px !important;
         }
 
         :root {
@@ -69,6 +73,47 @@
         }
 
         /*table*/
+        .align-center {
+            text-align:center;
+            display:flex;
+            justify-content:center;
+        }
+
+        .validatelist {
+            font-size: 13px;
+            min-height: 100px
+        }
+
+            .validatelist thead tr th span {
+                display: flex;
+                align-items: center;
+                min-height: 35px;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+
+            .validatelist tbody tr td span {
+                display: flex;
+                align-items: center;
+                height: 25px;
+            }
+
+            .validatelist thead tr {
+                /* border-bottom: 1px solid #ccc !important;*/
+                border-top: 1px solid #ccc !important;
+            }
+
+        .validatelistbox h4 {
+            margin-left: 20px
+        }
+
+        .validatelistbox {
+            margin: 35px 0 35px 0;
+        }
+
+
+
         .table > thead > tr > th,
         .table > tbody > tr > th,
         .table > tfoot > tr > th,
@@ -82,33 +127,24 @@
             border-bottom: 0px solid #f4f4f4;
         }
 
-        .table-bottom > thead > tr > th,
-        .table-bottom > tbody > tr > th,
-        .table-bottom > tfoot > tr > th,
-        .table-bottom > thead > tr > td,
-        .table-bottom > tbody > tr > td,
-        .table-bottom > tfoot > tr > td {
-            border-top: 1px solid #f4f4f4;
-        }
-
-        .table-bottom > thead > tr > th {
-            border-bottom: 2px solid #f4f4f4;
-        }
 
         /*Shadow of the box*/
         div.box-cp {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .box-footer
-        {
-            border-top:none;
-
+        .box-footer {
+            border-top: none;
         }
 
         .border-bottom-cp {
             padding-top: 10px;
             border-bottom: 1px solid #ccc;
+        }
+
+        .border-top-bottom-cp {
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
         }
 
         .row-cp {
@@ -125,7 +161,7 @@
             line-height: 20px;
             margin: 0;
             padding: 0;
-            border: none
+            border: none;
         }
 
         .webkit-appearance-none {
@@ -155,18 +191,18 @@
 
             /* Style the buttons that are used to open the tab content */
             .tab-cp button {
-            
                 background-color: inherit;
                 border: none;
                 outline: none;
                 cursor: pointer;
-                padding: 10px 14px;
+                padding: 10px 7px ;
                 transition: 0.3s;
+
             }
 
                 /* Change background color of buttons on hover */
                 .tab-cp button:hover {
-                    background-color: #ddd;
+                    /*background-color: #ddd;*/
                 }
 
                 /* Create an active/current tablink class */
@@ -174,8 +210,9 @@
                     background-color: none;
                     border-color: none;
                     color: black;
-                    font-weight: bold;
-                    border-bottom: solid;
+                    font-weight:600;
+                    text-decoration: underline;
+                    /*border-bottom: solid;*/
                 }
 
 
@@ -224,6 +261,9 @@
             border-radius: 20px;
             margin: 5px 5px 5px 5px;
             min-width: 50px;
+            font-weight:500;
+            height: 40px;
+
         }
 
         .btn-cp {
@@ -233,12 +273,16 @@
             min-width: 200px;
             min-height: 30px;
             border: none;
+            height:36px;
+            margin:5px 5px 5px 5px;
+
         }
 
         .btn-rounded:hover {
             background-color: var(--appleblue);
             color: white;
             outline: none;
+            border: var(--appleblue) 1px solid;
         }
 
         .active-btn-selected {
@@ -246,6 +290,7 @@
             border: none;
             outline: none;
             background-color: var(--appleblue);
+            border: var(--appleblue) 1px solid;
         }
 
         .active-btn-selected-0 {
@@ -253,6 +298,7 @@
             border: none;
             outline: none;
             background-color: var(--appleblue);
+            border: var(--appleblue) 1px solid;
         }
 
         .btn-icon {
@@ -261,6 +307,8 @@
 
         input.form-control, select.form-control, textarea.form-control {
             border-radius: 20px;
+            height: 45px;
+            border:solid 1.5px #ccc ;
         }
 
 
@@ -287,6 +335,7 @@
             overflow: hidden;
             background-color: white;
             border-radius: 10px;
+            width:100%;
         }
 
         .dl-horizontal dt {
@@ -343,9 +392,33 @@
         .animate-bottom {
             position: relative;
             -webkit-animation-name: animatebottom;
-            -webkit-animation-duration: 0.3s;
+            -webkit-animation-duration: 0.6s;
             animation-name: animatebottom;
-            animation-duration: 0.3s
+            animation-duration: 0.6s
+        }
+
+        .animate-transition {
+            position: absolute;
+            -webkit-animation-name: animatetransition;
+            -webkit-animation-duration: 1s;
+            animation-name: animatetransition;
+            animation-duration: 1s
+        }
+
+        .animate-transition-relative {
+            position: relative;
+            -webkit-animation-name: animatetransition;
+            -webkit-animation-duration: 1s;
+            animation-name: animatetransition;
+            animation-duration: 1s
+        }
+
+        .animate-leftright {
+            position: relative;
+            -webkit-animation-name: animataleftright;
+            -webkit-animation-duration: 0.6s;
+            animation-name: animataleftright;
+            animation-duration: 0.6s
         }
 
         @@-webkit-keyframes animatebottom {
@@ -372,6 +445,42 @@
             }
         }
 
+        @@-webkit-keyframes animatetransition {
+            from {
+                /*bottom: -100px;*/
+                opacity: 0
+            }
+
+            to {
+                /*bottom: 0px;*/
+                opacity: 1
+            }
+        }
+
+        @@keyframes animatetransition {
+            from {
+                /*bottom: -100px;*/
+                opacity: 0
+            }
+
+            to {
+                /*bottom: 0;*/
+                opacity: 1
+            }
+        }
+
+        @@keyframes animataleftright {
+            from {
+                right: -300px;
+                opacity: 0
+            }
+
+            to {
+                right: 0;
+                opacity: 1
+            }
+        }
+
         #myDiv {
             display: none;
             text-align: center;
@@ -380,7 +489,6 @@
 
         .pre-scrollablex {
             overflow-x: auto;
-
         }
 
         /** Alert*/
@@ -478,44 +586,54 @@
             text-align: center;
         }
 
-         @@media (max-width: 767px) {
+        @@media (max-width: 767px) {
             .mobile-show {
                 display: block;
             }
+
             .main-header-mobile {
-                margin-left:0;
+                margin-left: 0;
             }
+
             .main-sidebar-top {
                 padding-top: 50px;
             }
-      }
+
+            .mobile-center {
+                width:100%;
+               
+            }
+        }
+
         @@media (min-width: 768px) {
             .mobile-show {
                 display: none;
             }
+
             .main-header-mobile {
                 margin-left: 0px;
             }
-            .main-sidebar-top{
-                padding-top:0px;
+
+            .main-sidebar-top {
+                padding-top: 0px;
             }
         }
 
         .main-header .nav-page {
             color: #71706F;
-            font-size:16px;
+            font-size: 16px;
             float: left;
             background-color: transparent;
             background-image: none;
             padding: 15px 15px;
         }
-        .main-header .nav-page a{
-            color: #71706F;
-        }
+
+            .main-header .nav-page a {
+                color: #71706F;
+            }
 
         .content-header h2 {
             font-size: 43px;
-            
         }
 
 
@@ -529,12 +647,14 @@
         }
 
         .no-border {
-            border: none !important; box-shadow:none;
+            border: none !important;
+            box-shadow: none !important;
         }
 
-                .field-wrp {
+        .field-wrp {
             position: relative;
             background-color: white;
+            width: 200px;
         }
 
         .btn-wrp {
@@ -544,15 +664,17 @@
             z-index: 10;
         }
 
-      
+
         .btn-icon {
             background: transparent;
             border: none;
             color: grey;
-            padding: 6px 13px 0 0;
+            padding: 8px 0 0 0;
             position: absolute;
             right: 0;
             top: 0;
+            font-size: 20px;
+            font-weight:100;
         }
 
         .btn-icon-dd {
@@ -565,14 +687,12 @@
             position: absolute;
             right: 0;
             top: 0;
-
         }
 
         /*Dropdownlist*/
-        .field-full
-        {
-                height:100%;
-                width:100%;
+        .field-full {
+            height: 100%;
+            width: 100%;
         }
 
         select {
@@ -585,23 +705,22 @@
             background-image: none;
             box-shadow: none;
             border-color: #d2d6de;
-
         }
 
         .select {
             position: relative;
             display: block;
             width: 20em;
-            height: 2.6em;
+            height: 45px;
             line-height: 3;
             overflow: hidden;
             border-radius: 20px;
             border: none;
         }
 
-            select::-ms-expand {
-                display: none;
-            }
+        select::-ms-expand {
+            display: none;
+        }
 
         .select::after {
             font-family: FontAwesome;
@@ -615,7 +734,7 @@
             top: 4px;
             right: 4px;
             bottom: 4px;
-            padding: 0 7px;
+            padding: 0 12px;
             background: var(--appleblue);
             color: white;
             pointer-events: none;
@@ -636,22 +755,132 @@
             -moz-appearance: none;
             -ms-appearance: none;
             background-color: white;
-            font-family:sans-serif;
+            font-family: sans-serif;
         }
+
+        .main-header .navbar {
+            margin-left: 300px;
+        }
+
+        .main-sidebar {
+            width: 300px;
+        }
+        .control-sidebar-bg,
+        .control-sidebar {
+            right: -300px;
+            width: 300px;
+        }
+
+        .content-wrapper,
+        .main-footer {
+            margin-left: 300px;
+        }
+
+.layout-top-nav .content-wrapper,
+.layout-top-nav .main-footer {
+  margin-left: 0;
+}
+
+
+@@media (max-width: 767px) {
+  .sidebar-open .content-wrapper,
+  .sidebar-open .main-footer {
+    -webkit-transform: translate(300px, 0);
+    -ms-transform: translate(300px, 0);
+    -o-transform: translate(300px, 0);
+    transform: translate(300px, 0);
+  }
+        .content-wrapper,
+        .main-footer {
+            margin-left: 0;
+        }
+        .main-sidebar {
+            -webkit-transform: translate(-300px, 0);
+            -ms-transform: translate(-300px, 0);
+            -o-transform: translate(-300px, 0);
+            transform: translate(-300px, 0);
+        }
+        .main-header .navbar {
+            margin: 0;
+        }
+}
+
+@@media (min-width: 768px) {
+  .sidebar-collapse .main-sidebar
+        {
+            -webkit-transform: translate(-300px, 0);
+            -ms-transform: translate(-300px, 0);
+            -o-transform: translate(-300px, 0);
+            transform: translate(-300px, 0);
+        }
+        .sidebar-collapse .content-wrapper,
+        .sidebar-collapse .main-footer {
+            margin-left: 0;
+        }
+        .sidebar-collapse .content-wrapper,
+        .sidebar-collapse .main-footer {
+            margin-left: 0;
+        }
+        .control-sidebar-open .content-wrapper,
+        .control-sidebar-open .right-side,
+        .control-sidebar-open .main-footer {
+            margin-right: 300px;
+        }
+}
+        .main-header {
+            /*overflow: hidden;*/
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: top 0.6s;
+        }
+
+        .main-sidebar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+        }
+
+        #upbtn {
+            width: 40px;
+            height: 40px;
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 30px;
+            z-index: 1000;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+            #upbtn:hover {
+                background-color: var(--appleblue);
+            }
 
     </style>
 </head>
 
 <body class="hold-transition skin-black-light sidebar-mini" onload="myFunction()" style="margin:0;">
-    <div id="message" class="form-popup" style="padding-top:10%" ></div>
-    <div class="wrapper">
-        <div id="overlay" style.dislay="block">
+    <!--<button onclick="topFunction()" id="upbtn" title="Go to top">
+        <div style="display:flex; align-items:center; justify-content:center; "><i class="fas fa-arrow-up"></i></div>
+    </button>-->
+    <div id="message" class="form-popup animate-transition" style="padding-top:10%"></div>
+    <div class="form-popup animate-transition" id="myForm"></div>
+    <div class="wrapper" style="background-color:white">
+        <!--<div id="overlay" style.dislay="block">
             <div id="loader"></div>
         </div>
-        <div style="display:none;" id="myDiv" class="animate-bottom"></div>
+        <div style="display:none;" id="myDiv" class="animate-bottom"></div>-->
         <!-- Main Header -->
         <div class="main-header-mobile">
-            <header class="main-header" style="border:none; ">
+            <header id="main-header-panel" class="main-header" style="border:none; ">
                 <!-- Logo -->
                 <!-- Header Navbar -->
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -661,30 +890,30 @@
                             <span class="sr-only">Toggle navigation</span>
                         </a>
                     </div>
-                    <div class="nav-page"><a id="nav-link" href="#" style="font-size:20px">&#8592;</a> <a id="nav-name"></a></div>
+                    <div class="nav-page"><a id="nav-link" href="#" style="font-size:16px;"><i class="fas fa-arrow-left" style="padding:5px 2px"></i></a> <a id="nav-name"></a></div>
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Notifications Dropdown Menu -->
                             <li class="dropdown">
                                 <a class="nav-link" data-toggle="dropdown" href="#" style="border-color:transparent">
-                                    <i class="fa fa-bell"></i>
-                                    <span class="badge badge-warning navbar-badge">7</span>
+                                    <i class="far fa-bell" style="font-size: 20px"></i>
+                                    <span class="badge badge-warning navbar-badge" style="font-size:10px">7</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                                     <span class="dropdown-item dropdown-header">7 Notifications</span>
                                     <div class="dropdown-divider"></div>
                                     <a href="#" class="dropdown-item">
-                                        <i class="fa fa-tasks mr-2"></i> 4 new Task
+                                        <i class="far fa-tasks mr-2"></i> 4 new Task
                                         <span class="float-right text-muted text-sm">3 mins</span>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a href="#" class="dropdown-item">
-                                        <i class="fa fa-users mr-2"></i> 2 Pending Approval
+                                        <i class="far fa-users mr-2"></i> 2 Pending Approval
                                         <span class="float-right text-muted text-sm">12 hours</span>
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a href="#" class="dropdown-item">
-                                        <i class="fa fa-file mr-2"></i> 1 Responded
+                                        <i class="far fa-file mr-2"></i> 1 Responded
                                         <span class="float-right text-muted text-sm">2 days</span>
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -696,14 +925,14 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="border-color:transparent">
                                     <!-- The user image in the navbar-->
-                                    <img src="~/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <img src="~/dist/img/add-user-simple-icon-profile-avatar-sign-vector-20179288.jpg" class="user-image" alt="User Image" style="height:28px; width:28px">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs"> @Context.Session.GetString("username")</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="~/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="~/dist/img/add-user-simple-icon-profile-avatar-sign-vector-20179288.jpg" class="img-circle" alt="User Image">
                                         <p>
                                             @Context.Session.GetString("username")
                                             <small>Users since Nov. 2012</small>
@@ -739,10 +968,10 @@
         </div>
         <!-- Left side column. contains the logo and sidebar  #F7F6F3-->
 
-        <aside class="main-sidebar" style=" border: none; background-color: #F7F6F3; padding-top:10px">
+        <aside class="main-sidebar" style=" border: none; background-color: #F7F6F3; padding-top:10px ;">
             <div class="main-sidebar-top">
                 <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
+                <section class="sidebar ">
                     <!-- Sidebar Menu -->
                     @Html.Partial("_MainMenu")
                     <!-- /.sidebar-menu -->
@@ -750,11 +979,11 @@
                 <!-- /.sidebar -->
             </div>
         </aside>
-       
+
 
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="background-color :white">
+        <div class="content-wrapper animate-leftright" style="background-color: white; padding: 0px 10px 0 10px; margin-top:50px; overflow:hidden">
             <!-- Content Header (Page header) -->
 
             @RenderBody()
@@ -763,7 +992,7 @@
         </div>
         <!-- /.content-wrapper -->
         <!-- Main Footer -->
-        <footer class="main-footer">
+        <footer class="main-footer" style="font-size:12px">
             <!-- Default to the left -->
             <strong>Copyright © OneFinMY.</strong> All rights reserved.
             <div style="float:right; font-size:12px">
@@ -792,4 +1021,25 @@
         document.getElementById("overlay").style.display = "none";
         document.getElementById("message").style.display = "none";
     }
+
+    //Get the button
+   // var mybutton = document.getElementById("upbtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+   // window.onscroll = function () { scrollFunction() };
+
+    //function scrollFunction() {
+    //    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    //        mybutton.style.display = "block";
+    //    } else {
+    //        mybutton.style.display = "none";
+    //    }
+    // }
+
+    // When the user clicks on the button, scroll to the top of the document
+    //function topFunction() {
+    //    document.body.scrollTop = 0;
+    //    document.documentElement.scrollTop = 0;
+    // }
+
 </script>

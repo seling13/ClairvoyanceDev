@@ -1,319 +1,315 @@
 ﻿@model OneFin.Models.CFCustomer
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>CIVILIAN PUBLIC SECTOR</strong></h4>
-        </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Ministry Code
-                        </th>
-                        <th style="min-width: 120px">
-                            Start Date
-                        </th>
-                        <th style="min-width: 120px">
-                            End Date
-                        </th>
-                        <th>
-                            Updated By
-                        </th>
-                        <th style="min-width: 120px">
-                            Last Update
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.EmploymentCivilianPublicSectorContentList)
-                    {
+    <div class=" animate-bottom">
+        <div class="pre-scrollablex validatelistbox">           
+                <h4><strong>CIVILIAN PUBLIC SECTOR</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CS03_ministryCode_FPMT)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CS04_startDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CS05_endDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CS87_updatedBy)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CS88_lastModifiedDate)
-                            </td>
+                            <th>
+                                <span>Ministry Code</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span> Start Date</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>  End Date</span>
+                            </th>
+                            <th>
+                                <span>  Updated By</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span> Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.EmploymentCivilianPublicSectorContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.CS03_ministryCode_FPMT)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.CS04_startDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.CS05_endDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.CS87_updatedBy)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.CS88_lastModifiedDate)</span>
+                                </td>
 
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>UNIFORM PUBLIC SECTOR</strong></h4>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Uniform Code
-                        </th>
-                        <th style="min-width:120px">
-                            Start Date
-                        </th>
-                        <th style="min-width:120px">
-                            End Date
-                        </th>
-                        <th>
-                            Updated By
-                        </th>
-                        <th style="min-width:120px">
-                            Last Update
-                        </th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.EmploymentUniformPublicSectorContentList)
-                    {
+        <div class="pre-scrollablex validatelistbox">
+                <h4><strong>UNIFORM PUBLIC SECTOR</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.US03_UniformCode_FPUF)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.US04_StartDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.US05_EndDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.US87_UserID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.US88_UpdateDate)
-                            </td>
+                            <th>
+                                <span>Uniform Code</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Start Date</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span> End Date</span>
+                            </th>
+                            <th>
+                                <span>Updated By</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.EmploymentUniformPublicSectorContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.US03_UniformCode_FPUF)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.US04_StartDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.US05_EndDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.US87_UserID)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.US88_UpdateDate)</span>
+                                </td>
 
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>SEMI GOVERNMENT SECTOR</strong></h4>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Semi Government
-                        </th>
-                        <th style="min-width: 120px">
-                            Start Date
-                        </th>
-                        <th style="min-width: 120px">
-                            End Date
-                        </th>
-                        <th>
-                            Updated By
-                        </th>
-                        <th style="min-width: 120px">
-                            Last Update
-                        </th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.EmploymentSemiGovernmentSectorContentList)
-                    {
+        <div class="pre-scrollablex validatelistbox">
+                <h4><strong>SEMI GOVERNMENT SECTOR</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SS03_semiGovernment)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SS04_startDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SS05_endDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SS87_userID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SS88_updateDate)
-                            </td>
+                            <th>
+                                <span> Semi Government</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>Start Date</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>End Date</span>
+                            </th>
+                            <th>
+                                <span>Updated By</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.EmploymentSemiGovernmentSectorContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.SS03_semiGovernment)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.SS04_startDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.SS05_endDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.SS87_userID)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.SS88_updateDate)</span>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>PRIVATE SECTOR</strong></h4>
-        </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Private Company
-                        </th>
-                        <th style="min-width:120px">
-                            Start Date
-                        </th>
-                        <th style="min-width: 120px">
-                            End Date
-                        </th>
-                        <th >
-                            Updated By
-                        </th>
-                        <th style="min-width: 120px">
-                            Last Update
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.EmploymentPrivateSectorContentList)
-                    {
+        <div class="pre-scrollablex validatelistbox">
+                <h4><strong>PRIVATE SECTOR</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PS03_privateCompany)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PS04_startDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PS05_endDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PS87_userID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PS88_updateDate)
-                            </td>
+                            <th>
+                                <span>Private Company</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Start Date</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>End Date</span>
+                            </th>
+                            <th>
+                                <span>Updated By</span>
+                            </th>
+                            <th style="min-width: 120px">
+                                <span>Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.EmploymentPrivateSectorContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.PS03_privateCompany)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.PS04_startDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.PS05_endDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.PS87_userID)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.PS88_updateDate)</span>
+                                </td>
 
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>SELF EMPLOYMENT</strong></h4>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Company Name
-                        </th>
-                        <th style="min-width:120px">
-                            Start Date
-                        </th>
-                        <th style="min-width:120px">
-                            End Date
-                        </th>
-                        <th>
-                            Updated By
-                        </th>
-                        <th style="min-width:120px">
-                            Last Update
-                        </th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.EmploymentSelfEmployedContentList)
-                    {
+        <div class="pre-scrollablex validatelistbox">
+                <h4><strong>SELF EMPLOYMENT</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BH04_companyName_FPPV)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BH05_businessStartDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BH06_businessEndDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BH87_UserID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BH88_UpdateDate)
-                            </td>
+                            <th>
+                                <span>Company Name</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Start Date</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>End Date</span>
+                            </th>
+                            <th>
+                                <span>Updated By</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.EmploymentSelfEmployedContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.BH04_companyName_FPPV)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.BH05_businessStartDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.BH06_businessEndDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.BH87_UserID)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.BH88_UpdateDate)</span>
+                                </td>
 
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
-            <h4><strong>UNEMPLOYED</strong></h4>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="box-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Unemployment Type
-                        </th>
-                        <th style="min-width:120px">
-                            Start Date
-                        </th>
-                        <th style="min-width:120px">
-                            End Date
-                        </th>
-                        <th>
-                            Updated By
-                        </th>
-                        <th style="min-width:120px">
-                            Last Update
-                        </th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.UnemployedContentList)
-                    {
+        <div class="pre-scrollablex validatelistbox">
+                <h4><strong>UNEMPLOYED</strong></h4>
+            <div class="box-body">
+                <table class="table validatelist">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UH03_unemploymentType_FPUT)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UH04_StartDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UH05_EndDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UH87_UserID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UH88_UpdateDate)
-                            </td>
+                            <th>
+                                <span>Unemployment Type</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Start Date</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>End Date</span>
+                            </th>
+                            <th>
+                                <span>Updated By</span>
+                            </th>
+                            <th style="min-width:120px">
+                                <span>Last Update</span>
+                            </th>
 
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model.UnemployedContentList)
+                        {
+                            <tr>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.UH03_unemploymentType_FPUT)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.UH04_StartDate)</span>
+                                </td>
+                                <td>
+                                    <span> @Html.DisplayFor(modelItem => item.UH05_EndDate)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.UH87_UserID)</span>
+                                </td>
+                                <td>
+                                    <span>@Html.DisplayFor(modelItem => item.UH88_UpdateDate)</span>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>

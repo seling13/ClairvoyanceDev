@@ -15,83 +15,113 @@
         -o-transition-duration: 1s;
         transition-duration: 1s;
     }
+
+    .processlistbox h4 {
+        margin-left: 20px;
+        font-size:28px
+    }
+
+    .processlistbox {
+        margin: 35px 0 35px 0;
+    }
+
+
+    .processlist tbody tr td span {
+        display: flex;
+        align-items: center;
+        height: 30px;
+    }
+
+    .processlist thead tr th span {
+        display: flex;
+        align-items: center;
+        min-height: 35px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .processlist {
+        font-size: 14px;
+        min-height: 100px
+    }
 </style>
-    <div class="pre-scrollablex" >
-        <div class="border-bottom-cp" style="padding-top:20px">
+<div class=" animate-bottom">
+    <div class="pre-scrollablex processlistbox" >
+        <div class="border-bottom-cp" >
             <h4><strong>Variable Comparison</strong></h4>
         </div>
-        <div class="box-body">
-            <table class="table">
+        <div class="box-body ">
+            <table class="table processlist">
                 <thead>
                     <tr>
                         <th>
-                            Variable Name
+                            <span>Variable Name</span>
                         </th>
                         <th style="min-width:120px">
-                            Expected Variable Attribute
+                            <span> Expected Variable Attribute</span>
                         </th>
                         <th>
-                            Variable Source
+                            <span> Variable Source</span>
                         </th>
                         <th style="min-width:120px">
-                            Date Scored
+                            <span> Date Scored</span>
                         </th>
                     </tr>
                 </thead>
 
                 <tbody>
-
+                    <tr style="height:5px;"></tr>
                     <tr>
-                        <td >
-                            @Html.Raw(Model.NA03_expectedVariableName1)
+                        <td>
+                            <span>@Html.Raw(Model.NA03_expectedVariableName1)</span>
                         </td>
                         <td>
                             <script>
                                 if ('@Html.Raw(Model.NA03_expectedVariableName1)' == "Transaction Avatar URL") {
 
-                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML = '<img  class="img-circle img-cp" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" />'
+                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML = '<span><img  class="img-circle img-cp" style="width: 35px; height: 35px;" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" /></span>'
                                     //document.getElementById('NA03_expectedVariableName1').innerHTML = '<img href="#" onclick="PopupDetail('Addres')" style="width: 50px; height: 50px;" class="img-circle" src="@Html.Raw(Model.NA04_expectedVariableAttribute1)" /> '
                                 }
                                 else {
-                                    document.getElementById('NA04_expectedVariableAttribute1').innerText =  '@Html.Raw(Model.NA04_expectedVariableAttribute1)';
+                                    document.getElementById('NA04_expectedVariableAttribute1').innerHTML =  '<span>@Html.Raw(Model.NA04_expectedVariableAttribute1)</span>';
 
                                 }
                             </script>
-                                <div id="NA04_expectedVariableAttribute1"></div>
+                            <div id="NA04_expectedVariableAttribute1"></div>
                         </td>
                         <td>
-                            <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA05_expectedVariableSource1) </a>
+                            <span><a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA05_expectedVariableSource1) </a></span>
                         </td>
                         <td>
-                            30-NOV-21
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @Html.Raw(Model.NA06_expectedVariableName2)
-                        </td>
-                        <td>
-                            @Html.Raw(Model.NA07_expectedVariableAttribute2)
-                        </td>
-                        <td>
-                            <a href="http://SOURCE_URL" _blank">@Html.Raw(Model.NA08_expectedVariableSource2) </a>
-                        </td>
-                        <td>
-                            @Html.Raw(Model.NA88_LastModifiedDate)
+                            <span>30-NOV-21</span>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            @Html.Raw(Model.NA09_expectedVariableName3)
+                            <span> @Html.Raw(Model.NA06_expectedVariableName2)</span>
+                        </td>
+                        <td>
+                            <span> @Html.Raw(Model.NA07_expectedVariableAttribute2)</span>
+                        </td>
+                        <td>
+                            <span> <a href="http://SOURCE_URL" _blank">@Html.Raw(Model.NA08_expectedVariableSource2) </a></span>
+                        </td>
+                        <td>
+                            <span> @Html.Raw(Model.NA88_LastModifiedDate)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>@Html.Raw(Model.NA09_expectedVariableName3)</span>
                         </td>
                         <td>
                             <script>
                              if ('@Html.Raw(Model.NA09_expectedVariableName3)' == "Profile Image") {
 
-                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML = '<img  class="img-circle img-cp" src="@Html.Raw(Model.NA10_expectedVariableAttribute3)" />'
+                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML = '<span><img  class="img-circle img-cp" style="width: 35px; height: 35px;</span>" src="@Html.Raw(Model.NA10_expectedVariableAttribute3)" />'
                             }
                             else {
-                                 document.getElementById('NA10_expectedVariableAttribute3').innerText =  '@Html.Raw(Model.NA10_expectedVariableAttribute3)';
+                                 document.getElementById('NA10_expectedVariableAttribute3').innerHTML =  '<span>@Html.Raw(Model.NA10_expectedVariableAttribute3)</span>';
 
                             }
 
@@ -100,10 +130,10 @@
 
                         </td>
                         <td>
-                            <a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA11_expectedVariableSource3) </a>
+                            <span><a href="http://SOURCE_URL" target="_blank">@Html.Raw(Model.NA11_expectedVariableSource3) </a></span>
                         </td>
                         <td>
-                            @Html.Raw(Model.NA88_LastModifiedDate)
+                            <span>@Html.Raw(Model.NA88_LastModifiedDate)</span>
                         </td>
                     </tr>
                 </tbody>
@@ -111,45 +141,46 @@
         </div>
     </div>
 
-    <div class="pre-scrollablex">
-        <div class="border-bottom-cp" style="padding-top:20px">
+    <div class="pre-scrollablex processlistbox">
+        <div class="border-bottom-cp">
             <h4><strong>Deviation Details</strong></h4>
         </div>
         <div class="box-body">
-            <table class="table">
+            <table class="table processlist">
                 <thead>
                     <tr>
                         <th>
-                            Rule ID
+                            <span>Rule ID</span>
                         </th>
                         <th  style="min-width:100px">
-                            Rule Name
+                            <span>Rule Name</span>
+</th>
+                        <th style="min-width:150px">
+                            <span>Rule Description</span>
+</th>
+                        <th  style="min-width:100px; display:flex; align-items:center; justify-content:center">
+                            <span> Pass or Fail</span>
+</th>
+                        <th style="min-width:160px">
+                            <span> Deviation Remarks</span>
                         </th>
                         <th style="min-width:150px">
-                            Rule Description
-                        </th>
-                        <th  style="min-width:100px">
-                            Pass or Fail
-                        </th>
-                        <th  style="min-width:150px">
-                            Deviation Remarks
-                        </th>
-                        <th  style="min-width:150px">
-                            Recommendation
+                            <span>Recommendation</span>
                         </th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    <tr style="height:5px;"></tr>
                     <tr>
                         <td>
-                            @Html.Raw(Model.DV03_ruleID)
+                            <span>@Html.Raw(Model.DV03_ruleID)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.DV04_ruleName)
+                            <span> @Html.Raw(Model.DV04_ruleName)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.DV05_ruleDescription)
+                            <span>@Html.Raw(Model.DV05_ruleDescription)</span>
                         </td>
                         <td>
                             <script>
@@ -163,13 +194,13 @@
                         document.getElementById('DV07_passOrFailV').style.color = "green";
                     }
                             </script>
-                            <div style="display:flex; align-items:center; justify-content:center"><i id="DV07_passOrFailV"style="font-size:12px; padding-right:8px"></i> @Html.Raw(Model.DV07_passOrFail)</div>
-</td>
-                        <td>
-                            @Html.Raw(Model.DV08_deviationRemark)
+                            <div style="display:flex; align-items:center; justify-content:center"><span><i id="DV07_passOrFailV" style="font-size:12px; padding-right:8px"></i> @Html.Raw(Model.DV07_passOrFail)</span></div>
                         </td>
                         <td>
-                            @Html.Raw(Model.DV09_recommendation)
+                            <span> @Html.Raw(Model.DV08_deviationRemark)</span>
+                        </td>
+                        <td>
+                            <span> @Html.Raw(Model.DV09_recommendation)</span>
                         </td>
                     </tr>
                 </tbody>
@@ -177,109 +208,113 @@
         </div>        
     </div>
 
-    <div class="pre-scrollablex">
+    <div class="pre-scrollablex processlistbox" style="margin-top:80px">
         <form id="_form" onsubmit="return ValidateSave('@ViewBag.type');">
-            <div class="border-bottom-cp" style="padding-top:20px">
+            <div class="border-bottom-cp">
                 <h4><strong>Deviation Override</strong></h4>
             </div>
-            <table class="table">
+            <table class="table processlist">
                 <thead>
                     <tr>
-                        <th>
-                            Override Flag
+                        <th style="width:80px;">
+                            <span>Override Flag</span>
                         </th>
                         <th>
-                            Override Remarks
+                            <span>Override Remarks</span>
                         </th>
                         <th>
-                            TP/TN/FP/FN Flag
+                            <span>TP/TN/FP/FN Flag</span>
                         </th>
                         <th>
-                            Override Status
+                            <span> Override Status</span>
                         </th>
                         <th>
-                            Updated By
+                            <span style="width:100px">Updated By</span>
                         </th>
                         <th>
-                            Last Modified Date
+                            <span > Last Modified Date</span>
                         </th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr >
-                        <td>
-                            @Html.Raw(Model.OV03_overrideFlag)
+                    <tr>
+                        <td style="max-width:80px;">
+                            <span> @Html.Raw(Model.OV03_overrideFlag)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.OV04_overrideRemark)
+                            <span> @Html.Raw(Model.OV04_overrideRemark)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.OV05_TP_TN_FP_FN_Flag)
+                            <span> @Html.Raw(Model.OV05_TP_TN_FP_FN_Flag)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.OV06_overrideStatus)
+                            <span> @Html.Raw(Model.OV06_overrideStatus)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.OV87_UpdatedBy)
+                            <span style="min-width:80px;"> @Html.Raw(Model.OV87_UpdatedBy)</span>
                         </td>
                         <td>
-                            @Html.Raw(Model.OV88_LastModifiedDate)
+                            <span>@Html.Raw(Model.OV88_LastModifiedDate)</span>
                         </td>
                     </tr>
-                    <tr >
+                    <tr>
                         <td>
-                            <div class="select">
+                            <div class="select" style="width: 150px;">
+
                                 <select class="form-control field-full" id="OV03_overrideFlag" required>
                                     <option value="">Choose here</option>
                                     <option value="YES">YES</option>
                                     <option value="NO">NO</option>
                                 </select>
-                                </div>
+                            </div>
                         </td>
                         <td>
-                            <input class="form-control" required style="min-width:300px" />
+                            <input class="form-control" required style="width:300px" />
                         </td>
                         <td>
                             <div class="select" style="width:200px">
-                                <select class="form-control field-full" id="OV05_TP_TN_FP_FN_Flag"   required >
+
+                                <select class="form-control field-full" id="OV05_TP_TN_FP_FN_Flag" required>
                                     <option value="">Choose here</option>
                                     <option value="TRUE NEGATIVE">TRUE NEGATIVE</option>
                                     <option value="FALSE NEGATIVE">FALSE NEGATIVE</option>
                                     <option value="TRUE POSITIVE">TRUE POSITIVE</option>
                                     <option value="FALSE POSITIVE">FALSE POSITIVE</option>
                                 </select>
-                                </div>
+                            </div>
                         </td>
                         <td>
-                            <div class="select"  style="width:200px">
-                                <select class="form-control field-full" id="OV06_overrideStatus" required >
+                            <div class="select" style="width: 150px">
+                                <select class="form-control field-full" id="OV06_overrideStatus" required>
                                     <option value="">Choose here</option>
                                     <option value="APPROVED">APPROVED</option>
                                     <option value="DECLINED">DECLINED</option>
                                 </select>
                             </div>
                         </td>
-                        <td >
-                            <div style="margin-top:7px">
-                                Ridzuan
+                        <td>
+                            <div style="min-width:100px; margin-top: 4px">
+                                <span>Ridzuan</span>
                             </div>
                         </td>
                         <td>
-                            <div style="margin-top:7px">
-                                30-NOV-21
+                            <div style="min-width: 140px; margin-top: 4px ">
+                                <span>30-NOV-21</span>
 
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="box-footer" style="margin-top:50px">
+            <div class="box-footer" style="margin:150px 0 30px 0">
                 <button type="submit" class="btn-cp">Save</button>
                 <button type="button" onclick="ValidateCancel('@ViewBag.type')" class="btn-cp ">Cancel</button>
             </div>
         </form>
     </div>
+    
+</div>
         <script>
 
             $("#_form").submit(function (e) {

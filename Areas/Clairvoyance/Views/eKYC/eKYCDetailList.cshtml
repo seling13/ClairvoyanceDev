@@ -4,25 +4,71 @@
   .black {
         color:black;
     }
+
+    .detaillist thead tr th span {
+        display: flex;
+        align-items: center;
+        min-height:45px;
+        font-size: 20px;
+        font-weight:600;
+    }
+
+
+    .detaillist tbody tr td span {
+        display: flex;
+        align-items: center;
+        height: 40px;
+    }
+
+    .detaillist {
+        font-size:14px;
+    }
+        .detaillist > thead > tr 
+        .detaillist > tbody > tr ,
+        .detaillist > tfoot > tr ,
+        .detaillist > thead > tr ,
+        .detaillist > tbody > tr ,
+        .detaillist > tfoot > tr  {
+            border-bottom: 1px solid #ccc;
+        }
+
+            .detaillist > thead > tr > th {
+                border-bottom: 1px solid #8E8E8E;
+            }
+
+
+            .detaillist a {
+                color:black;
+            }
+
+            .table-row {
+                cursor: pointer;
+            }
+
+                .table-row:hover {
+                    /**/background-color: #f2f2f2;
+                    /*background: linear-gradient(to top, #ffffff 20%, #ccc 100%)*/
+                }
+
 </style>
-    <div class="pre-scrollablex">
-        <table class="table table-bottom">
+    <div class="pre-scrollablex animate-bottom" style="margin-top:50px">
+        <table class="table table-bottom detaillist">
             <thead>
-                <tr  style="font-weight:bold; font-size:20px">
+                <tr  style="">
                     <th style="max-width:50px;">
-                        Rule Name
+                        <span>Rule Name</span>
                     </th>
                     <th style="min-width:200px">
-                        Rule Description
+                        <span>Rule Description</span>
                     </th>
-                    <th style="min-width:150px">
-                       e-KYC Result
-                    </th>
-                    <th>
-                        Recommendation
+                    <th  style="min-width:150px">
+                        <span class="align-center">e-KYC Result</span>
                     </th>
                     <th>
-                        Label
+                        <span>Recommendation</span>
+                    </th>
+                    <th>
+                        <span>Label</span>
                     </th>
                 </tr>
             </thead>
@@ -32,14 +78,14 @@
                 @foreach (var item in Model)
                 {
 
-                    <tr>
+                    <tr class="table-row"  onclick="GeteKYCListVerification('@ViewBag.type', '@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">
 
-                        <td style="font-weight:500" >
+                        <td style="font-weight:500; width:200px;">
 
-                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type', '@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV04_ruleName)</a>
+                            <span>@Html.DisplayFor(modelItem => item.DV04_ruleName)</span>
                         </td>
                         <td>
-                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV05_ruleDescription)</a>
+                            <span> @Html.DisplayFor(modelItem => item.DV05_ruleDescription)</span>
                         </td>
 
 
@@ -58,13 +104,20 @@
                     }
 
                             </script>
-                            <div style="display:flex; align-items:center; justify-content:center"><i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)' style="font-size:12px; padding-right:8px"></i><a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')"> @Html.DisplayFor(modelItem => item.DV07_passOrFail)</a></div>
+
+                            <div >
+                                <span class="align-center">
+                                    <i id='@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)' style="font-size:12px; padding-right:8px"></i>
+                                     @Html.DisplayFor(modelItem => item.DV07_passOrFail)
+                                </span>        
+                            </div>
+
                         </td>
                         <td>
-                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.DV09_recommendation)</a>
+                            <span>@Html.DisplayFor(modelItem => item.DV09_recommendation)</span>
                         </td>
                         <td>
-                            <a class="black" href="#" onclick="GeteKYCListVerification('@ViewBag.type','@Html.DisplayFor(modelItem => item.DV01_lkbmdvIndex)')">@Html.DisplayFor(modelItem => item.OV05_TP_TN_FP_FN_Flag)</a>
+                            <span>@Html.DisplayFor(modelItem => item.OV05_TP_TN_FP_FN_Flag)</span>
                         </td>
                     </tr>
 

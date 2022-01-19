@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<OneFin.Models.CFCustomer>
+<style>
+
+
+</style>
 
 @foreach (var item in Model)
 {
-    <div class="container col-lg-4" style="display: flex; align-items: center;">
-        <div class="col-lg-5 no-padding" style="display:flex; justify-content:center;">
+    <div class="animate-bottom " style="height: 205px; float: left; ">
+        <div style="float: left ">
 
-                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)"  style="position: absolute; z-index: 3; max-height:130px; max-width:130px;  width:130px!important; height:130px!important;"></canvas>
-
+                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)"  style="position: absolute;  z-index: 3;  width: 130px !important; height: 130px !important;"></canvas>
                     <script>
                     var xValues = ["Pass", "Fail", "Override"];
                     var yValues = [35, 49, 44];
-                    var barColors = ["#D4F0F0", "#FCB9AA", "#CCE2CB"];
+                    var barColors = ["#FCF0CF", "#FCB9AA", "#CCE2CB"];
 
                     new Chart("'myChart'+@Html.DisplayFor(modelItem => item.Name)", {
                         type: "doughnut",
@@ -20,7 +23,7 @@
 
                         },
                         options: {
-                            cutout:55,
+                            cutout:46,
                             plugins: {                               
                                 legend: {
                                     display: false
@@ -44,22 +47,22 @@
                     });
 
                     </script>
-                    <div style="width: 130px; height: 130px; padding-top: 10px;text-align:center">
-                        <img style="width: 110px; height: 110px;" class="img-circle" src="@Html.DisplayFor(modelItem=> item.IMGSource)" />
+                    <div style="width: 120px; height: 120px; padding-top: 16px;text-align:center">
+                        <img style="width: 88px; height: 88px; " class="img-circle" src="@Html.DisplayFor(modelItem=> item.IMGSource)" />
                     </div>
                 </div>
                 <!--<img style="width:120px; height:120px;" class="img-circle" src="/sampleimg/SampleID.jpg" />-->
 
-        <div class="col-lg-7 border-bottom-cp" style="margin-bottom: 20px; padding-bottom:10px">
-            <span style="font-size:18px">
+        <div class="border-bottom-cp" style="padding: 0 0 15px 10px; height: 170px; width: 250px; float: left">
+            <span style="font-size:18px; font-weight:500">
                 <a style="color:#000000" href="~/Clairvoyance/eKYC/eKYCDetail?id=@Html.DisplayFor(modelItem => item.Cifno)"> @Html.DisplayFor(modelItem => item.Name)</a>
             </span><br />
-                <span style="font-size: 10px; color: #838383;"><i class="fa fa-handshake-o" style="width:14px"></i> Quant Onboarding</span><br style="display: block; content: ' '; margin: -4px 0;" />
-                <span style="font-size: 10px; color: #838383;"><i class="fa fa-user-secret" style="width:14px"></i> MLTF Risk Level 2</span><br style="display: block; content: ' '; margin: -4px 0;" />
-                <span style="font-size: 10px; color: #838383;"><i class="fa fa-check-square-o" style="width:14px"></i> Personal Score</span><br style="display: block; content: ' '; margin: -4px 0;" />
-                <span style="font-size: 10px; color: #838383;"> <i class="fa fa-warning" style="width:14px"></i> Credit Risk Level </span><br  />
-            <span style="font-size: 12px; color: #838383; "> Transaction Override </span><br style="display: block; content: ' '; margin: -4px 0;" />
-            <span style="font-size: 12px; color: #838383;"> Bio-metric Authentication Failed </span>
+                <span style="font-size: 12px; color: #838383; font-weight:300"><i class="fas  fa-mobile-alt" style="width:14px"></i> Quant Onboarding</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa-user-secret" style="width:14px"></i> MLTF Risk Level 2</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa fa-list" style="width:14px"></i> Personal Score</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"> <i class="far  fa-warning" style="width:14px"></i> Credit Risk Level </span><br  />
+            <span style="font-size: 14px; color: #838383; font-weight: 200 "> Transaction Override </span><br style="display: block; content: ' '; margin: -5px 0;" />
+            <span style="font-size: 14px; color: #838383; font-weight: 200"> Bio-metric Authentication Failed </span>
         </div>
     </div>
 
