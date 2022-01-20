@@ -11,52 +11,58 @@ namespace OneFin.Areas.Clairvoyance.Controllers
     [Area("Clairvoyance")]
     public class eKYCController : Controller
     {
-        public IActionResult eKYCSearch()
+        public IActionResult eKYCSearch(string NavItem)
         {
+            ViewBag.NavItem = NavItem;
             return View();
         }
 
-        public IActionResult eKYCSearchList(string Name)
+        public IActionResult eKYCSearchList(string Name, string NavItem)
         {
-            List<CFCustomer> custlist = new List<CFCustomer>();
 
-                var cust5 = new CFCustomer { Name = "Deana Lis Chang Chin", IMGSource = "/sampleimg/John Wick.jpg",Cifno="000000000001" };
-                var cust8 = new CFCustomer { Name = "Datin Leng Sui Sui ", IMGSource = "/sampleimg/Datin Leng.jpg", Cifno = "000000000002" };
-                var cust6 = new CFCustomer { Name = "John Doe Re Mi", IMGSource = "/sampleimg/Unknown.jpg", Cifno = "000000000003" };
-                var cust9 = new CFCustomer { Name = "Jason Joseph Micheal", IMGSource = "/sampleimg/Jason Lee.jpg", Cifno = "000000000004" };
-                var cust2 = new CFCustomer { Name = "Aman Ali Admad", IMGSource = "/dist/img/user8-128x128.jpg", Cifno = "000000000005" };
-                var cust4 = new CFCustomer { Name = "Arron Kwok Foo Sheng Sheng Sheng", IMGSource = "/dist/img/user1-128x128.jpg", Cifno = "000000000006" };
-                var cust7 = new CFCustomer { Name = "Happy Chin Chin", IMGSource = "/dist/img/user7-128x128.jpg", Cifno = "000000000007" };
-                var cust3 = new CFCustomer { Name = "Wong Lee Hong", IMGSource = "/dist/img/user6-128x128.jpg", Cifno = "000000000008" };
-                var cust1 = new CFCustomer { Name = "Emily Oliva Blunt", IMGSource = "/dist/img/emily-blunt-attends-to-dust-new-york-screening-at-the-jcc-news-photo-1581508577.jpg", Cifno = "000000000009" };
+            List<SearcheKYCResult> searchekycresults = new List<SearcheKYCResult>();
+            {
+                var cust5 = new SearcheKYCResult { NA03_cifName = "Deana Lis Chang Chin", IM03_avatarImageURL = "/sampleimg/John Wick.jpg",CF01_CFIndex="000000000001",LK03_countPass = "5", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000001" };
+                var cust8 = new SearcheKYCResult { NA03_cifName = "Datin Leng Sui Sui ", IM03_avatarImageURL = "/sampleimg/Datin Leng.jpg", CF01_CFIndex = "000000000002",LK03_countPass = "5", LK04_countFail="12",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000002" };
+                var cust6 = new SearcheKYCResult { NA03_cifName = "John Doe Re Mi", IM03_avatarImageURL = "/sampleimg/Unknown.jpg", CF01_CFIndex = "000000000003",LK03_countPass = "4", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000003" };
+                var cust9 = new SearcheKYCResult { NA03_cifName = "Jason Joseph Micheal", IM03_avatarImageURL = "/sampleimg/Jason Lee.jpg", CF01_CFIndex = "000000000004",LK03_countPass = "5", LK04_countFail="5",LK05_countForceOverride="1",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000004" };
+                var cust2 = new SearcheKYCResult { NA03_cifName = "Aman Ali Admad", IM03_avatarImageURL = "/dist/img/user8-128x128.jpg", CF01_CFIndex = "000000000005",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="2",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000005" };
+                var cust4 = new SearcheKYCResult { NA03_cifName = "Arron Kwok Foo Sheng Sheng Sheng", IM03_avatarImageURL = "/dist/img/user1-128x128.jpg", CF01_CFIndex = "000000000006",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="5",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000006" };
+                var cust7 = new SearcheKYCResult { NA03_cifName = "Happy Chin Chin", IM03_avatarImageURL = "/dist/img/user7-128x128.jpg", CF01_CFIndex = "000000000007",LK03_countPass = "5", LK04_countFail="9",LK05_countForceOverride="1",LK15_countIncompleteData="3",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000007"};
+                var cust3 = new SearcheKYCResult { NA03_cifName = "Wong Lee Hong", IM03_avatarImageURL = "/dist/img/user6-128x128.jpg", CF01_CFIndex = "000000000008",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="2",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000008" };
+                var cust1 = new SearcheKYCResult { NA03_cifName = "Emily Oliva Blunt", IM03_avatarImageURL = "/dist/img/emily-blunt-attends-to-dust-new-york-screening-at-the-jcc-news-photo-1581508577.jpg", CF01_CFIndex = "000000000009",LK03_countPass = "1", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000009" };
 
 
-            custlist.Add(cust1);
-                custlist.Add(cust2);
-                custlist.Add(cust3);
-                custlist.Add(cust4);
-            custlist.Add(cust5);
-            custlist.Add(cust6);
-            custlist.Add(cust7);
-            custlist.Add(cust8);
-            custlist.Add(cust9);
+            searchekycresults.Add(cust1);
+            searchekycresults.Add(cust2);
+            searchekycresults.Add(cust3);
+            searchekycresults.Add(cust4);
+            searchekycresults.Add(cust5);
+            searchekycresults.Add(cust6);
+            searchekycresults.Add(cust7);
+            searchekycresults.Add(cust8);
+            searchekycresults.Add(cust9);
+
+            }
+               
+
 
             if ( Name !=null && Name !="")
             {
 
 
-                custlist = custlist.Where(item => item.Name.ToLower().Contains(Name.ToLower())).ToList();
+                searchekycresults = searchekycresults.Where(item => item.NA03_cifName.ToLower().Contains(Name.ToLower())).ToList();
 
 
             }
+            ViewBag.NavItem = NavItem;
 
-
-            if (custlist.Count == 0)
+            if (searchekycresults.Count == 0)
             {
                 return Json(new { status = false, message = "Record Not Found" });
             }
             else
-             return PartialView(custlist);
+             return PartialView(searchekycresults);
         }
 
         public IActionResult eKYCDetailList(string filter, string type, string ekycvalidate)
@@ -141,10 +147,11 @@ namespace OneFin.Areas.Clairvoyance.Controllers
 
         }
 
-        public IActionResult eKYCDetail(string id)
+        public IActionResult eKYCDetail(string id, string NavItem)
         {
             /*Display Customer Master*/
             var cust = new CFCustomer();
+
             List<CFAddress> cfaddresslist = new List<CFAddress>();
             List<CFPhone> cfphonelist = new List<CFPhone>();
             List<CFEmail> cfemaillist = new List<CFEmail>();
@@ -160,28 +167,26 @@ namespace OneFin.Areas.Clairvoyance.Controllers
             List<CFRelationship> cfrelationship = new List<CFRelationship>();
 
 
-
-
             if (id == "000000000001")
             {
-                cust = new CFCustomer { Name = "DEANA LIS CHANG CHIN", IMGSource = "/sampleimg/John Wick.jpg", Cifno = "000000000001", PrimaryIDno = ""};
+                cust = new CFCustomer { };
             }
             if (id == "000000000002")
-                cust = new CFCustomer { Name = "DATIN LENG SUI SUI", IMGSource = "/sampleimg/Datin Leng.jpg", Cifno = "000000000002", PrimaryIDno = ""};
+                cust = new CFCustomer { NA03_cifName = "Datin Leng Sui Sui ", IM03_avatarImageURL = "/sampleimg/Datin Leng.jpg", CF01_CFIndex = "000000000002",LK03_countPass = "5", LK04_countFail="12",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000002"};
             if (id == "000000000003")
-                cust = new CFCustomer { Name = "JOHN DOE RE MI", IMGSource = "/sampleimg/Unknown.jpg", Cifno = "000000000003", PrimaryIDno = "" };
+                cust = new CFCustomer {NA03_cifName = "John Doe Re Mi", IM03_avatarImageURL = "/sampleimg/Unknown.jpg", CF01_CFIndex = "000000000003",LK03_countPass = "4", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000003"};
             if (id == "000000000004")
-                cust = new CFCustomer { Name = "JASON JOSEPH MICHEAL ", IMGSource = "/sampleimg/Jason Lee.jpg", Cifno = "000000000004", PrimaryIDno = "" };
+                cust = new CFCustomer {NA03_cifName = "Jason Joseph Micheal", IM03_avatarImageURL = "/sampleimg/Jason Lee.jpg", CF01_CFIndex = "000000000004",LK03_countPass = "5", LK04_countFail="5",LK05_countForceOverride="1",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000004" };
             if (id == "000000000005")
-                cust = new CFCustomer { Name = "AMAN ALI ADMAD", IMGSource = "/dist/img/user8-128x128.jpg", Cifno = "000000000005", PrimaryIDno = "" };
+                cust = new CFCustomer { NA03_cifName = "Aman Ali Admad", IM03_avatarImageURL = "/dist/img/user8-128x128.jpg", CF01_CFIndex = "000000000005",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="2",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000005"};
             if (id == "000000000006")
-                cust = new CFCustomer { Name = "ARRON KWOK FUN SHENG SHENG SHENG", IMGSource = "/dist/img/user1-128x128.jpg", Cifno = "000000000006", PrimaryIDno = "" };
+                cust = new CFCustomer {NA03_cifName = "Arron Kwok Foo Sheng Sheng Sheng", IM03_avatarImageURL = "/dist/img/user1-128x128.jpg", CF01_CFIndex = "000000000006",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="5",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000006" };
             if (id == "000000000007")
-                cust = new CFCustomer { Name = "HAPPY CHIN CHIN", IMGSource = "/dist/img/user7-128x128.jpg", Cifno = "000000000007", PrimaryIDno = "" };
+                cust = new CFCustomer {  NA03_cifName = "Happy Chin Chin", IM03_avatarImageURL = "/dist/img/user7-128x128.jpg", CF01_CFIndex = "000000000007",LK03_countPass = "5", LK04_countFail="9",LK05_countForceOverride="1",LK15_countIncompleteData="3",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000007"};
             if (id == "000000000008")
-                cust = new CFCustomer { Name = "WONG LEE HONG", IMGSource = "/dist/img/user6-128x128.jpg", Cifno = "000000000008", PrimaryIDno = "" };
+                cust = new CFCustomer { NA03_cifName = "Wong Lee Hong", IM03_avatarImageURL = "/dist/img/user6-128x128.jpg", CF01_CFIndex = "000000000008",LK03_countPass = "15", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="2",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000008" };
             if (id == "000000000009")
-                cust = new CFCustomer { Name = "EMILY OLIVIA BLUNT", IMGSource = "/dist/img/emily-blunt-attends-to-dust-new-york-screening-at-the-jcc-news-photo-1581508577.jpg", Cifno = "000000000003", PrimaryIDno = "" };
+                cust = new CFCustomer { NA03_cifName = "Emily Oliva Blunt", IM03_avatarImageURL = "/dist/img/emily-blunt-attends-to-dust-new-york-screening-at-the-jcc-news-photo-1581508577.jpg", CF01_CFIndex = "000000000009",LK03_countPass = "1", LK04_countFail="10",LK05_countForceOverride="1",LK15_countIncompleteData="1",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000009"  };
 
 
             /*Mock Address*/
@@ -256,7 +261,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 NA07_expectedVariableAttribute2 = "10.00%",
                 NA08_expectedVariableSource2= "View Source",
                 NA09_expectedVariableName3 = "Profile Image",
-                NA10_expectedVariableAttribute3 = cust.IMGSource,
+                NA10_expectedVariableAttribute3 = cust.IM03_avatarImageURL,
                 //cust.IMGSource,
                 NA11_expectedVariableSource3 = "View Source",
                 NA88_LastModifiedDate = "30-NOV-21",
@@ -284,7 +289,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 NA07_expectedVariableAttribute2 = "10.00%",
                 NA08_expectedVariableSource2 = "View Source",
                 NA09_expectedVariableName3 = "Profile Image",
-                NA10_expectedVariableAttribute3 = cust.IMGSource,
+                NA10_expectedVariableAttribute3 = cust.IM03_avatarImageURL,
                 NA11_expectedVariableSource3 = "View Source",
                 NA88_LastModifiedDate = "30-NOV-21",
                 OV03_overrideFlag = "YES",
@@ -311,7 +316,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 NA07_expectedVariableAttribute2 = "10.00%",
                 NA08_expectedVariableSource2 = "View Source",
                 NA09_expectedVariableName3 = "Profile Image",
-                NA10_expectedVariableAttribute3 = cust.IMGSource,
+                NA10_expectedVariableAttribute3 = cust.IM03_avatarImageURL,
                 NA11_expectedVariableSource3 = "View Source",
                 NA88_LastModifiedDate = "30-NOV-21",
                 OV03_overrideFlag = "YES",
@@ -338,7 +343,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 NA07_expectedVariableAttribute2 = "10.00%",
                 NA08_expectedVariableSource2 = "View Source",
                 NA09_expectedVariableName3 = "Profile Image",
-                NA10_expectedVariableAttribute3 = cust.IMGSource,
+                NA10_expectedVariableAttribute3 = cust.IM03_avatarImageURL,
                 NA11_expectedVariableSource3 = "View Source",
                 NA88_LastModifiedDate = "30-NOV-21",
                 OV03_overrideFlag = "YES",
@@ -908,7 +913,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
                 OV06_overrideStatus = "APPROVED"
 
             });
-
+           ViewBag.NavItem = NavItem;
             return View(ekyclist);
         }
 

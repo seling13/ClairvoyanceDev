@@ -11,10 +11,17 @@ namespace OneFin.Models
     public class CFCustomer
     {
         [Key, Column(Order = 0)]
-        public string Cifno { get; set; }
-        public string Name { get; set; }
-        public string PrimaryIDno { get; set; }
-        public string IMGSource { get; set; }
+        public string SearchType { get; set; } /*RD RR RA Override */
+        public string CF01_CFIndex { get; set; }
+        public string BM02_lkIndex { get; set; }
+        public string NA03_cifName { get; set; } /* base on LK16 respective channel*/
+        public string IM03_avatarImageURL {get; set;} /* base on LK16 respective channel*/
+        public string LK03_countPass { get; set; }
+        public string LK04_countFail { get; set; }
+        public string LK05_countForceOverride { get; set; }
+        public string LK15_countIncompleteData { get; set; }
+        public string LK17_finalBlazeRecommendation { get; set; }
+        public string LK18_finalStatus { get; set; }
         public List<CFAddress> AddContentList { get; set; }
         public List<CFPhone> PhoneContentList { get; set; }
         public List<CFEmail> EmailContentList { get; set; }

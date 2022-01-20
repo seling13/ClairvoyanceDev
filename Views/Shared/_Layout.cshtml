@@ -152,16 +152,30 @@
             align-items: center;
         }
 
-        .form-search-cp {
+        .form-dp-cp {
             -webkit-appearance: none;
             position: absolute;
             background-color: transparent;
-            width: 90px;
+            width:110px;
             height: 100%;
             line-height: 20px;
             margin: 0;
             padding: 0;
             border: none;
+        }
+        .select-dp::after {
+            font-family: FontAwesome;
+            content: "\f078";
+            color:#ccc;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+            position: absolute;
+            top: 4px;
+            left: 88px;
+            bottom: 4px;
+            font-size: 12px;
+            
         }
 
         .webkit-appearance-none {
@@ -263,6 +277,7 @@
             min-width: 50px;
             font-weight:500;
             height: 40px;
+            
 
         }
 
@@ -283,6 +298,7 @@
             color: white;
             outline: none;
             border: var(--appleblue) 1px solid;
+            
         }
 
         .active-btn-selected {
@@ -291,6 +307,7 @@
             outline: none;
             background-color: var(--appleblue);
             border: var(--appleblue) 1px solid;
+            
         }
 
         .active-btn-selected-0 {
@@ -410,7 +427,7 @@
             -webkit-animation-name: animatetransition;
             -webkit-animation-duration: 1s;
             animation-name: animatetransition;
-            animation-duration: 1s
+            animation-duration: 2s
         }
 
         .animate-leftright {
@@ -707,6 +724,7 @@
             border-color: #d2d6de;
         }
 
+
         .select {
             position: relative;
             display: block;
@@ -754,8 +772,61 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             -ms-appearance: none;
-            background-color: white;
+            background-color: white!important;
             font-family: sans-serif;
+            border:none!important;
+            box-shadow:none!important;
+
+        }
+
+        .select-simple {
+            position: relative;
+            display: block;
+            width: 20em;
+            height: 45px;
+            line-height: 3;
+            overflow: hidden;
+            border-radius: 20px;
+            border: none;
+        }
+
+
+        .select-simple::after {
+            font-family: FontAwesome;
+            content: "\f078";
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            font-weight: 200;
+            font-size: 10px;
+            border-radius: 20px;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            padding: 0 12px;
+            background: none;
+            color: #ccc;
+            pointer-events: none;
+        }
+
+        .select-simple::after {
+            font-family: FontAwesome;
+            content: "\f078";
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            font-weight: 200;
+            font-size: 10px;
+            border-radius: 20px;
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            bottom: 4px;
+            padding: 0 12px;
+            background: none;
+            color: #ccc;
+            pointer-events: none;
         }
 
         .main-header .navbar {
@@ -973,7 +1044,7 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar ">
                     <!-- Sidebar Menu -->
-                    @Html.Partial("_MainMenu")
+                    <partial name="_MainMenu" />
                     <!-- /.sidebar-menu -->
                 </section>
                 <!-- /.sidebar -->

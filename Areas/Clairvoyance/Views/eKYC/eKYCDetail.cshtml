@@ -133,22 +133,22 @@
                 <div class="mobile-center" style="position:relative; align-items: center; display:flex; justify-content: center; text-align: center; float:left;padding: 0 20px 0 50px; ">
                     <canvas id="myChart" style="position: absolute; z-index: 3; max-height: 240px; max-width: 240px; width: 240px; height: 240px "></canvas>
                     <div style="width: 240px; height: 240px; padding-top: 23px;">
-                        <img style="width: 195px; height: 195px;" class="img-circle" src="@Html.Raw(customer.IMGSource)" />
+                        <img style="width: 195px; height: 195px;" class="img-circle" src="@Html.Raw(customer.IM03_avatarImageURL)" />
                     </div>
                 </div>
                 <div class="mobile-center" style="display: flex; padding: 10px 80px 10px 10px; justify-content: left; align-items:center; float: left; max-width: 550px;">
                     <div class="box-body">
                         <span style="font-size:35px;">
-                            <strong> @Html.Raw(customer.Name)</strong>
+                            <strong> @Html.Raw(customer.NA03_cifName)</strong>
                         </span><br />
                         <div class="box-body" style="padding-left:0; padding-top:0">
-                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="fas fa-mobile-alt" style="width:17px"></i> Quant Onboarding</span><br style="display: block; content: ' '; margin: -2px 0;" />
-                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="far fa-user-secret" style="width:17px"></i> MLTF Risk Level 2</span><br style="display: block; content: ' '; margin: -2px 0;" />
-                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="far fa-list" style="width:17px"></i> Personal Score</span><br style="display: block; content: ' '; margin: -2px 0;" />
-                            <span style=" font-size: 14px; color: #838383; font-weight: 300"> <i class="far fa-warning" style="width:17px"></i> Credit Risk Level </span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="far fa-user-check" style="width:17px"></i> Count Pass : @Html.Raw(customer.LK03_countPass)</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="far fa-user-times" style="width:17px"></i> Count Fail : @Html.Raw(customer.LK04_countFail)</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            <span style="font-size: 14px; color: #838383; font-weight: 300"><i class="far fa-check-circle" style="width:17px"></i> Count Forced Override : @Html.Raw(customer.LK05_countForceOverride)</span><br style="display: block; content: ' '; margin: -2px 0;" />
+                            <span style=" font-size: 14px; color: #838383; font-weight: 300"> <i class="far fa-user-edit" style="width:17px"></i> Count Incomplete Data : @Html.Raw(customer.LK15_countIncompleteData) </span><br style="display: block; content: ' '; margin: -2px 0;" />
                         </div>
-                        <span style="font-size: 16px; font-weight: 200"> Transaction Override </span><br style="display: block; content: ' '; margin: -2px 0;" />
-                        <span style="font-size: 16px; font-weight: 200" > Bio-metric Authentication Failed </span>
+                        <span style="font-size: 16px; font-weight: 200"> Blaze Recommendation : @Html.Raw(customer.LK17_finalBlazeRecommendation) </span><br style="display: block; content: ' '; margin: -2px 0;" />
+                        <span style="font-size: 16px; font-weight: 200" > Final Status : @Html.Raw(customer.LK18_finalStatus) </span>
                     </div>
                 </div>
 
@@ -166,13 +166,12 @@
                 </div>
             </div>
 
-            <div class="box-header">
+            <!--<div class="box-header">
                 <div id="DIV-source" style="margin-top:30px;">
                     <button class="btn-rounded btn-source active-btn-selected"> <img class="img-circle" src="~/dist/img/Ultron.jpg" style="width:20px; height:20px; margin-top: -2px" /> Ultron Pro</button>
                     <button class="btn-rounded btn-source"><img class="img-circle" src="~/dist/img/exponential.jpg" style="width:20px; height:20px; margin-top: -2px" /> eXponential Pro</button>
                     <button class="btn-rounded btn-source"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive Pro</button>
                     <button class="btn-rounded btn-source"><img class="img-circle" src="~/dist/img/others.jpg" style="width:20px; height:20px; margin-top: -2px" /> Olive for Business</button>
-                    <!--<button class="btn1 btn-rounded"><i class="fa fa-user-circle-o"></i> Biometric</button>-->
                 </div>
             </div>
             <script>
@@ -186,7 +185,7 @@
                         this.className += " active-btn-selected";
                     });
                 }
-            </script>
+            </script>-->
 
             <div class="box-header border-bottom-cp" style="padding-top:20px">
                 <div class="row">
@@ -275,11 +274,25 @@
 <script>
     var ekycvalidate = '@Html.Raw(Json.Serialize(Model))';
     var customer = '@Html.Raw(Json.Serialize(customer))';
+
     $(document).ready(function () {
         document.getElementById('tabBIO').click();
-
-        var element = document.getElementById("eKYCSearch");
-        element.classList.add("menu-item-active");
+        
+        if('@ViewBag.NavItem' == 'Quant')
+        {
+            var element = document.getElementById("eKYCSearch-Quant");
+            element.classList.add("menu-item-active");
+        }
+              if('@ViewBag.NavItem' == 'Exp')
+        {
+            var element = document.getElementById("eKYCSearch-Exp");
+            element.classList.add("menu-item-active");
+        }
+                if('@ViewBag.NavItem' == 'Ultron')
+        {
+            var element = document.getElementById("eKYCSearch-Ultron");
+            element.classList.add("menu-item-active");
+        }
     });
 
     $('#nav-link').attr("href", "eKYCSearch")

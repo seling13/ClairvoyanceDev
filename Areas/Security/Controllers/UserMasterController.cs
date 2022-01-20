@@ -62,7 +62,8 @@ namespace OneFin.Areas.Security.Controllers
  
 
         }
-        public async Task<IActionResult> ChangeRole(string username, string CurrentRole)
+
+        public IActionResult ChangeRole(string username, string CurrentRole)
         {
             if (username == null)
             {
@@ -86,7 +87,7 @@ namespace OneFin.Areas.Security.Controllers
             //    return NotFound();
             //}
 
-            return View(usersroles);
+            return  View(usersroles);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

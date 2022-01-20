@@ -29,7 +29,7 @@
         }
 
         input[type=button], input[type=submit], input[type=reset] {
-            background-color: #EF953D;
+            background-color: #007AFF;
             width: 300px;
             border: none;
             color: white;
@@ -89,6 +89,7 @@
             width: 100%;
             margin-top: 15px;
             text-align: center;
+            border:transparent;
         }
 
         .input-field {
@@ -96,11 +97,20 @@
             padding: 10px;
             border-radius: 20px;
             border-color: #ccc;
+            border: 1px solid #ccc;
+        }
+
+        .input-field::active {
+            border: none!important;
         }
 
 
             .btn:hover {
                 opacity: 1;
+            }
+
+            .btn {
+               
             }
     </style>
 </head>
@@ -126,7 +136,7 @@
     <form class="modal-content animate" asp-action="Validate" method="post">
         <div class="container">
             <div class="imgcontainer">
-                <img class="img" src="~/dist/img/faviconLarge.ico" style="width: 300px; height: 100px; margin-top: 20px; " />
+                <img class="img" src="~/dist/img/Clairvoyance Logo-1.png" style="width: 300px; height: 280px; margin-top: 20px; " />
             </div>
             <div class="input-container">
                 <input class="input-field form-control" type="text" placeholder="Username" asp-for="userName" id="username" required>
@@ -136,7 +146,7 @@
                 <input asp-for="password" class="input-field form-control" type="password" placeholder="Password" name="password" id="password" required>
             </div>
 
-            <input type="submit" value="Log in" class="btn btn-dark mb-2" width: 100% />
+            <input type="submit" value="Log in"  style=" backgroundColor:#007AFF;!important" />
         </div>
         <div class="container">
             <span class="new"> <a href="~/Account/Register">Register New User</a></span>

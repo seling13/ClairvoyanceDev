@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OneFin.Models.CFCustomer>
+﻿@model IEnumerable<OneFin.Models.SearcheKYCResult>
 <style>
 
 
@@ -9,13 +9,13 @@
     <div class="animate-bottom " style="height: 205px; float: left; ">
         <div style="float: left ">
 
-                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Name)"  style="position: absolute;  z-index: 3;  width: 130px !important; height: 130px !important;"></canvas>
+                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.BM02_lkIndex)"  style="position: absolute;  z-index: 3;  width: 130px !important; height: 130px !important;"></canvas>
                     <script>
                     var xValues = ["Pass", "Fail", "Override"];
                     var yValues = [35, 49, 44];
                     var barColors = ["#FCF0CF", "#FCB9AA", "#CCE2CB"];
 
-                    new Chart("'myChart'+@Html.DisplayFor(modelItem => item.Name)", {
+                    new Chart("'myChart'+@Html.DisplayFor(modelItem => item.BM02_lkIndex)", {
                         type: "doughnut",
                         data: {
                             labels: xValues,
@@ -48,21 +48,21 @@
 
                     </script>
                     <div style="width: 120px; height: 120px; padding-top: 16px;text-align:center">
-                        <img style="width: 88px; height: 88px; " class="img-circle" src="@Html.DisplayFor(modelItem=> item.IMGSource)" />
+                        <img style="width: 88px; height: 88px; " class="img-circle" src="@Html.DisplayFor(modelItem=> item.IM03_avatarImageURL)" />
                     </div>
                 </div>
                 <!--<img style="width:120px; height:120px;" class="img-circle" src="/sampleimg/SampleID.jpg" />-->
 
         <div class="border-bottom-cp" style="padding: 0 0 15px 10px; height: 170px; width: 250px; float: left">
             <span style="font-size:18px; font-weight:500">
-                <a style="color:#000000" href="~/Clairvoyance/eKYC/eKYCDetail?id=@Html.DisplayFor(modelItem => item.Cifno)"> @Html.DisplayFor(modelItem => item.Name)</a>
+                <a style="color:#000000" href="~/Clairvoyance/eKYC/eKYCDetail?id=@Html.DisplayFor(modelItem => item.BM02_lkIndex)&NavItem=@ViewBag.NavItem"> @Html.DisplayFor(modelItem => item.NA03_cifName)</a>          
             </span><br />
-                <span style="font-size: 12px; color: #838383; font-weight:300"><i class="fas  fa-mobile-alt" style="width:14px"></i> Quant Onboarding</span><br style="display: block; content: ' '; margin: -5px 0;" />
-                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa-user-secret" style="width:14px"></i> MLTF Risk Level 2</span><br style="display: block; content: ' '; margin: -5px 0;" />
-                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa fa-list" style="width:14px"></i> Personal Score</span><br style="display: block; content: ' '; margin: -5px 0;" />
-                <span style="font-size: 12px; color: #838383; font-weight: 300"> <i class="far  fa-warning" style="width:14px"></i> Credit Risk Level </span><br  />
-            <span style="font-size: 14px; color: #838383; font-weight: 200 "> Transaction Override </span><br style="display: block; content: ' '; margin: -5px 0;" />
-            <span style="font-size: 14px; color: #838383; font-weight: 200"> Bio-metric Authentication Failed </span>
+                <span style="font-size: 12px; color: #838383; font-weight:300"><i class="far  fa-user-check" style="width:14px"></i> Count Pass : @Html.DisplayFor(modelItem => item.LK03_countPass) </span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa-user-times" style="width:14px"></i> Count Fail : @Html.DisplayFor(modelItem => item.LK04_countFail)</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa-check-circle" style="width:14px"></i> Count Forced Override : @Html.DisplayFor(modelItem => item.LK05_countForceOverride)</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"> <i class="far  fa-user-edit" style="width:14px"></i> Count Incomplete Data : @Html.DisplayFor(modelItem => item.LK15_countIncompleteData)</span><br  />
+            <span style="font-size: 14px; color: #838383; font-weight: 200 "> Blaze Recommendation : @Html.DisplayFor(modelItem => item.LK17_finalBlazeRecommendation)</span><br style="display: block; content: ' '; margin: -5px 0;" />
+            <span style="font-size: 14px; color: #838383; font-weight: 200"> Final Status : @Html.DisplayFor(modelItem => item.LK18_finalStatus)</span>
         </div>
     </div>
 

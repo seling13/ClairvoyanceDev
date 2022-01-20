@@ -45,7 +45,7 @@ namespace OneFin.Controllers
 
         //[ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Validate(LoginInput loginInput)
+        public IActionResult Validate(LoginInput loginInput)
         {
 
             LoginOutput loginOutput = new LoginOutput();
