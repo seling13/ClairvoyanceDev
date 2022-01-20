@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     var viewdata = ViewData["searchstring"];
+    var eKYCType = string.Empty;
 
 }
 
@@ -19,7 +20,7 @@
             background-color: var(--applegrey);
             border-radius: 10px;
             width: -webkit-fit-content;
-            
+
         }
 
             .tab-ap button {
@@ -34,8 +35,8 @@
                 font-size: 14px;
                 padding:0!important;
                 margin:1px 1px 1px -4px;
-                
-               
+
+
             }
 
              .tab-ap span {
@@ -54,36 +55,101 @@
                     color: black;
                     border-radius: 10px;
                     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                    font-weight: 600px;
+                    font-weight: 500;
                 }
 
 
-        /* Add animation (fade in the popup) */
-        @@keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+       /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+           
         }
 
-        @@keyframes fadeIn {
-            from {
-                opacity: 0;
+/* The actual popup */
+            .popup .popuptext {
+                visibility: hidden;
+                width: 160px;
+                background-color: #555;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 8px 0;
+                position: absolute;
+                z-index: 1;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -80px;
             }
 
-            to {
-                opacity: 1;
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+            .popup .show {
+                visibility:visible;
+                -webkit-animation: fadeIn 3s;
+                animation: fadeIn 3s;
             }
+
+/* Add animation (fade in the popup) */
+@@-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
         }
 
-        /*datepicker*/
+        70% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+}
+
+@@keyframes fadeIn {
+        /*from {opacity: 0;}
+  to {opacity: 1 ;}*/
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 1;
+        }
+
+        70% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+
+
+}
 
         input[type="date"]::-webkit-calendar-picker-indicator {
             background-image: url('');
-            
+
         }
 
         .btn-lvl {
@@ -114,7 +180,7 @@
                     <option value="Name">Name</option>
                 </select>
                             
-                <input class="form-control" style="padding-left: 120px; background-color: #EEEEEF; border:none;" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="id" name="id">
+                <input class="form-control" style="padding-left: 120px; background-color: #EEEEEF; border:none;" type="text" placeholder="Leave Blank to Search All, Search Function is open to - ID Number, Name" id="SearchName" name="SearchName">
             </div>  
         </div>
 
@@ -153,24 +219,27 @@
                 <h4><strong>History</strong></h4>
             </div>
             <div class="box-header">
-                <div id="DIV-LVL" style="margin-top:10px; width: -webkit-fit-content; float:left ">
-                    <button class="btn-rounded btn-lvl active-btn-selected" hidden> </button>
-                    <button class="btn-rounded btn-lvl"> RD </button>
-                    <button class="btn-rounded btn-lvl"> RR </button>
-                    <button class="btn-rounded btn-lvl"> RA </button>
-                    <button class="btn-rounded btn-lvl"> Override </button>
-                    <button class="btn-rounded btn-lvl"> Manual CIF Matching </button>
-                    <!--<button class="btn1 btn-rounded"><i class="far fa-user-circle-o"></i> Biometric</button>-->
+                <div class="popup">
+                    <span class="popuptext" id="myPopup">Click Me!</span>
+                    <div id="DIV-LVL" style="margin-top:10px; width: -webkit-fit-content; float:left ">
+                        <button class="btn-rounded btn-lvl active-btn-selected" hidden> </button>
+                        <button class="btn-rounded btn-lvl"> RD </button>
+                        <button class="btn-rounded btn-lvl"> RR </button>
+                        <button class="btn-rounded btn-lvl"> RA </button>
+                        <button class="btn-rounded btn-lvl"> Override </button>
+                        <button class="btn-rounded btn-lvl"> Manual CIF Matching </button>
+                        <!--<button class="btn1 btn-rounded"><i class="far fa-user-circle-o"></i> Biometric</button>-->
+                    </div>
                 </div>
-            <div class="select-simple" style="width:140px;  float:right; margin:20px 0 0 20px;   ">
-                <select class="form-control field-full" style="border:none; color: grey; font-size:17px;">
-                <option value="">Sort By</option>
-                <option value="1">Date</option>
-                <option value="2">Fail</option>
-                <option value="3">Override</option>
-                <option value="4">Incomplete </option>
-                </select>
-            </div>
+                <div class="select-simple" style="width:140px;  float:right; margin:20px 0 0 20px;   ">
+                    <select class="form-control field-full" style="border:none; color: grey; font-size:17px;">
+                        <option value="">Sort By</option>
+                        <option value="1">Date</option>
+                        <option value="2">Fail</option>
+                        <option value="3">Override</option>
+                        <option value="4">Incomplete </option>
+                    </select>
+                </div>
             </div>
             <script>
                 // Add active class to the current button (highlight it)
@@ -181,18 +250,20 @@
                         var current = document.getElementsByClassName("active-btn-selected");
                         current[0].className = current[0].className.replace(" active-btn-selected", "");
                         this.className += " active-btn-selected";
-                         $('#JAN').html("");
-                         $('#JAN').html("");
-                         $('#JAN').html("");
-                         
-
-                
-                            if ($('#id').val() == "" || ( $('#id').val() != "" && $('#select').val() != "" ) ) 
-                            {                               
-                                if (this.innerText == "Manual CIF Matching") {}
-                                else {
-                                GeteKYC(this.innerText);}
-                            }
+                        $('#JAN').html("");
+                        $('#FEB').html("");
+                        $('#MAR').html("");
+                        $('#APR').html("");
+                        $('#MAY').html("");
+                        $('#JUN').html("");
+                        $('#JUL').html("");
+                        $('#AUG').html("");
+                        $('#SEP').html("");
+                        $('#OCT').html("");
+                        $('#NOV').html("");
+                        $('#DEC').html("");
+                        eKYCType = this.innerText;
+                        document.getElementById('defaultJAN').click();
 
                     });
 
@@ -235,61 +306,61 @@
 
             </div>
             <div id="FEB" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion FEB
+                <div class="box-header">
+                   
                 </div>
             </div>
 
             <div id="MAR" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion MAR
+                <div class="box-header ">
+                    
                 </div>
 
             </div>
             <div id="APR" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion APR
+                <div class="box-header ">
+                   
                 </div>
             </div>
             <div id="MAY" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion MAY
+                <div class="box-header ">
+                  
                 </div>
             </div>
             <div id="JUN" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion JUN
+                <div class="box-header">
+                    
                 </div>
             </div>
             <div id="JUL" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion JUL
+                <div class="box-header">
+                    
                 </div>
             </div>
 
             <div id="AUG" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion AUG
+                <div class="box-header">
+                    
                 </div>
             </div>
             <div id="SEP" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion SEP
+                <div class="box-header ">
+                   
                 </div>
             </div>
             <div id="OCT" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion OCT
+                <div class="box-header ">
+                    
                 </div>
             </div>
             <div id="NOV" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion NOV
+                <div class="box-header ">
+                   
                 </div>
             </div>  
             <div id="DEC" class="tabcontent animate-bottom">
-                <div class="box-header with-border">
-                    <i class="far fa-wrench"></i> Under Contrustion DEC
+                <div class="box-header">
+                    
                 </div>
             </div>           
             
@@ -299,12 +370,12 @@
 </body>
 </html>
 <script>
-
+    var eKYCType = "";
     $('#nav-link').attr("href", "eKYCSearch")
     $('#nav-name').text("e-KYC");
 
-    $("#id").on('keyup', function (e) {
-        if ($("#id").val() == "")
+    $("#SearchName").on('keyup', function (e) {
+        if ($("#SearchName").val() == "")
             {
             $("select").prop('required', false);
         }
@@ -319,7 +390,7 @@
     });
 
     $(document).ready(function () {
-        document.getElementById('defaultJAN').click();
+       
         if('@ViewBag.NavItem' == 'Quant')
         {
             var element = document.getElementById("eKYCSearch-Quant");
@@ -342,7 +413,7 @@
 
 
 
-    function openPeriod(evt, cityName) {
+    function openPeriod(evt, month) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -352,24 +423,70 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active-selected", " ");
         }
-        document.getElementById(cityName).style.display = "block";
+        document.getElementById(month).style.display = "block";
         evt.currentTarget.className += " active-selected";
+
+        //var htmlstring = '<i class="far fa-wrench"></i> Tab ' + cityName + ' Under Contrustion';
+
+
+        if (eKYCType == "") {
+
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+            setTimeout(function () { popup.classList.toggle("show"); }, 3000);
+            
+
+        }
+        else
+        {
+            $('#JAN').html("");
+            $('#FEB').html("");
+            $('#MAR').html("");
+            $('#APR').html("");
+            $('#MAY').html("");
+            $('#JUN').html("");
+            $('#JUL').html("");
+            $('#AUG').html("");
+            $('#SEP').html("");
+            $('#OCT').html("");
+            $('#NOV').html("");
+            $('#DEC').html("");
+
+            if ($('#SearchName').val() == "" || ($('#SearchName').val() != "" && $('#select').val() != "")) {
+                if (eKYCType == "Manual CIF Matching") {
+                    GetCIFMatch(eKYCType, month);
+                }
+                else {
+                    GeteKYC(eKYCType, month);
+                }
+            }
+
+            //if (cityName == "JAN")
+            //{
+
+            //}      
+            //else
+            //{
+            //    $(tabName).html(htmlstring);
+            //}
+        }
     }
 
-    function GeteKYC() {
+    function GeteKYC(eKYCType, month) {
         //loader("ON");
+        var tabName = '#' + month;
         $.ajax(
             {
                 type: "POST",
                 url: '@Url.Action("eKYCSearchList", "eKYC")',
                 data: {
-                    Name: $('#id').val(),
+                    Name: $('#SearchName').val(),
                     NavItem: '@ViewBag.NavItem'
                 },
                 error: function (result) {
                     showMessage("E", result.status + " " + result.statusText + " " + "Something wrong, please try again"
                     );
-                    $('#JAN').html("");
+                    $(tabName).html("");
                 },
                 success: function (result) {
                         if (result.status == false) {
@@ -384,7 +501,43 @@
                                 list_html += result;
                             }
                             //$("#7days").html(list_html);
-                            $("#JAN").html(result);
+                            $(tabName).html(result);
+                        }
+                    //loader("OFF");
+                }
+            }
+        );
+    }
+    function GetCIFMatch(eKYCType, month) {
+        //loader("ON");
+        var tabName = '#' + month;
+        $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("eKYCSearchCIFMatchList", "eKYC")',
+                data: {
+                    Name: $('#SearchName').val(),
+                    NavItem: '@ViewBag.NavItem'
+                },
+                error: function (result) {
+                    showMessage("E", result.status + " " + result.statusText + " " + "Something wrong, please try again"
+                    );
+                    $(tabName).html("");
+                },
+                success: function (result) {
+                        if (result.status == false) {
+                            showMessage("E", result.message);
+                        }
+                        else {
+                            var list_html = '';
+                            for (var i = 0; i < 3; i++) {
+
+                                result = result.replace(/myChart/g, "myChart" + i.toString());
+                                console.log(result);
+                                list_html += result;
+                            }
+                            //$("#7days").html(list_html);
+                            $(tabName).html(result);
                         }
                     //loader("OFF");
                 }

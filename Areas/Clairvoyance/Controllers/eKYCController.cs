@@ -65,6 +65,46 @@ namespace OneFin.Areas.Clairvoyance.Controllers
              return PartialView(searchekycresults);
         }
 
+        public IActionResult eKYCSearchCIFMatchList(string Name, string NavItem)
+        {
+
+            List<SearcheKYCCIFMatch> searchekycresults = new List<SearcheKYCCIFMatch>();
+            {
+                var cust1 = new SearcheKYCCIFMatch { Name = "Deana Lis Chang Chin", ImageURL = "/sampleimg/John Wick.jpg", DOB="01/11/1992",MatchCount = "5", Cifno="000000000001",Id="01-021882" };
+                var cust2 = new SearcheKYCCIFMatch { Name = "Jason Joseph Micheal", ImageURL = "/sampleimg/Jason Lee.jpg", DOB = "01/11/1982",MatchCount = "5",Cifno="000000000004",Id="01-021882" };
+                var cust3 = new SearcheKYCCIFMatch { Name = "Aman Ali Admad", ImageURL = "/dist/img/user8-128x128.jpg", DOB = "01/11/1989",MatchCount = "15", Cifno="000000000005",Id="01-021882" };
+                var cust4 = new SearcheKYCCIFMatch { Name = "Arron Kwok Foo Sheng Sheng Sheng Sheng Sheng ", ImageURL = "/dist/img/user1-128x128.jpg", DOB = "01/11/1972",MatchCount = "15",Cifno="000000000006",Id="01-021882" };
+                var cust5 = new SearcheKYCCIFMatch { Name = "Emily Oliva Blunt", ImageURL = "/dist/img/emily-blunt-attends-to-dust-new-york-screening-at-the-jcc-news-photo-1581508577.jpg", DOB ="01/11/1962",MatchCount = "1",Cifno="000000000009",Id="01-021882" };
+
+
+            searchekycresults.Add(cust1);
+            searchekycresults.Add(cust2);
+            searchekycresults.Add(cust3);
+            searchekycresults.Add(cust4);
+            searchekycresults.Add(cust5);
+
+            }
+               
+
+
+            if ( Name !=null && Name !="")
+            {
+
+
+                searchekycresults = searchekycresults.Where(item => item.Name.ToLower().Contains(Name.ToLower())).ToList();
+
+
+            }
+            ViewBag.NavItem = NavItem;
+
+            if (searchekycresults.Count == 0)
+            {
+                return Json(new { status = false, message = "Record Not Found" });
+            }
+            else
+             return PartialView(searchekycresults);
+        }
+
         public IActionResult eKYCDetailList(string filter, string type, string ekycvalidate)
         {
 
@@ -169,7 +209,7 @@ namespace OneFin.Areas.Clairvoyance.Controllers
 
             if (id == "000000000001")
             {
-                cust = new CFCustomer { };
+                cust = new CFCustomer {NA03_cifName = "Deana Lis Chang Chin ", IM03_avatarImageURL = "/sampleimg/John Wick.jpg", CF01_CFIndex = "000000000001",LK03_countPass = "5", LK04_countFail="12",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000001" };
             }
             if (id == "000000000002")
                 cust = new CFCustomer { NA03_cifName = "Datin Leng Sui Sui ", IM03_avatarImageURL = "/sampleimg/Datin Leng.jpg", CF01_CFIndex = "000000000002",LK03_countPass = "5", LK04_countFail="12",LK05_countForceOverride="1",LK15_countIncompleteData="0",LK17_finalBlazeRecommendation="RR",LK18_finalStatus="Override",BM02_lkIndex="000000000002"};

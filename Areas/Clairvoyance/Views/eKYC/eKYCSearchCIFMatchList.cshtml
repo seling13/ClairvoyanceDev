@@ -1,0 +1,69 @@
+﻿@model IEnumerable<OneFin.Models.SearcheKYCCIFMatch>
+<style>
+
+
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="animate-bottom " style="height: 180px; float: left; ">
+        <div style="float: left ">
+
+                    <canvas id="'myChart'+@Html.DisplayFor(modelItem => item.Cifno)"  style="position: absolute;  z-index: 3;  width: 130px !important; height: 130px !important;"></canvas>
+                    <script>
+                    var xValues = ["Pass", "Fail", "Override"];
+                    var yValues = [35, 49, 44];
+                    var barColors = ["#FCF0CF", "#FCB9AA", "#CCE2CB"];
+
+                    new Chart("'myChart'+@Html.DisplayFor(modelItem => item.Cifno)", {
+                        type: "doughnut",
+                        data: {
+                            labels: xValues,
+                            datasets: [{ backgroundColor: barColors, data: yValues }],
+
+                        },
+                        options: {
+                            cutout:46,
+                            plugins: {                               
+                                legend: {
+                                    display: false
+                                },
+                                
+                                title: {
+                                    display: false,
+                                    text: "eKYC Criteria"
+                                },
+                                responsive: false,
+                                maintainAspectRatio: false,
+                                animation: {
+                                    duration: 1000
+                                }
+                                
+                            }
+                            
+
+
+                        }
+                    });
+
+                    </script>
+                    <div style="width: 120px; height: 120px; padding-top: 16px;text-align:center">
+                        <img style="width: 88px; height: 88px; " class="img-circle" src="@Html.DisplayFor(modelItem=> item.ImageURL)" />
+                    </div>
+                </div>
+                <!--<img style="width:120px; height:120px;" class="img-circle" src="/sampleimg/SampleID.jpg" />-->
+
+        <div class="border-bottom-cp" style="padding: 0 0 15px 10px; height: 140px; width: 280px; float: left; position:relative">
+            <span style="font-size:18px; font-weight:500">
+                <a style="color:#000000" href="~/Clairvoyance/eKYC/eKYCDetail?id=@Html.DisplayFor(modelItem => item.Cifno)&NavItem=@ViewBag.NavItem"> @Html.DisplayFor(modelItem => item.Name)</a>          
+            </span><br />
+                <span style="font-size: 12px; color: #838383; font-weight:300"><i class="far  fa-id-card" style="width:14px"></i> ID Number : @Html.DisplayFor(modelItem => item.Id) </span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <span style="font-size: 12px; color: #838383; font-weight: 300"><i class="far  fa-calendar-alt" style="width:14px"></i> Date of Birth : @Html.DisplayFor(modelItem => item.DOB)</span><br style="display: block; content: ' '; margin: -5px 0;" />
+                <br  />
+                 <span style="font-size: 14px; color: #838383; font-weight: 200; position:absolute; bottom:3px" ><i class="far fa-search-plus" style="width:14px"></i>  @Html.DisplayFor(modelItem => item.MatchCount) Possible Match</span><br style="display: block; content: ' '; margin: -5px 0;" />
+        </div>
+    </div>
+
+}
+
+
